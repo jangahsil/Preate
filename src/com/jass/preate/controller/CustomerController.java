@@ -22,36 +22,16 @@ public class CustomerController {
 		this.memberDao = memberDao;
 	}
 	
-	@RequestMapping(value = "joinBasic", method = RequestMethod.GET)
+	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public String joinBasic() {
-		return "/WEB-INF/view/myPage/joinBasic.jsp"; // forward
-	}
-	
-	@RequestMapping(value = "joinState", method = RequestMethod.GET)
-	public String joinState() {
-		return "/WEB-INF/view/myPage/joinState.jsp"; // forward
-	}
-	
-	@RequestMapping(value = "joinCareer", method = RequestMethod.GET)
-	public String joinCareer() {
-		return "/WEB-INF/view/myPage/joinCareer.jsp"; // forward
+		return "/WEB-INF/view/myPage/join.jsp"; // forward
 	}
 
-	@RequestMapping(value="joinBasic", method=RequestMethod.POST)
+	@RequestMapping(value="join", method=RequestMethod.POST)
 	public String joinBasic(Member m, HttpServletRequest request){
 		memberDao.addMember(m);
 		
-		return "redirect:joinState";
+		return "redirect:join";
 	}
 	
-	@RequestMapping(value="joinState", method=RequestMethod.POST)
-	public String joinState(Member member, MultipartFile file, HttpServletRequest request){
-		return "redirect:joinCareer";
-	}
-	
-	@RequestMapping(value="joinCareer", method=RequestMethod.POST)
-	public String joinCareer(Member member, MultipartFile file, HttpServletRequest request){
-		return "redirect:index"; // index ���߿� �߰� 
-	}
-
 }

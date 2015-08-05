@@ -38,7 +38,14 @@
 		CURRENTSTATE=#{CURRENTSTATE},
 		HOPEBUSINESS=#{HOPEBUSINESS},
 		IMAGENAME=#{imageName},
-		INTRODUCE=#{introduce})
+		INTRODUCE=#{introduce},
+		CURRENTSTATE=#{currentState},
+		UNIVERSITYNAME=#{universityName},
+		MAJOR=${major},
+		SCHOOLSTATE=#{schoolState},
+		HOPEBUSINESS=#{hopeBusiness},
+		CAREERYEAR=${careerYear}
+		)
 		WHERE MID=#{mid}
 
 	</update>
@@ -47,12 +54,15 @@
 		(MID,NAME,NICKNAME,GENDER,PASSWORD
 		,PHONE,EMAIL,ADDRESS,CLASSIFICATION,MAJOR,
 		GRADE,CAREER,HOMEPAGE,CURRENTSTATE,
-		HOPEBUSINESS,IMAGENAME, INTRODUCE)
+		HOPEBUSINESS,IMAGENAME,INTRODUCE,
+		UNIVERSITYNAME,SCHOOLSTATE,CAREERYEAR)
 		VALUES
 		(#{mid},#{name},#{nickName},#{gender},#{password}
 		,#{phone},#{eMail},#{address},#{classification},
 		#{major},${grade},#{career},#{homePage},#{currentState}
-		,#{hopeBusiness},#{imageName},#{introduce})
+		,#{hopeBusiness},#{imageName},#{introduce}
+		,#{universityName},#{schoolState}
+		,${careerYear})
 	</insert>
 
 
