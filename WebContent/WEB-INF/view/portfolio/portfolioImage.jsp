@@ -1,8 +1,6 @@
-<%@page import="com.jass.preate.vo.Portfolio"%>
-<%@page import="com.jass.preate.dao.mybatis.MyBatisPortfolioDao"%>
-<%@page import="com.jass.preate.dao.PortfolioDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -28,7 +26,6 @@
 			</nav>
 		</section>
 	</header>
-
 
 	<aside>
 
@@ -67,14 +64,13 @@
 
 	</aside>
 
-
 	<main>
 	<section>
 		<h1>포트폴리오</h1>
 		
 		<section>
-			<h1>포트폴리오 이미지</h1>
-			<p><img src="../images/.png"></p>
+			<h1>포트폴리오 상세 이미지</h1>
+			<p><img src="../images/.png" alt="images"></p>
 		</section>
 		
 		
@@ -90,3 +86,4 @@
 
 </body>
 </html>
+    
