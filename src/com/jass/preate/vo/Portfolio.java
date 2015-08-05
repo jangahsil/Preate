@@ -7,11 +7,15 @@ public class Portfolio {
 	private String title;
 	private Date regDate;
 	private String writer;
+	private String writerNick; 
+	private String writerName;
+	private float writerCareer;
+	private String writerImage;
+	private String writerIntro;
 	private String state;
 	private Date projectEndDate;
 	private boolean publicCheck;
 	private int likeHit;
-	
 	
 	public String getCode() {
 		return code;
@@ -36,6 +40,36 @@ public class Portfolio {
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	public String getWriterNick() {
+		return writerNick;
+	}
+	public void setWriterNick(String writerNick) {
+		this.writerNick = writerNick;
+	}
+	public String getWriterName() {
+		return writerName;
+	}
+	public void setWriterName(String writerName) {
+		this.writerName = writerName;
+	}
+	public float getWriterCareer() {
+		return writerCareer;
+	}
+	public void setWriterCareer(float writerCareer) {
+		this.writerCareer = writerCareer;
+	}
+	public String getWriterImage() {
+		return writerImage;
+	}
+	public void setWriterImage(String writerImage) {
+		this.writerImage = writerImage;
+	}
+	public String getWriterIntro() {
+		return writerIntro;
+	}
+	public void setWriterIntro(String writerIntro) {
+		this.writerIntro = writerIntro;
 	}
 	public String getState() {
 		return state;

@@ -52,7 +52,13 @@ public class MyBatisPortfolioDao implements PortfolioDao {
 	@Override
 	public Portfolio getPortfolio(String code) {
 
-		return session.selectOne("com.jass.preate.dao.mybatis.getPortfolio",
-				code);
+		return session.selectOne("getPortfolio", code);
 	}
+
+	@Override
+	public String getLastCode() {
+		
+		return session.selectOne("getLastCode");
+	}
+
 }

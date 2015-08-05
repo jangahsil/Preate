@@ -1,2 +1,11 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//src/com/jass/preate/controller/BoardController.java=UTF-8
+=======
+<<<<<<< HEAD
+encoding//src/com/jass/preate/controller=UTF-8
+=======
+encoding//src/com/jass/preate/controller/ManagementController.java=UTF-8
+encoding//src/com/jass/preate/controller/ProjectController.java=UTF-8
+>>>>>>> branch 'master' of https://github.com/jangahsil/Preate.git
+>>>>>>> branch 'master' of https://github.com/jangahsil/Preate.git

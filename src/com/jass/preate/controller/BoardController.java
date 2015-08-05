@@ -50,7 +50,7 @@ public class BoardController {
 	@RequestMapping("designer/designerBoard")
 	public String designerBoard(Model model) {
 		
-		List<Board> list = boardDao.getBoards(1, "디자이너");
+		List<Board> list = boardDao.getBoards(1, "designer");
 		
 		model.addAttribute("list", list);
 		
@@ -61,7 +61,7 @@ public class BoardController {
 	@RequestMapping("developer/developerBoard")
 	public String developerBoard(Model model) {
 		
-		List<Board> list = boardDao.getBoards(1, "������");
+		List<Board> list = boardDao.getBoards(1, "developer");
 		
 		model.addAttribute("list", list);
 		
@@ -72,7 +72,8 @@ public class BoardController {
 	@RequestMapping("free/freeBoard")
 	public String freeBoard(Model model) {
 		
-		List<Board> list = boardDao.getBoards(1, "����");
+
+		List<Board> list = boardDao.getBoards(1, "free");
 		
 		model.addAttribute("list", list);
 		
@@ -99,14 +100,25 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="designer/designerDetail", method=RequestMethod.POST)
-	public String designerDetail(String c, Comment comment) {
+	public String designerDetail(String c, Comment comment, Model model) {
 		
 		comment.setWriter("jungnampyo");
 		comment.setBoardCode(c);
 		
 		commentDao.addComment(comment);
 		
-		return "redirect:designerDetail?c=" + c;
+		Board board = boardDao.getBoard(c);
+		model.addAttribute("b", board);
+		
+		List<Comment> list = commentDao.getComments(1, c);
+		model.addAttribute("list", list);
+		
+		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
+		model.addAttribute("list2", list2);
+		
+		return "/WEB-INF/view/board/designer/designerDetail.jsp";
+		
+		/*return "redirect:designerDetail?c=" + c;*/
 		
 	}
 	
@@ -129,14 +141,25 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="developer/developerDetail", method=RequestMethod.POST)
-	public String developerDetail(String c, Comment comment) {
+	public String developerDetail(String c, Comment comment, Model model) {
 
 		comment.setWriter("jungnampyo");
 		comment.setBoardCode(c);
 		
 		commentDao.addComment(comment);
 		
-		return "redirect:developerDetail?c=" + c;
+		Board board = boardDao.getBoard(c);
+		model.addAttribute("b", board);
+		
+		List<Comment> list = commentDao.getComments(1, c);
+		model.addAttribute("list", list);
+		
+		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
+		model.addAttribute("list2", list2);
+		
+		return "/WEB-INF/view/board/developer/developerDetail.jsp";
+		
+		/*return "redirect:developerDetail?c=" + c;*/
 		
 	}
 	
@@ -159,14 +182,25 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="free/freeDetail", method=RequestMethod.POST)
-	public String freeDetail(Model model, String c, Comment comment) {
+	public String freeDetail(String c, Comment comment, Model model) {
 			
 		comment.setWriter("jungnampyo");
 		comment.setBoardCode(c);
 		
 		commentDao.addComment(comment);
 		
-		return "redirect:freeDetail?c=" + c;
+		Board board = boardDao.getBoard(c);
+		model.addAttribute("b", board);
+		
+		List<Comment> list = commentDao.getComments(1, c);
+		model.addAttribute("list", list);
+		
+		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
+		model.addAttribute("list2", list2);
+		
+		return "/WEB-INF/view/board/free/freeDetail.jsp";
+		
+		/*return "redirect:freeDetail?c=" + c;*/
 		
 	}
 	
@@ -180,7 +214,8 @@ public class BoardController {
 	public String designerReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException, ServletException {
 		
 		board.setWriter("jungnampyo");
-		board.setClassification("�����̳�");
+
+		board.setClassification("designer");
 
 		boardDao.addBoard(board);
 		
@@ -230,7 +265,8 @@ public class BoardController {
 	public String developerReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException {
 		
 		board.setWriter("jungnampyo");
-		board.setClassification("������");
+
+		board.setClassification("developer");
 		
 		boardDao.addBoard(board);
 		
@@ -280,7 +316,8 @@ public class BoardController {
 	public String freeReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException {
 		
 		board.setWriter("jungnampyo");
-		board.setClassification("����");
+		
+		board.setClassification("free");
 
 		boardDao.addBoard(board);
 		

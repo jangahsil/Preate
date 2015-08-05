@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jass.preate.dao.PortfolioAttachedFileDao">
 
-	<insert id="addPortfolioAttachedFileDao" parameterType="com.jass.preate.vo.PortfolioAttachedFile">
+	<insert id="addPortfolioAttachedFile" parameterType="com.jass.preate.vo.PortfolioAttachedFile">
 	
 		<selectKey keyProperty="code" order="BEFORE" resultType="string">
 			SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) + 1 FROM PORTFOLIOATTACHEDFILES
@@ -15,11 +15,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			VALUES(#{code},#{name},#{type},#{portfolioCode})
 	</insert>
 
-	<delete id="removePortfolioAttachedFileDao" parameterType="string">
+	<delete id="removePortfolioAttachedFile" parameterType="string">
 		DELETE FROM PORTFOLIOATTACHEDFILES WHERE CODE = #{code}
 	</delete>
 
-	<select id= "getPortfolioAttachedFileDao" parameterType="string" resultType="com.jass.preate.vo.PortfolioAttachedFile">			
+	<select id= "getPortfolioAttachedFiles" parameterType="string" resultType="com.jass.preate.vo.PortfolioAttachedFile">			
 		SELECT * FROM PORTFOLIOATTACHEDFILES WHERE PORTFOLIOCODE =#{portfolioCode}
 	</select>
 

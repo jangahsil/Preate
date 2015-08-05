@@ -5,11 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jass.preate.dao.BoardDao">
 	
-	<select id= "getBoard" parameterType="string" resultType="com.jass.preate.vo.Board">			
+	<select id="getBoard" parameterType="string" resultType="com.jass.preate.vo.Board">			
 		SELECT * FROM BOARDVIEW WHERE CODE=#{code}
 	</select>
 
-	<select id= "getBoards" resultType="com.jass.preate.vo.Board">
+	<select id="getBoards" resultType="com.jass.preate.vo.Board">
 		SELECT * 
 			FROM(SELECT ROW_NUMBER() 
 				OVER (ORDER BY CONVERT(INT,CODE) DESC) 
@@ -22,11 +22,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			WHERE B.NUM BETWEEN 1+(${page}-1)*15 AND ${page}*15
 	</select>
 	
-	<select id= "getTotalBoards" parameterType="string" resultType="com.jass.preate.vo.Board">			
+	<select id="getTotalBoards" parameterType="string" resultType="com.jass.preate.vo.Board">			
 		SELECT * FROM BOARDS WHERE WRITER=#{mid}
 	</select>
 	
-	<select id= "getLastCode" resultType="string">			
+	<select id="getLastCode" resultType="string">			
 		SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) FROM BOARDS
 	</select>
 	
@@ -38,11 +38,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			VALUES(#{code},#{title},#{writer},#{content},#{classification},#{category})
 	</insert>
 	
-	<update id="addHit">
-		<selectKey keyProperty="hit" order="BEFORE" resultType="int">
-			SELECT HIT + 1 FROM BOARDS WHERE CODE=#{code}
-		</selectKey>
-		UPDATE BOARDS SET (HIT=${hit}) WHERE CODE =#{code}
+	<update id="addHit" parameterType="string">
+		UPDATE BOARDS SET HIT=HIT+1 WHERE CODE=#{code}
 	</update>
 	
 	<update id="changeBoard" parameterType="com.jass.preate.vo.Board">

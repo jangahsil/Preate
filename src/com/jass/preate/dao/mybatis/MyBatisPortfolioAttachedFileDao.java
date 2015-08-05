@@ -1,5 +1,7 @@
 package com.jass.preate.dao.mybatis;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,6 +19,13 @@ public class MyBatisPortfolioAttachedFileDao implements
 	}
 
 	@Override
+	public List<PortfolioAttachedFile> getPortfolioAttachedFiles(
+			String portfolioCode) {
+		
+		return session.selectList("getPortfolioAttachedFiles", portfolioCode);
+	}
+	
+	@Override
 	public int addPortfolioAttachedFile(
 			PortfolioAttachedFile portfolioAttachedFile) {
 
@@ -32,5 +41,7 @@ public class MyBatisPortfolioAttachedFileDao implements
 				.delete("com.jass.preate.dao.PortfolioAttachedFileDao.removePortfolioAttachedFile",
 						code);
 	}
+
+	
 
 }

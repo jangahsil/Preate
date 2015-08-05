@@ -9,14 +9,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * 
 			FROM(SELECT ROW_NUMBER() 
 				OVER (ORDER BY CONVERT(INT,CODE) DESC) 
-					NUM, PORTFOLIO.* 
-			FROM PORTFOLIO WHERE ${field} 
+					NUM, PORTFOLIOVIEW.* 
+			FROM PORTFOLIOVIEW WHERE ${field} 
 				LIKE '%${query}%') P
 		WHERE P.NUM BETWEEN 1+(${page}-1)*9 AND ${page}*9
 	</select>
 	
 	<select id= "getPortfolio" parameterType="string" resultType="com.jass.preate.vo.Portfolio">			
-		SELECT * FROM PORTFOLIO WHERE CODE =#{code}
+		SELECT * FROM PORTFOLIOVIEW WHERE CODE =#{code}
 	</select>
 	
 	<insert id="addPortfolio" parameterType="com.jass.preate.vo.Portfolio">
