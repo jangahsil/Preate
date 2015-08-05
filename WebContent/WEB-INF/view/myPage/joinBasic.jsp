@@ -88,7 +88,7 @@
 
 				<fieldset>
 					<legend>ID 입력란</legend>
-					<label>ID</label> <input type="text" name ="id"/> <input type="submit"
+					<label>ID</label> <input type="text" name ="mid"/> <input type="submit"
 						value="중복확인" />
 				</fieldset>
 	
@@ -117,22 +117,22 @@
 
 				<fieldset>
 					<legend>생년월일 및 성별 입력란</legend>
-					<label>생년월일/성별</label> <input type="text" name ="birthDay"/> <label>성별검색필드</label>
-					<select>
-						<option>남</option>
-						<option>여</option>
+					<label>생년월일/성별</label> <input type="text" name ="birth"/> <label>성별검색필드</label>
+					<select name="gender">
+						<option value="남">남</option>
+						<option value="여">여</option>
 					</select>
 				</fieldset>
 
 				<fieldset>
 					<legend>전화번호 입력란</legend>
-					<label>전화번호</label> <input type="text" name ="telAreaField"/> - <input type="text" name ="telMiddleField"/>
+					<label>전화번호</label> <input type="text" name ="phone"/> - <input type="text" name ="telMiddleField"/>
 					- <input type="text" neme="telLastFleld" />
 				</fieldset>
 
 				<fieldset>
 					<legend>e-mail 입력란</legend>
-					<label>E-mail</label> <input type="text" name="email"/> @ <input type="text" name="emailAddress"/>
+					<label>E-mail</label> <input type="text" name="eMail"/> @ <input type="text" name="emailAddress"/>
 					<label>이메일검색필드</label> <select>
 						<option>naver.com</option>
 						<option>daum.net</option>
@@ -157,15 +157,15 @@
 					<label>홈페이지</label> <input type="text" name="homepage"/>
 				</fieldset>
 
-				<fieldset>
+		<!-- 		<fieldset>
 					<legend>우편번호 입력란</legend>
 					<label>우편번호</label> <input type="text" name="zipCode1"/> - <input type="text" name="zipCode2" /> 
 					<input type="submit" value="우편번호검색" />
-				</fieldset>
+				</fieldset> -->
 
 				<fieldset>
 					<legend>주소 입력란</legend>
-					<label>기본주소</label><input type="text" name="basicAddress"/>
+					<label>기본주소</label><input type="text" name="address"/>
 					<label>상세주소</label><input type="text" name="detailAddress"/>
 				</fieldset>
 				

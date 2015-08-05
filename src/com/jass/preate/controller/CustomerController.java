@@ -38,7 +38,9 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value="joinBasic", method=RequestMethod.POST)
-	public String joinBasic(Member member, MultipartFile file, HttpServletRequest request){
+	public String joinBasic(Member m, HttpServletRequest request){
+		memberDao.addMember(m);
+		
 		return "redirect:joinState";
 	}
 	
@@ -49,7 +51,7 @@ public class CustomerController {
 	
 	@RequestMapping(value="joinCareer", method=RequestMethod.POST)
 	public String joinCareer(Member member, MultipartFile file, HttpServletRequest request){
-		return "redirect:index"; // index ³ªÁß¿¡ Ãß°¡ 
+		return "redirect:index"; // index ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ß°ï¿½ 
 	}
 
 }
