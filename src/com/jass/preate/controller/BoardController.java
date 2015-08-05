@@ -50,7 +50,7 @@ public class BoardController {
 	@RequestMapping("designer/designerBoard")
 	public String designerBoard(Model model) {
 		
-		List<Board> list = boardDao.getBoards(1, "µğÀÚÀÌ³Ê");
+		List<Board> list = boardDao.getBoards(1, "ë””ìì´ë„ˆ");
 		
 		model.addAttribute("list", list);
 		
@@ -61,7 +61,7 @@ public class BoardController {
 	@RequestMapping("developer/developerBoard")
 	public String developerBoard(Model model) {
 		
-		List<Board> list = boardDao.getBoards(1, "°³¹ßÀÚ");
+		List<Board> list = boardDao.getBoards(1, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
 		model.addAttribute("list", list);
 		
@@ -72,7 +72,7 @@ public class BoardController {
 	@RequestMapping("free/freeBoard")
 	public String freeBoard(Model model) {
 		
-		List<Board> list = boardDao.getBoards(1, "ÀÚÀ¯");
+		List<Board> list = boardDao.getBoards(1, "ï¿½ï¿½ï¿½ï¿½");
 		
 		model.addAttribute("list", list);
 		
@@ -180,7 +180,7 @@ public class BoardController {
 	public String designerReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException, ServletException {
 		
 		board.setWriter("jungnampyo");
-		board.setClassification("µğÀÚÀÌ³Ê");
+		board.setClassification("ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½");
 
 		boardDao.addBoard(board);
 		
@@ -230,7 +230,7 @@ public class BoardController {
 	public String developerReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException {
 		
 		board.setWriter("jungnampyo");
-		board.setClassification("°³¹ßÀÚ");
+		board.setClassification("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		
 		boardDao.addBoard(board);
 		
@@ -280,7 +280,7 @@ public class BoardController {
 	public String freeReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException {
 		
 		board.setWriter("jungnampyo");
-		board.setClassification("ÀÚÀ¯");
+		board.setClassification("ï¿½ï¿½ï¿½ï¿½");
 
 		boardDao.addBoard(board);
 		
