@@ -4,14 +4,19 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jass.preate.dao.CustomerServiceDao;
 import com.jass.preate.vo.CustomerService;
 
 public class MyBatisCustomerServiceDao implements CustomerServiceDao {
-	
-	SqlSessionFactory factory = new SqlJassSessionFactory().getSqlSessionFactory();
+
+	private SqlSession session;
+
+	@Autowired
+	public void setSession(SqlSession session) {
+		this.session = session;
+	}
 
 	@Override
 	public List<CustomerService> getCustomerServices(int page, String query) {
@@ -20,11 +25,9 @@ public class MyBatisCustomerServiceDao implements CustomerServiceDao {
 		params.put("page", page);
 		params.put("query", query);
 
-		SqlSession session = factory.openSession();
-		List<CustomerService> list = session.selectList("com.jass.preate.dao.CustomerServiceDao.getCustomerServices", params);
-		session.close();
-
-		return list;
+		return session.selectList(
+				"com.jass.preate.dao.CustomerServiceDao.getCustomerServices",
+				params);
 	}
 
 	@Override
@@ -35,71 +38,42 @@ public class MyBatisCustomerServiceDao implements CustomerServiceDao {
 
 	@Override
 	public CustomerService getCustomerService(String code) {
-		
-		SqlSession session = factory.openSession();
 
-		CustomerService customerservice = session.selectOne("com.jass.preate.dao.CustomerServiceDao.getCustomerService", code);
-		session.close();
-
-		return customerservice;
+		return session.selectOne(
+				"com.jass.preate.dao.CustomerServiceDao.getCustomerService",
+				code);
 	}
 
 	@Override
 	public int addCustomerService(CustomerService customerService) {
-		
-		SqlSession session = factory.openSession();
 
-		int result = 0;
-		try {
-			result = session.insert("com.jass.preate.dao.CustomerServiceDao.addCustomerService", customerService);
-
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-
-		return result;
+		return session.insert(
+				"com.jass.preate.dao.CustomerServiceDao.addCustomerService",
+				customerService);
 	}
 
 	@Override
 	public int removeCustomerService(String code) {
-		
-		SqlSession session = factory.openSession();
 
-		int result = 0;
-
-		try {
-			result = session.delete("com.jass.preate.dao.CustomerServiceDao.removeCustomerService", code);
-
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-		return result;
+		return session.delete(
+				"com.jass.preate.dao.CustomerServiceDao.removeCustomerService",
+				code);
 	}
 
 	@Override
 	public int removeCustomerServices(String[] codes) {
-		
-		SqlSession session = factory.openSession();
 
+		int cnt = 0;
 		int result = 0;
 
-		try {
-			for (int i = 0; i < codes.length; i++)
-				result = session.delete("com.jass.preate.dao.CustomerServiceDao.removeCustomerService", codes[i]);
-
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
+		for (int i = 0; i < codes.length; i++) {
+			cnt = session
+					.delete("com.jass.preate.dao.CustomerServiceDao.removeCustomerService",
+							codes[i]);
+			result += cnt;
 		}
+
 		return result;
 	}
 
-	
-	
-	
 }

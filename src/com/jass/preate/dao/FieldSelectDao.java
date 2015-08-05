@@ -10,6 +10,6 @@ public interface FieldSelectDao {
 	
 	public int addFieldSelect(FieldSelect fieldSelect);
 	
-	public int removeFieldSelect(String code);
+	public int removeFieldSelect(String mid);
 
 }

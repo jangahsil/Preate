@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					AND CONVERT(DATETIME, #{endDate}))
 				OR (ENDDATE BETWEEN CONVERT(DATETIME, #{startDate}) 
 					AND CONVERT(DATETIME, #{endDate})))
-			ORDER BY CODE
+			ORDER BY CONVERT(INT,CODE)
 	
 	</select>
 		

@@ -4,70 +4,41 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jass.preate.dao.ScheduleDao;
 import com.jass.preate.vo.Schedule;
 
 public class MyBatisScheduleDao implements ScheduleDao {
 
-	SqlSessionFactory factory = new SqlJassSessionFactory()
-			.getSqlSessionFactory();
+	private SqlSession session;
+
+	@Autowired
+	public void setSession(SqlSession session) {
+		this.session = session;
+	}
 
 	@Override
 	public int addSchedule(Schedule schedule) {
-		SqlSession session = factory.openSession();
 
-		int result = 0;
-
-		try {
-			result = session.insert(
-					"com.jass.preate.dao.mybatis.ScheduleDao.addSchedule",
-					schedule);
-
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-		return result;
+		return session
+				.insert("com.jass.preate.dao.mybatis.ScheduleDao.addSchedule",
+						schedule);
 	}
 
 	@Override
 	public int changeSchedule(Schedule schedule) {
-		SqlSession session = factory.openSession();
 
-		int result = 0;
-
-		try {
-			result = session.update(
-					"com.jass.preate.dao.mybatis.ScheduleDao.changeSchedule",
-					schedule);
-
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-		return result;
+		return session.update(
+				"com.jass.preate.dao.mybatis.ScheduleDao.changeSchedule",
+				schedule);
 	}
 
 	@Override
 	public int removeSchedule(String code) {
-		SqlSession session = factory.openSession();
 
-		int result = 0;
-
-		try {
-			result = session.delete(
-					"com.jass.preate.dao.mybatis.ScheduleDao.removeSchedule",
-					code);
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-		return result;
+		return session.delete(
+				"com.jass.preate.dao.mybatis.ScheduleDao.removeSchedule", code);
 	}
 
 	@Override
@@ -79,23 +50,14 @@ public class MyBatisScheduleDao implements ScheduleDao {
 		params.put("startDate", startDate);
 		params.put("endDate", endDate);
 
-		SqlSession session = factory.openSession();
-		List<Schedule> list = session.selectList("getSchedules", params);
-
-		session.close();
-
-		return list;
+		return session.selectList("getSchedules", params);
 	}
 
 	@Override
 	public Schedule getSchedule(String code) {
 
-		SqlSession session = factory.openSession();
-		Schedule schedule = session.selectOne(
-				"com.jass.preate.dao.ScheduleDao.getSchedule", code);
-		session.close();
-
-		return schedule;
+		return session.selectOne("com.jass.preate.dao.ScheduleDao.getSchedule",
+				code);
 	}
 
 }

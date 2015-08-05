@@ -28,5 +28,7 @@ public interface BoardDao {
 	public int removeBoard(String code);
 	
 	public String getLastCode();
+	
+	public int addHit(String code);
 
 }

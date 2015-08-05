@@ -5,19 +5,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.jass.preate.dao.FieldSelectDao"> 
 	
 	<select id="getFieldSelects" resultType="com.jass.preate.vo.FieldSelect">
-		SELECT * FROM FIELDSELECT 
+		SELECT * FROM FIELDSELECTVIEW 
 			WHERE MID=#{mid} ORDER BY FIELDCODE
 	</select>
 	
 	<insert id="addFieldSelect" parameterType="com.jass.preate.vo.FieldSelect">
-		<selectKey keyProperty="code" resultType="string" order="BEFORE">
-			SELECT ISNULL(MAX(CONVERT(INT,CODE)), 0) + 1 CODE FROM FIELDSELECT
-		</selectKey>
-		INSERT INTO FIELDSELECT (CODE, FIELDCODE, MID) 
-			VALUES (#{code}, #{fieldCode}, #{mid})
+		INSERT INTO FIELDSELECT (FIELDCODE, MID) 
+			VALUES (#{fieldCode}, #{mid})
 	</insert>
 	
 	<delete id="removeFieldSelect" parameterType="string">
-		DELETE FROM FIELDSELECT WHERE CODE = #{code}
+		DELETE FROM FIELDSELECT WHERE MID = #{mid}
 	</delete>
 </mapper>

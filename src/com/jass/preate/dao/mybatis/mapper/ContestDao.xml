@@ -8,7 +8,7 @@
 
 	<select id="getContests" parameterType="string" resultType="com.jass.preate.vo.Contest">
 		SELECT * FROM (
-			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,
+			SELECT ROW_NUMBER() OVER (ORDER BY CONVERT(INT,CODE) DESC) NUM,
 				CONTESTVIEW.* FROM CONTESTVIEW 
 			WHERE ${field} LIKE '%${query}%') C
 		WHERE C.NUM BETWEEN 1+(${page}-1)*15 AND 15*${page}

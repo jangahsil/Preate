@@ -10,6 +10,6 @@ public interface NeedFieldDao {
 	
 	public int addNeedField(NeedField needField);
 	
-	public int removeNeedField(String code);
+	public int removeNeedField(String mid);
 
 }

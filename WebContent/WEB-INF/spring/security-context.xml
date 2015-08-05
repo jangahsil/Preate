@@ -1,15 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:security="http://www.springframework.org/schema/security"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	xmlns="http://www.springframework.org/schema/security"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-    	http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
 
-</beans>
+	<http>
+		<form-login 
+			login-page="/myPage/login"
+			default-target-url="/index"
+		/>
+		<logout logout-success-url="/index"/>
+		<!-- <intercept-url pattern="/board/designer/designerDetail" access="ROLE_USER"/>
+		<intercept-url pattern="/board/designer/designerReg" access="ROLE_USER"/>
+		<intercept-url pattern="/board/developer/developerDetail" access="ROLE_USER"/>
+		<intercept-url pattern="/board/developer/developerReg" access="ROLE_USER"/>
+		<intercept-url pattern="/board/free/freeDetail" access="ROLE_USER"/>
+		<intercept-url pattern="/board/free/freeReg" access="ROLE_USER"/>
+		<intercept-url pattern="/contest/contestDetail" access="ROLE_USER"/>
+		<intercept-url pattern="/contest/contestReg" access="ROLE_ADMIN"/>
+		<intercept-url pattern="/project/projectDetail" access="ROLE_USER"/> -->
+	</http>
+	<authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service 
+				data-source-ref="dataSource"
+				users-by-username-query="
+					SELECT MID USERID, PASSWORD, 1 ENABLED 
+					FROM MEMBERS 
+					WHERE MID=?
+				"
+				authorities-by-username-query="
+					SELECT MID USERID, ROLENAME AUTHORUTIES 
+					FROM MEMBERROLES 
+					WHERE MID=?
+				"
+			/>
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>

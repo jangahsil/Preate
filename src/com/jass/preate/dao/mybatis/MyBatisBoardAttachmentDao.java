@@ -3,59 +3,43 @@ package com.jass.preate.dao.mybatis;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jass.preate.dao.BoardAttachmentDao;
 import com.jass.preate.vo.BoardAttachment;
 
 public class MyBatisBoardAttachmentDao implements BoardAttachmentDao{
 	
-	SqlSessionFactory factory = new SqlJassSessionFactory()
-	.getSqlSessionFactory();
+	private SqlSession session;
+	
+	@Autowired
+	public void setSession(SqlSession session) {
+		this.session = session;
+	}
 	
 	@Override
 	public List<BoardAttachment> getBoardAttachments(String boardCode) {
-		
-		SqlSession session = factory.openSession();
-		List<BoardAttachment> list = session.selectList("getBoardAttachments", boardCode);
-		session.close();
 
-		return list;
+		return session.selectList("getBoardAttachments", boardCode);
 	}
 
 	@Override
 	public int addBoardAttachment(BoardAttachment boardAttachment) {
 		
-		SqlSession session = factory.openSession();
-		int result = 0;
-
-		try {
-			result = session.insert(
-					"com.jass.preate.dao.BoardAttachmentDao.addBoardAttachment", boardAttachment);
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-		return result;
+		return session.insert("addBoardAttachment", boardAttachment);
 	}
 	
 
 	@Override
 	public int removeBoardAttachment(String code) {
-		
-		SqlSession session = factory.openSession();
-		int result = 0;
+			
+		return session.delete("removeBoardAttachment", code);
+	}
 
-		try {
-			result = session.delete(
-					"com.jass.preate.dao.BoardAttachmentDao.removeboardAttachment", code);
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-		return result;
+	@Override
+	public int removeBoardAttachments(String boardCode) {
+		
+		return session.delete("removeBoardAttachments", boardCode);
 	}
 
 }

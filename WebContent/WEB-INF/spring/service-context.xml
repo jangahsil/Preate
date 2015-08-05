@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-    	http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-	
-	<context:annotation-config/>
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<context:annotation-config/>
+	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
-	    <property name="url" value="jdbc:sqlserver://211.238.142.250:1433;database=jassdb"></property>
+	    <property name="url" value="jdbc:sqlserver://db.newlecture.com:1433;database=jassdb"></property>
 	    <property name="username" value="jass"></property>
 	    <property name="password" value="jass150"></property>
 	</bean>
@@ -38,6 +39,7 @@
 	<bean id="fieldSelectDao" class="com.jass.preate.dao.mybatis.MyBatisFieldSelectDao"/>
 	<bean id="joinRequestDao" class="com.jass.preate.dao.mybatis.MyBatisJoinRequestDao"/>
 	<bean id="memberDao" class="com.jass.preate.dao.mybatis.MyBatisMemberDao"/>
+	<bean id="memberRoleDao" class="com.jass.preate.dao.mybatis.MyBatisMemberRoleDao"/>
 	<bean id="messageDao" class="com.jass.preate.dao.mybatis.MyBatisMessageDao"/>
 	<bean id="needFieldDao" class="com.jass.preate.dao.mybatis.MyBatisNeedFieldDao"/>
 	<bean id="noticeDao" class="com.jass.preate.dao.mybatis.MyBatisNoticeDao"/>
@@ -47,5 +49,5 @@
 	<bean id="projectDao" class="com.jass.preate.dao.mybatis.MyBatisProjectDao"/>
 	<bean id="scheduleDao" class="com.jass.preate.dao.mybatis.MyBatisScheduleDao"/>
 	<bean id="scrapDao" class="com.jass.preate.dao.mybatis.MyBatisScrapDao"/>
-
+	
 </beans>

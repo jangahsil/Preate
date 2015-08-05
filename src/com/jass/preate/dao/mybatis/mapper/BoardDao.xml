@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id= "getBoards" resultType="com.jass.preate.vo.Board">
 		SELECT * 
 			FROM(SELECT ROW_NUMBER() 
-				OVER (ORDER BY REGDATE DESC) 
+				OVER (ORDER BY CONVERT(INT,CODE) DESC) 
 					NUM, BOARDVIEW.* 
 			FROM BOARDVIEW WHERE CLASSIFICATION LIKE '%${classification}%' AND
 				<if test="category != null"> 
@@ -38,8 +38,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			VALUES(#{code},#{title},#{writer},#{content},#{classification},#{category})
 	</insert>
 	
+	<update id="addHit">
+		<selectKey keyProperty="hit" order="BEFORE" resultType="int">
+			SELECT HIT + 1 FROM BOARDS WHERE CODE=#{code}
+		</selectKey>
+		UPDATE BOARDS SET (HIT=${hit}) WHERE CODE =#{code}
+	</update>
+	
 	<update id="changeBoard" parameterType="com.jass.preate.vo.Board">
-		UPDATE BOARDS SET TITLE=#{title},REGDATE=getDate(),Content=#{content},Category=#{category}) 	
+		UPDATE BOARDS SET
+			TITLE=#{title},
+			REGDATE=getDate(),
+			Content=#{content},
+			Category=#{category} 	
 		WHERE CODE=#{code}
 	</update>
 	

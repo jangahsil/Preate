@@ -3,9 +3,6 @@ package com.jass.preate.vo;
 import java.util.Date;
 import java.util.List;
 
-import com.jass.preate.dao.CommentsCommentDao;
-import com.jass.preate.dao.mybatis.MyBatisCommentsCommentDao;
-
 public class ProjectComment {
 	private String code;
 	private String content;
@@ -15,11 +12,13 @@ public class ProjectComment {
 	private Date regDate;
 	private String projectCode;
 	
+	private List<CommentsComment> commentsComments;
+	
 	public List<CommentsComment> getCommentsComments() {
-		
-		CommentsCommentDao ccDao = new MyBatisCommentsCommentDao();
-		
-		return ccDao.getCommentsComments(this.code);
+		return commentsComments;
+	}
+	public void setCommentsComments(List<CommentsComment> commentsComments) {
+		this.commentsComments = commentsComments;
 	}
 	
 	public String getCode() {

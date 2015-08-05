@@ -4,29 +4,24 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jass.preate.dao.AdvertiseDao;
-import com.jass.preate.dao.ContestDao;
 import com.jass.preate.vo.Advertise;
-import com.jass.preate.vo.Contest;
 
 public class MyBatisAdvertiseDao implements AdvertiseDao {
 
-	//SqlSessionFactory factory = new SqlJassSessionFactory().getSqlSessionFactory();
-
-	@Autowired
 	private SqlSession session;
 	
+	@Autowired
+	public void setSession(SqlSession session) {
+		this.session = session;
+	}
+
 	@Override
 	public Advertise getAdvertise(String code) {
 
-		//SqlSession session = factory.openSession();
-
-		Advertise advertise = session.selectOne("com.jass.preate.dao.AdvertiseDao.getAdvertise", code);
-		//session.close();
-		return advertise;
+		return session.selectOne("com.jass.preate.dao.AdvertiseDao.getAdvertise", code);
 	}
 
 	@Override
@@ -53,33 +48,13 @@ public class MyBatisAdvertiseDao implements AdvertiseDao {
 
 	@Override
 	public int changeAdvertise(Advertise advertise) {
-		//SqlSession session = factory.openSession();
-		int result = 0;
 
-		try {
-			result = session.update("com.jass.preate.dao.AdvertiseDao.changeAdvertise",advertise);
-			//session.commit();
-		} finally {
-			//session.rollback();
-			//session.close();
-		}
-
-		return result;
+		return session.update("com.jass.preate.dao.AdvertiseDao.changeAdvertise", advertise);
 	}
 
 	@Override
 	public int removeAdvertise(String code) {
-		//SqlSession session = factory.openSession();
-		int result = 0;
 
-		try {
-			result = session.delete("com.jass.preate.dao.AdvertiseDao.removeAdvertise", code);
-			//session.commit();
-		} finally {
-			//session.rollback();
-			//session.close();
-		}
-
-		return result;
+		return session.delete("com.jass.preate.dao.AdvertiseDao.removeAdvertise", code);
 	}
 }

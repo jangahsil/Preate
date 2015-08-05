@@ -5,10 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jass.preate.dao.PortfolioDao">
 
-	<select id= "getPortfolioS" resultType="com.jass.preate.vo.Portfolio">
+	<select id= "getPortfolios" resultType="com.jass.preate.vo.Portfolio">
 		SELECT * 
 			FROM(SELECT ROW_NUMBER() 
-				OVER (ORDER BY REGDATE DESC) 
+				OVER (ORDER BY CONVERT(INT,CODE) DESC) 
 					NUM, PORTFOLIO.* 
 			FROM PORTFOLIO WHERE ${field} 
 				LIKE '%${query}%') P

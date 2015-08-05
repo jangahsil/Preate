@@ -1,19 +1,12 @@
 package com.jass.preate.vo;
 
 public class NeedField {
-	private String code;
 	private String fieldCode;
 	private String fieldName;
 	private String fieldClassification;
 	private String projectCode;
 	
 	
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
 	public String getFieldCode() {
 		return fieldCode;
 	}

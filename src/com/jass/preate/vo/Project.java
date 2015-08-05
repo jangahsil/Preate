@@ -3,9 +3,6 @@ package com.jass.preate.vo;
 import java.util.Date;
 import java.util.List;
 
-import com.jass.preate.dao.JoinRequestDao;
-import com.jass.preate.dao.mybatis.MyBatisJoinRequestDao;
-
 public class Project {
 	private String code;
 	private String title;
@@ -31,7 +28,7 @@ public class Project {
 	private String area2_2;
 	private int joinCount;
 	
-	public List<JoinRequest> joinRequest;
+	private List<JoinRequest> joinRequest;
 	
 	public List<JoinRequest> getJoinRequest() {
 		return joinRequest;
@@ -39,6 +36,7 @@ public class Project {
 	public void setJoinRequest(List<JoinRequest> joinRequest) {
 		this.joinRequest = joinRequest;
 	}
+	
 	public String getCode() {
 		return code;
 	}

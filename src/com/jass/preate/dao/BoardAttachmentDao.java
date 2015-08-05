@@ -11,5 +11,7 @@ public interface BoardAttachmentDao {
 	public int addBoardAttachment(BoardAttachment boardAttachment);
 	
 	public int removeBoardAttachment(String code);
+	
+	public int removeBoardAttachments(String boardCode);
 
 }

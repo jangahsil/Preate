@@ -7,10 +7,10 @@
 	    SELECT * FROM COMMENTSCOMMENTVIEW WHERE COMMENTCODE=#{commentCode}
     </select>
 
-	<select id="getCommentsComments"  resultType="com.jass.preate.vo.CommentsComment">
+	<select id="getCommentsComments" resultType="com.jass.preate.vo.CommentsComment">
 	    SELECT *
 	    	FROM (SELECT ROW_NUMBER()
-					OVER (ORDER BY REGDATE) NUM, COMMENTSCOMMENTVIEW.* 
+					OVER (ORDER BY CONVERT(INT,CODE)) NUM, COMMENTSCOMMENTVIEW.* 
 						FROM COMMENTSCOMMENTVIEW WHERE COMMENTCODE = #{commentCode}) C
 			WHERE C.NUM BETWEEN 1+(${page}-1)*10 AND 10*${page}
     </select>
@@ -19,12 +19,12 @@
 		<selectKey keyProperty="code" order="BEFORE" resultType="string">
 			SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM COMMENTSCOMMENTS
 		</selectKey>
-		INSERT INTO COMMENTSCOMMENTS (Code, Writer, Content, BoardCode) 
-		VALUES(#{code}, #{writer}, #{content}, #{boardCode})
+		INSERT INTO COMMENTSCOMMENTS (Code, Writer, Content, CommentCode) 
+		VALUES(#{code}, #{writer}, #{content}, #{commentCode})
 	</insert>
 	
 	<update id="changeCommentsComment" parameterType="com.jass.preate.vo.CommentsComment">
-		UPDATE COMMENTSCOMMENTS SET Content=#{content}, RegDate=getDate() where CODE =#{code} 
+		UPDATE COMMENTSCOMMENTS SET Content=#{content}, RegDate=getDate() WHERE CODE =#{code} 
 	</update>
      
      <delete id="removeCommentsComment"  parameterType="string">

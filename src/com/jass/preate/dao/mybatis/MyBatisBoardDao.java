@@ -4,42 +4,35 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jass.preate.dao.BoardDao;
 import com.jass.preate.vo.Board;
 
 public class MyBatisBoardDao implements BoardDao{
 
-	SqlSessionFactory factory = new SqlJassSessionFactory()
-	.getSqlSessionFactory();
+	private SqlSession session;
+	
+	@Autowired
+	public void setSession(SqlSession session) {
+		this.session = session;
+	}
 	
 	@Override
 	public Board getBoard(String code) {
 		
-		SqlSession session = factory.openSession(); // Session : 사용자에게 허락된 시간
-		
-		Board b = session.selectOne("com.jass.preate.dao.BoardDao.getBoard", code);
-		session.close();
-		
-		return b;
+		return session.selectOne("getBoard", code);
 	}
 	
 	@Override
 	public List<Board> getBoards(String mid) {
-		
-		SqlSession session = factory.openSession();
-		List<Board> list = session.selectList("getTotalBoards", mid);
-		session.close();
 
-		return list;
+		return session.selectList("getTotalBoards", mid);
 	}
 	
 	@Override
 	public List<Board> getBoards(int page, String classification, String field, String query,
 			String category) {
-		
-		SqlSession session = factory.openSession();
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("page", page);
@@ -48,10 +41,7 @@ public class MyBatisBoardDao implements BoardDao{
 		params.put("query", query);
 		params.put("category", category);
 
-		List<Board> list = session.selectList("getBoards", params);
-		session.close();
-
-		return list;
+		return session.selectList("getBoards", params);
 	}
 	
 	@Override
@@ -66,67 +56,32 @@ public class MyBatisBoardDao implements BoardDao{
 	
 	@Override
 	public int addBoard(Board board) {
-		SqlSession session = factory.openSession();
-		int result = 0;
 
-		try {
-			result = session.insert(
-					"com.jass.preate.dao.BoardDao.addBoard", board);
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-		return result;
-
+		return session.insert("addBoard", board);
 	}
 
 	@Override
 	public int changeBoard(Board board) {
-		SqlSession session = factory.openSession();
-		int result = 0;
 
-		try {
-			result = session.update(
-					"com.jass.preate.dao.BoardDao.changeBoard", board);
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-		return result;
-
+		return session.update("changeBoard", board);
 	}
 
 	@Override
 	public int removeBoard(String code) {
-		SqlSession session = factory.openSession();
-		int result = 0;
 
-		try {
-			result = session.delete(
-					"com.jass.preate.dao.BoardDao.removeBoard", code);
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-		return result;
-
+		return session.delete("removeBoard", code);
 	}
 
 	@Override
 	public String getLastCode() {
 		
-		SqlSession session = factory.openSession();
-
-		String code = session.selectOne("getLastCode");
-		session.close();
-		
-		return code;
-		
+		return session.selectOne("getLastCode");	
 	}
 
-
-
+	@Override
+	public int addHit(String code) {
+		
+		return session.update("addHit", code);
+	}
+	
 }

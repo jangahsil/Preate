@@ -8,7 +8,7 @@
 
 	<select id="getAdvertises" parameterType="string" resultType="com.jass.preate.vo.Advertise">
 		SELECT * FROM (
-			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,
+			SELECT ROW_NUMBER() OVER (ORDER BY CONVERT(INT,CODE) DESC) NUM,
 				ADVERTISE.* FROM ADVERTISE 
 			WHERE ${field} LIKE '%${query}%') A
 		WHERE A.NUM BETWEEN 1+(${page}-1)*15 AND 15*${page}

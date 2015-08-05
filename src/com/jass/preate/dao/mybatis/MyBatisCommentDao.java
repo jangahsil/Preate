@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jass.preate.dao.CommentDao;
 import com.jass.preate.vo.Comment;
@@ -12,88 +12,52 @@ import com.jass.preate.vo.Comment;
 
 public class MyBatisCommentDao implements CommentDao{
 	
-	SqlSessionFactory factory = new SqlJassSessionFactory().getSqlSessionFactory();
+	private SqlSession session;
+	
+	@Autowired
+	public void setSession(SqlSession session) {
+		this.session = session;
+	}
 	
 	@Override
 	public List<Comment> getComments(String boardCode) {
-		
-		SqlSession session = factory.openSession();
-				
-		List<Comment> list = session.selectList("com.jass.preate.dao.CommentDao.getTotalComments", boardCode);
-		session.close();
 
-		return list;
+		return session.selectList("com.jass.preate.dao.CommentDao.getTotalComments", boardCode);
 	}
 		
 	@Override
 	public List<Comment> getComments(int page, String boardCode) {
-	
-		SqlSession session = factory.openSession();
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("page", page);
 		params.put("boardCode", boardCode);
-		
-		List<Comment> list = session.selectList("com.jass.preate.dao.CommentDao.getComments", params);
-		session.close();
 
-		return list;
+		return session.selectList("getComments", params);
 	}
 
 	@Override
 	public int addComment(Comment comment) {
-		
-		SqlSession session = factory.openSession();
 
-		int result = 0;
-		
-		try {
-			result = session.insert("com.jass.preate.dao.CommentDao.addComment", comment);
-
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-
-		return result;
+		return session.insert("addComment", comment);
 	}
 	
 
 	@Override
 	public int changeComment(Comment comment) {
-		SqlSession session = factory.openSession();
 
-		int result = 0;
-		
-		try {
-			result = session.update("com.jass.preate.dao.CommentDao.changeComment", comment);
-
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-
-		return result;
+		return session.update("changeComment", comment);
 	}
 
 	@Override
 	public int removeComment(String code) {
-		
-		SqlSession session = factory.openSession();
 
-		int result = 0;
+		return session.delete("removeComment", code);
+	}
 
-		try {
-			result = session.delete("com.jass.preate.dao.CommentDao.removeComment", code);
+	@Override
+	public int removeComments(String boardCode) {
 
-			session.commit();
-		} finally {
-			session.rollback();
-			session.close();
-		}
-		return result;
+		return session.delete("removeComments", boardCode);
 	}
 
 }

@@ -4,20 +4,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jass.preate.dao.NeedFieldDao"> 
 	
-	<select id="getNeedFields" resultType="com.jass.preate.vo.NeedField">
+	<select id="getNeedFields" parameterType="string" resultType="com.jass.preate.vo.NeedField">
 		SELECT * FROM NEEDFIELDVIEW 
 			WHERE PROJECTCODE=#{projectCode} ORDER BY FIELDCODE
 	</select>
 	
 	<insert id="addNeedField" parameterType="com.jass.preate.vo.NeedField">
-		<selectKey keyProperty="code" resultType="string" order="BEFORE">
-			SELECT ISNULL(MAX(CONVERT(INT,CODE)), 0) + 1 CODE FROM NEEDFIELDS
-		</selectKey>
-		INSERT INTO NEEDFIELDS (CODE, FIELDCODE, PROJECTCODE) 
-			VALUES (#{code}, #{fieldCode}, #{projectCode})
+		INSERT INTO NEEDFIELDS (FIELDCODE, PROJECTCODE) 
+			VALUES (#{fieldCode}, #{projectCode})
 	</insert>
 	
 	<delete id="removeNeedField" parameterType="string">
-		DELETE FROM NEEDFIELDS WHERE CODE = #{code}
+		DELETE FROM NEEDFIELDS WHERE MID = #{mid}
 	</delete>
 </mapper>

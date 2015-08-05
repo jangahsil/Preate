@@ -17,8 +17,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			VALUES(#{code},#{name},#{type},#{boardCode})
 	</insert>
 
-	<delete id = "removeBoardAttachment" parameterType="string">	
+	<delete id="removeBoardAttachment" parameterType="string">	
 		DELETE FROM BOARDATTACHMENTS WHERE CODE = #{code}
+	</delete>
+	
+	<delete id="removeBoardAttachments" parameterType="string">	
+		DELETE FROM BOARDATTACHMENTS WHERE BOARDCODE = #{boardCode}
 	</delete>
 	
 </mapper>
