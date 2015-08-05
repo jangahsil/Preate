@@ -72,6 +72,7 @@ public class BoardController {
 	@RequestMapping("free/freeBoard")
 	public String freeBoard(Model model) {
 		
+
 		List<Board> list = boardDao.getBoards(1, "free");
 		
 		model.addAttribute("list", list);
@@ -213,6 +214,7 @@ public class BoardController {
 	public String designerReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException, ServletException {
 		
 		board.setWriter("jungnampyo");
+
 		board.setClassification("designer");
 
 		boardDao.addBoard(board);
@@ -263,6 +265,7 @@ public class BoardController {
 	public String developerReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException {
 		
 		board.setWriter("jungnampyo");
+
 		board.setClassification("developer");
 		
 		boardDao.addBoard(board);
@@ -313,6 +316,7 @@ public class BoardController {
 	public String freeReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException {
 		
 		board.setWriter("jungnampyo");
+		
 		board.setClassification("free");
 
 		boardDao.addBoard(board);
