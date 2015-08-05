@@ -2,61 +2,75 @@
 <!DOCTYPE mapper    
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jass.preate.dao.ProjectDao"> 
-	<select id="getProject" parameterType="string" resultType="com.jass.preate.vo.Project">
+<mapper namespace="com.jass.preate.dao.ProjectDao">
+	<select id="getProject" parameterType="string"
+		resultType="com.jass.preate.vo.Project">
 		SELECT * FROM PROJECT WHERE CODE = #{code}
 	</select>
-	
+
 	<select id="getProjects" resultType="com.jass.preate.vo.Project">
 		SELECT * FROM (
-			SELECT ROW_NUMBER() OVER (ORDER BY CONVERT(INT,CODE) DESC) NUM, 
-				PROJECTVIEW.* FROM PROJECTVIEW 
-					WHERE (TITLE LIKE '%${query}%'
-					<if test="category != null">
-					AND CLASSIFICATION=#{category} 
-					</if>
-					)) P 
-				WHERE P.NUM BETWEEN ((${page} - 1) * 9 + 1) AND (${page} * 9)
+		SELECT ROW_NUMBER() OVER (ORDER BY CONVERT(INT,CODE) DESC) NUM,
+		PROJECTVIEW.* FROM PROJECTVIEW
+		WHERE (TITLE LIKE '%${query}%'
+		<if test="category != null">
+			AND CLASSIFICATION=#{category}
+		</if>
+		)) P
+		WHERE P.NUM BETWEEN ((${page} - 1) * 9 + 1) AND (${page} * 9)
 	</select>
-	
+
+	<!-- <insert id="addProject" parameterType="com.jass.preate.vo.Project"> 
+		<selectKey keyProperty="code" resultType="string" order="BEFORE"> SELECT 
+		ISNULL(MAX(CONVERT(INT,CODE)), 0) + 1 CODE FROM PROJECT </selectKey> INSERT 
+		INTO PROJECT (CODE, TITLE, WRITER, CONTENT, DEADLINE, STARTDATE, ENDDATE, 
+		CLASSIFICATION, planningState, totalPeople, needDeveloper, needDesigner, 
+		budget, managingExp, meeting, area1-1, area1-2, area2-1, area2-2) VALUES 
+		(#{code}, #{title}, #{writer}, #{content}, #{deadline}, #{startDate}, #{endDate}, 
+		#{classification}, #{planningState}, ${totalPeople}, ${needDeveloper}, ${needDesigner}, 
+		${budget}, #{managingExp}, #{meeting}, #{area1_1}, #{area1_2}, #{area2_1}, 
+		#{area2_2}) </insert> -->
+
+
 	<insert id="addProject" parameterType="com.jass.preate.vo.Project">
 		<selectKey keyProperty="code" resultType="string" order="BEFORE">
 			SELECT ISNULL(MAX(CONVERT(INT,CODE)), 0) + 1 CODE FROM PROJECT
 		</selectKey>
-		INSERT INTO PROJECT (CODE, TITLE, WRITER, CONTENT, DEADLINE, 
-							STARTDATE, ENDDATE, CLASSIFICATION, planningState, 
-							totalPeople, needDeveloper, needDesigner, budget, 
-							managingExp, meeting, area1-1, area1-2, area2-1, area2-2) 
-			VALUES (#{code}, #{title}, #{writer}, #{content}, #{deadline}, 
-							#{startDate}, #{endDate}, #{classification}, #{planningState}, 
-							${totalPeople}, ${needDeveloper}, ${needDesigner}, ${budget}, 
-							#{managingExp}, #{meeting}, #{area1_1}, #{area1_2}, #{area2_1}, #{area2_2})
+		INSERT INTO PROJECT (CODE, TITLE, WRITER, CONTENT, DEADLINE,
+		STARTDATE, ENDDATE, CLASSIFICATION, planningState,
+		totalPeople, needDeveloper, needDesigner, budget,
+		meeting, area1_1,area1_2)
+		VALUES (#{code}, #{title}, #{writer}, #{content}, #{deadline},
+		#{startDate}, #{endDate}, #{classification}, #{planningState},
+		${totalPeople}, ${needDeveloper}, ${needDesigner}, ${budget},
+		#{meeting}, #{area1_1},#{area1_2})
 	</insert>
 	
 	<update id="changeProject" parameterType="com.jass.preate.vo.Project">
-		UPDATE PROJECT SET 
-			TITLE=#{title}, 
-			CONTENT=#{content}, 
-			REGDATE=getDate(), 
-			DEADLINE=#{deadLine},
-			STARTDATE=#{startDate}, 
-			ENDDATE=#{endDate}, 
-			CLASSIFICATION=#{classification}, 
-			planningState=#{planningState}, 
-			totalPeople=${totalPeople}, 
-			needDeveloper=${needDeveloper}, 
-			needDesigner=${needDesigner}, 
-			budget=${budget}, 
-			managingExp=#{managingExp}, 
-			meeting=#{meeting}, 
-			area1-1=#{area1_1}, 
-			area1-2=#{area1_2}, 
-			area2-1=#{area2_1}, 
-			area2-2=#{area2_2}) 
+		UPDATE PROJECT SET
+		TITLE=#{title},
+		CONTENT=#{content},
+		REGDATE=getDate(),
+		DEADLINE=#{deadLine},
+		STARTDATE=#{startDate},
+		ENDDATE=#{endDate},
+		CLASSIFICATION=#{classification},
+		planningState=#{planningState},
+		totalPeople=${totalPeople},
+		needDeveloper=${needDeveloper},
+		needDesigner=${needDesigner},
+		budget=${budget},
+		managingExp=#{managingExp},
+		meeting=#{meeting},
+		area1_1=#{area1_1},
+		area1_2=#{area1_2},
+		area2_1=#{area2_1},
+		area2_2=#{area2_2})
 		WHERE CODE = #{code}
 	</update>
-	
+
 	<delete id="removeProject" parameterType="string">
-		DELETE FROM PROJECT WHERE CODE = #{code}
+		DELETE FROM PROJECT
+		WHERE CODE = #{code}
 	</delete>
 </mapper>

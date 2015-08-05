@@ -12,17 +12,19 @@ import com.jass.preate.vo.CustomerService;
 public class MyBatisCustomerServiceDao implements CustomerServiceDao {
 
 	private SqlSession session;
-
+	
+	
 	@Autowired
 	public void setSession(SqlSession session) {
 		this.session = session;
 	}
-
+	
 	@Override
-	public List<CustomerService> getCustomerServices(int page, String query) {
+	public List<CustomerService> getCustomerServices(int page, String field, String query) {
 
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("page", page);
+		params.put("field", field);
 		params.put("query", query);
 
 		return session.selectList(
@@ -30,12 +32,13 @@ public class MyBatisCustomerServiceDao implements CustomerServiceDao {
 				params);
 	}
 
+	
 	@Override
 	public List<CustomerService> getCustomerServices(int page) {
 
-		return getCustomerServices(page, "");
+		return getCustomerServices(page, "WRITER", "");
 	}
-
+	
 	@Override
 	public CustomerService getCustomerService(String code) {
 

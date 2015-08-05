@@ -7,9 +7,7 @@ import com.jass.preate.vo.CustomerService;
 
 public interface CustomerServiceDao {
 	
-	public List<CustomerService> getCustomerServices(
-			int page,
-			String query);
+	public List<CustomerService> getCustomerServices(int page, String field, String query);
 	
 	public List<CustomerService> getCustomerServices(int page);
 	

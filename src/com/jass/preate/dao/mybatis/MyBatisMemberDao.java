@@ -34,7 +34,7 @@ public class MyBatisMemberDao implements MemberDao {
 
 	@Override
 	public List<Member> getMembers(int page) {
-		return getMembers(page, "MID", "", "2015-01-01", "2015-07-01");
+		return getMembers(page, "MID", "", "2015-01-01", "2015-12-01");
 	}
 
 	@Override

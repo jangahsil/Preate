@@ -1,6 +1,11 @@
 package com.jass.preate.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -91,6 +96,34 @@ public class ProjectController {
 		commentsCommentDao.addCommentsComment(cc);
 		
 		return "redirect:projectDetail?c=" + c;
+		
+	}
+	
+	@RequestMapping(value="addProject",method=RequestMethod.GET)
+	public String addProject(){
+		
+		return "/WEB-INF/view/project/addProject.jsp";
+	}
+		
+	
+	@RequestMapping(value="addProject",method=RequestMethod.POST)
+	public String addProject(Project p,String start, String dead, String end,HttpServletRequest request) throws ParseException{
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date startDate = sdf.parse(start);
+		Date deadline = sdf.parse(dead);
+		Date endDate = sdf.parse(end);
+		
+		p.setStartDate(startDate);
+		p.setDeadline(deadline);
+		p.setEndDate(endDate);
+		p.setPlanningState("아이디어");
+		p.setWriter("js");
+		
+		projectDao.addProject(p);
+		
+		return "redirect:../index";
 		
 	}
 	

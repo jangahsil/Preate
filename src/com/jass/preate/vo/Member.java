@@ -24,8 +24,15 @@ public class Member {
 	private String hopeBusiness;
 	private String imageName;
 	private String introduce;
+	private int boardCnt;
 	
 	
+	public int getBoardCnt() {
+		return boardCnt;
+	}
+	public void setBoardCnt(int boardCnt) {
+		this.boardCnt = boardCnt;
+	}
 	public String getMid() {
 		return mid;
 	}
