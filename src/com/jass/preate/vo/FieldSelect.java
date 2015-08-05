@@ -6,7 +6,6 @@ public class FieldSelect {
 	private String fieldClassification;
 	private String mid;
 	
-	
 	public String getFieldCode() {
 		return fieldCode;
 	}

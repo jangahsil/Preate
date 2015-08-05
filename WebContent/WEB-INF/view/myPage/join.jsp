@@ -215,63 +215,63 @@
 
 					<tbody>
 						<tr>
-							<td><input type="checkbox" value="DV13">NET 
-							<input type="checkbox" value="DV24">ABAP 
-							<input type="checkbox" value="DV02">ANDROID</td>
+							<td><input type="checkbox" value="DV13" name="code">NET 
+							<input type="checkbox" value="DV24" name="code">ABAP 
+							<input type="checkbox" value="DV02" name="code">ANDROID</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DV03">ASP 
-							<input type="checkbox" value="DV04">ASP.NET 
-							<input type="checkbox" value="DV06">C</td>
+							<td><input type="checkbox" value="DV03" name="code">ASP 
+							<input type="checkbox" value="DV04" name="code">ASP.NET 
+							<input type="checkbox" value="DV06" name="code">C</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DV05">C# 
-							<input type="checkbox" value="DV07">C++
-							<input type="checkbox" value="DV08">COBOL</td>
+							<td><input type="checkbox" value="DV05" name="code">C# 
+							<input type="checkbox" value="DV07" name="code">C++
+							<input type="checkbox" value="DV08" name="code">COBOL</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DV25">CSS 
-							<input type="checkbox" value="DV09">DB 
-							<input type="checkbox" value="DV26">DELPHI</td>
+							<td><input type="checkbox" value="DV25" name="code">CSS 
+							<input type="checkbox" value="DV09" name="code">DB 
+							<input type="checkbox" value="DV26" name="code">DELPHI</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DV27">HTML
-							<input type="checkbox" value="DV28">IOS 
-							<input type="checkbox" value="DV01">JAVA</td>
+							<td><input type="checkbox" value="DV27" name="code">HTML
+							<input type="checkbox" value="DV28" name="code">IOS 
+							<input type="checkbox" value="DV01" name="code">JAVA</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DV11">JSP 
-							<input type="checkbox" value="DV10">JS 
-							<input type="checkbox" value="DV12">LINUX</td>
+							<td><input type="checkbox" value="DV11" name="code">JSP 
+							<input type="checkbox" value="DV10" name="code">JS 
+							<input type="checkbox" value="DV12" name="code">LINUX</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DV14">NEWTWORK 
-							<input type="checkbox" value="DV15">PHP 
-							<input type="checkbox" value="DV16">POWER
+							<td><input type="checkbox" value="DV14" name="code">NEWTWORK 
+							<input type="checkbox" value="DV15" name="code">PHP 
+							<input type="checkbox" value="DV16" name="code">POWER
 								BUILDER</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DV17">PYTHON 
-							<input type="checkbox" value="DV18">QA 
-							<input type="checkbox" value="DV19">RUBY</td>
+							<td><input type="checkbox" value="DV17" name="code">PYTHON 
+							<input type="checkbox" value="DV18" name="code">QA 
+							<input type="checkbox" value="DV19" name="code">RUBY</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DV20">SERVER개발
-							<input type="checkbox" value="DV29">VB 
-							<input type="checkbox" value="DV21">VC++</td>
+							<td><input type="checkbox" value="DV20" name="code">SERVER개발
+							<input type="checkbox" value="DV29" name="code">VB 
+							<input type="checkbox" value="DV21" name="code">VC++</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DV22">WINDOWS 
-							<input type="checkbox" value="DV23">임베디드</td>
+							<td><input type="checkbox" value="DV22" name="code">WINDOWS 
+							<input type="checkbox" value="DV23" name="code">임베디드</td>
 						</tr>
 
 					</tbody>
@@ -287,27 +287,27 @@
 					<tbody>
 						<tr>
 							<td>
-							<input type="checkbox" value="DS02">HTML5 
-							<input type="checkbox" value="DS03">그래픽디자인 
-							<input type="checkbox" value="DS11">모바일
+							<input type="checkbox" value="DS02" name="code">HTML5 
+							<input type="checkbox" value="DS03" name="code">그래픽디자인 
+							<input type="checkbox" value="DS11" name="code">모바일
 							</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DS04">액션스크립트 
-							<input type="checkbox" value="DS05">웹디자인 
-							<input type="checkbox" value="DS06">웹표준</td>
+							<td><input type="checkbox" value="DS04" name="code">액션스크립트 
+							<input type="checkbox" value="DS05" name="code">웹디자인 
+							<input type="checkbox" value="DS06" name="code">웹표준</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DS07">파워포인트 
-							<input type="checkbox" value="DS08">퍼블리싱 
-							<input type="checkbox" value="DS09">포토샵</td>
+							<td><input type="checkbox" value="DS07" name="code">파워포인트 
+							<input type="checkbox" value="DS08" name="code">퍼블리싱 
+							<input type="checkbox" value="DS09" name="code">포토샵</td>
 						</tr>
 
 						<tr>
-							<td><input type="checkbox" value="DS10">플래시 
-							<input type="checkbox" value="DS01">3D</td>
+							<td><input type="checkbox" value="DS10" name="code">플래시 
+							<input type="checkbox" value="DS01" name="code">3D</td>
 						</tr>
 					</tbody>
 				</table>

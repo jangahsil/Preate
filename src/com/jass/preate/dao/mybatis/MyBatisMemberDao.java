@@ -39,25 +39,21 @@ public class MyBatisMemberDao implements MemberDao {
 
 	@Override
 	public int addMember(Member member) {
-
 		return session.insert("com.jass.preate.dao.MemberDao.addMember", member);
 	}
 
 	@Override
 	public int removeMember(String mid) {
-
 		return session.delete("com.jass.preate.dao.MemberDao.removeMember", mid);
 	}
 
 	@Override
 	public Member getMember(String mid) {
-
 		return session.selectOne("com.jass.preate.dao.MemberDao.getMember", mid);
 	}
 
 	@Override
 	public int changeMember(Member member) {
-
 		return session.update("com.jass.preate.dao.MemberDao.changeMember", member);
 	}
 }
