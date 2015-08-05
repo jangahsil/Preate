@@ -19,4 +19,6 @@ public interface PortfolioDao {
 	
 	public int removePortfolio(String code);
 	
+	public String getLastCode();
+	
 }
