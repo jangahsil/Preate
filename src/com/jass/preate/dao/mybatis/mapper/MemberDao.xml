@@ -13,12 +13,12 @@
 
 
 	<select id="getMembers" resultType="com.jass.preate.vo.Member">
-		SELECT * FROM (
-		SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,
-		MEMBERS.* FROM MEMBERS
-		WHERE ${field} LIKE '%${query}%' AND
-		REGDATE BETWEEN CONVERT(DATE,#{startDate})
-		AND CONVERT(DATE,#{endDate})) M
+	SELECT * FROM (
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,
+				MEMBERVIEW.* FROM MEMBERVIEW 
+				WHERE ${field} LIKE '%${query}%' AND
+					REGDATE BETWEEN	 CONVERT(DATE,#{startDate}) 
+						AND CONVERT(DATE,#{endDate})) M 
 		WHERE M.NUM BETWEEN 1+(${page}-1)*10 AND 10*${page}
 	</select>
 
