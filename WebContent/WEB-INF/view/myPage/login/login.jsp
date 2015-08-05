@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="ctxName" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,25 +66,23 @@
 			</nav>
 		</section>
 	</aside>
-
+	
 	<main>
 	<section>
-		<div>${error}</div>
 		<h1>로그인</h1>
-		<form method="post">
-			<fieldset>
-				<legend>로그인</legend>
-				<label>아이디</label>
-				<input type="text" name="uid" /><br> 
-				<label>비밀번호</label><input
-					type="text" name="pwd" /> 
-				<input type="submit" value="로그인" /><br>
-				<input type="submit" value="아이디찾기" /> 
-				<input type="submit"value="비밀번호찾기" /> 
-				<input type="submit" value="회원가입" />
+			<form action="${ctxName}/j_spring_security_check" method="post">
+				<fieldset>
+					<legend>로그인</legend>
+					<label>아이디　</label>
+					<input name="j_username" class="text" />
+					<label>비밀번호</label><input name="j_password" type="password" class="text" /><br>
+					<input type="submit" value="로그인" /><br>
+					<a href="">아이디찾기</a>
+					<a href="">비밀번호찾기</a>
+					<a href="">회원가입</a>
 			</fieldset>
-		</form>
-	</section>
+			</form>
+			</section>
 	</main>
 	<footer>
 		<section></section>

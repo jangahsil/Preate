@@ -19,7 +19,7 @@
 			default-target-url="/index"
 		/>
 		<logout logout-success-url="/index"/>
-		<!-- <intercept-url pattern="/board/designer/designerDetail" access="ROLE_USER"/>
+		<intercept-url pattern="/board/designer/designerDetail" access="ROLE_USER"/>
 		<intercept-url pattern="/board/designer/designerReg" access="ROLE_USER"/>
 		<intercept-url pattern="/board/developer/developerDetail" access="ROLE_USER"/>
 		<intercept-url pattern="/board/developer/developerReg" access="ROLE_USER"/>
@@ -27,7 +27,7 @@
 		<intercept-url pattern="/board/free/freeReg" access="ROLE_USER"/>
 		<intercept-url pattern="/contest/contestDetail" access="ROLE_USER"/>
 		<intercept-url pattern="/contest/contestReg" access="ROLE_ADMIN"/>
-		<intercept-url pattern="/project/projectDetail" access="ROLE_USER"/> -->
+		<intercept-url pattern="/project/projectDetail" access="ROLE_USER"/>
 	</http>
 	<authentication-manager>
 		<authentication-provider>
