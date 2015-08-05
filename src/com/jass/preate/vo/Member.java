@@ -4,35 +4,49 @@ import java.util.Date;
 
 public class Member {
 	private String mid;
-	private String name;
 	private String nickName;
-	private String gender;
 	private String password;
+	private String name;
+	private Date regDate;
 	private String birth;
+	private String gender;
 	private String phone;
 	private String eMail;
+	private String homePage;
 	private String address;
 	private String classification;
-	private Date regDate;
-	private String academicAbility;
+	private String currentState;
+	private String universityName;
 	private String major;
+	private String schoolState;
 	private int grade;
+	private String hopeBusiness;
 	private float careerYear;
 	private String career;
-	private String homePage;
-	private String currentState;
-	private String hopeBusiness;
 	private String imageName;
 	private String introduce;
 	private int boardCnt;
 	
 	
+	public String getUniversityName() {
+		return universityName;
+	}
+	public void setUniversityName(String universityName) {
+		this.universityName = universityName;
+	}
+	public String getSchoolState() {
+		return schoolState;
+	}
+	public void setSchoolState(String schoolState) {
+		this.schoolState = schoolState;
+	}
 	public int getBoardCnt() {
 		return boardCnt;
 	}
 	public void setBoardCnt(int boardCnt) {
 		this.boardCnt = boardCnt;
 	}
+
 	public String getMid() {
 		return mid;
 	}
@@ -98,12 +112,6 @@ public class Member {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
-	}
-	public String getAcademicAbility() {
-		return academicAbility;
-	}
-	public void setAcademicAbility(String academicAbility) {
-		this.academicAbility = academicAbility;
 	}
 	public String getMajor() {
 		return major;
