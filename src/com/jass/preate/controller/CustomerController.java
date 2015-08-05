@@ -28,7 +28,7 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value="join", method=RequestMethod.POST)
-	public String joinBasic(Member m, HttpServletRequest request){
+	public String joinBasic(Member m, HttpServletRequest request ){
 		memberDao.addMember(m);
 		
 		return "redirect:join";
