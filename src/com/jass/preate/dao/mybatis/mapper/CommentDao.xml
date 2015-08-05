@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jass.preate.dao.CommentDao">
+
+	<select id="getTotalComments" parameterType="string" resultType="com.jass.preate.vo.Comment">
+	    SELECT * FROM COMMENTS WHERE BOARDCODE=#{boardCode}
+    </select>
+
+	<select id="getComments"  resultType="com.jass.preate.vo.Comment">
+	    SELECT *
+	    	FROM (SELECT ROW_NUMBER()
+					OVER (ORDER BY REGDATE) NUM, COMMENTS.* 
+						FROM COMMENTS WHERE BOARDCODE = #{boardCode}) C
+			WHERE C.NUM BETWEEN 1+(${page}-1)*10 AND 10*${page}
+    </select>
+       
+     <insert id="addComment" parameterType="com.jass.preate.vo.Comment">
+		<selectKey keyProperty="code" order="BEFORE" resultType="string">
+			SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM COMMENTS
+		</selectKey>
+		INSERT INTO COMMENTS (Code, Writer, Content, RegDate, BoardCode) VALUES(#{code}, #{writer}, #{content}, getDate(), #{boardCode})
+	</insert>
+	
+	<update id="changeComment" parameterType="com.jass.preate.vo.Comment">
+		UPDATE COMMENTS SET Content=#{content}, RegDate=getDate() where CODE =#{code} 
+	</update>
+     
+     <delete id="removeComment"  parameterType="string">
+     	DELETE COMMENTS WHERE CODE = #{code} 
+     </delete> 
+</mapper>

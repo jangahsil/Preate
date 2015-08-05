@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jass.preate.dao.SchedulesDao"> 
+		
+	<select id="getSchedules" parameterType="String" resultType = "com.jass.preate.vo.Schedule">
+		SELECT * FROM SCHEDULEMANAGEMENT 
+			WHERE MID=#{mid} AND
+				((STARTDATE BETWEEN CONVERT(DATETIME, #{startDate}) 
+					AND CONVERT(DATETIME, #{endDate}))
+				OR (ENDDATE BETWEEN CONVERT(DATETIME, #{startDate}) 
+					AND CONVERT(DATETIME, #{endDate})))
+			ORDER BY CODE
+	
+	</select>
+		
+	<select id="getSchedule" parameterType="String" resultType = "com.jass.preate.vo.Schedule">
+		SELECT * FROM SCHEDULEMANAGEMENT WHERE CODE=#{code}
+	</select>
+		
+	<insert id="addSchedule" parameterType="com.jass.preate.vo.Schedule">
+		<selectKey keyProperty="code" resultType="string" order="BEFORE">
+			SELECT ISNULL(MAX(CONVERT(INT,CODE)), 0) + 1 CODE FROM SCHEDULEMANAGEMENT
+		</selectKey>
+		INSERT INTO SCHEDULEMANAGEMENT(CODE, MID, TITLE, STARTDATE, ENDDATE) 
+			VALUES (#{code}, #{mid}, #{title}, #{startDate}, #{endDate})
+	</insert>
+		
+	<delete id="removeSchedule" parameterType="string">
+		DELETE FROM SCHEDULEMANAGEMENT WHERE CODE =#{code}
+	</delete>
+	
+	<update id= "changeSchedule" parameterType="com.jass.preate.vo.Schedule">
+		UPDATE SCHEDULEMANAGEMENT SET 
+			TITLE=#{title}, 
+			STARTDATE=#{startDate}, 
+			ENDDATE=#{endDate} 
+		WHERE CODE=#{code}
+	</update>
+</mapper>

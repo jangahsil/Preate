@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jass.preate.dao.NoticeDao"> 
+
+	<select id="getNotice" parameterType="string" resultType="com.jass.preate.vo.Notice">
+		SELECT * FROM NOTICEVIEW WHERE CODE = #{code}
+	</select>
+
+	<select id="getNotices" parameterType="string" resultType="com.jass.preate.vo.Notice">
+		SELECT * FROM NOTICEVIEW WHERE BOARDCLASSIFICATION=#{boardClassification} 
+			ORDER BY REGDATE DESC 
+	</select>
+	
+	<select id="getTotalNotices" resultType="com.jass.preate.vo.Notice">
+		SELECT * 
+		FROM(
+			SELECT 
+				ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM, 
+				NOTICEVIEW.*
+			FROM NOTICEVIEW) N
+		WHERE N.NUM BETWEEN 1+(${page}-1)*15 AND 15*${page}
+	</select>
+
+	<insert id="addNotice" parameterType="com.jass.preate.vo.Notice">
+		<selectKey keyProperty="code" order="BEFORE" resultType="string">
+			SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) + 1 CODE FROM NOTICES
+		</selectKey>
+		INSERT INTO NOTICES(Code, Title, Writer, Content, BoardClassification) 
+		VALUES(#{code},#{title},#{writer}, #{content},#{boardClassification})
+	</insert>
+
+	<update id="changeNotice" parameterType="com.jass.preate.vo.Notice">
+		UPDATE NOTICES SET (CONTENT=#{content}) WHERE CODE =#{code}
+	</update>
+
+	<update id="updateNotice" parameterType="com.jass.preate.vo.Notice">
+		<selectKey keyProperty="hit" order="BEFORE" resultType="int">
+			SELECT HIT + 1 FROM NOTICES WHERE CODE=#{code}
+		</selectKey>
+		UPDATE NOTICES SET (HIT=${hit}) WHERE CODE =#{code}
+	</update>
+
+	<delete id="removeNotice" parameterType="string">
+		DELETE FROM NOTICES WHERE CODE = #{code}
+	</delete>
+
+</mapper>

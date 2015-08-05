@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jass.preate.dao.MessageDao"> 
+
+	<select id="getMessage" parameterType="string" resultType="com.jass.preate.vo.Message">
+		SELECT * FROM MESSAGEVIEW WHERE CODE = #{code}
+	</select>
+
+	<select id="getMessages" resultType="com.jass.preate.vo.Message">
+		SELECT * 
+		FROM(
+			SELECT 
+				ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM, 
+				MESSAGEVIEW.* FROM MESSAGEVIEW) M
+		WHERE M.NUM BETWEEN 1+(${page}-1)*10 AND 10*${page};
+	</select>
+
+	<insert id="addMessage" parameterType="com.jass.preate.vo.Message">
+		INSERT INTO MESSAGES(Code, Title, Content, Writer, Recipient, RegDate) 
+		VALUES(#{code},#{title},#{content},#{writer},#{recipient},#{regDate})
+	</insert>
+
+	<delete id="removeMessage" parameterType="string">
+		DELETE FROM MESSAGES WHERE CODE = #{code}
+	</delete>
+
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jass.preate.dao.PortfolioDao">
+
+	<select id= "getPortfolioS" resultType="com.jass.preate.vo.Portfolio">
+		SELECT * 
+			FROM(SELECT ROW_NUMBER() 
+				OVER (ORDER BY REGDATE DESC) 
+					NUM, PORTFOLIO.* 
+			FROM PORTFOLIO WHERE ${field} 
+				LIKE '%${query}%') P
+		WHERE P.NUM BETWEEN 1+(${page}-1)*9 AND ${page}*9
+	</select>
+	
+	<select id= "getPortfolio" parameterType="string" resultType="com.jass.preate.vo.Portfolio">			
+		SELECT * FROM PORTFOLIO WHERE CODE =#{code}
+	</select>
+	
+	<insert id="addPortfolio" parameterType="com.jass.preate.vo.Portfolio">
+		<selectKey keyProperty="code" order="BEFORE" resultType="string">
+			SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) + 1 FROM PORTFOLIO
+		</selectKey>
+		INSERT INTO PORTFOLIO (CODE,WRITER,TITLE,STATE,PROJECTENDDATE,LIKEHIT,PUBLICCHECK) 
+			VALUES(#{code},#{writer},#{title},#{state},#{projectEndDate},0,#{publicCheck})
+	</insert>
+	
+	<update id="changePortfolio" parameterType="com.jass.preate.vo.Portfolio">
+		UPDATE PORTFOLIO SET 
+			TITLE=#{title},
+			STATE=#{state},
+			PROJECTENDDATE=#{projectEndDate},
+			PUBLICCHECK=#{publicCheck},
+			REGDATE=getDate() 	
+		WHERE CODE=#{code}
+	</update>
+	
+	<delete id = "removePortfolio" parameterType="string">	
+		DELETE FROM PORTFOLIO WHERE CODE = #{code}
+	</delete>
+
+</mapper>

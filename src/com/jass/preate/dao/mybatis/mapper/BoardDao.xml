@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jass.preate.dao.BoardDao">
+	
+	<select id= "getBoard" parameterType="string" resultType="com.jass.preate.vo.Board">			
+		SELECT * FROM BOARDVIEW WHERE CODE=#{code}
+	</select>
+
+	<select id= "getBoards" resultType="com.jass.preate.vo.Board">
+		SELECT * 
+			FROM(SELECT ROW_NUMBER() 
+				OVER (ORDER BY REGDATE DESC) 
+					NUM, BOARDVIEW.* 
+			FROM BOARDVIEW WHERE CLASSIFICATION LIKE '%${classification}%' AND
+				<if test="category != null"> 
+				CATEGORY LIKE '%${category}%' AND 
+				</if>
+				${field} LIKE '%${query}%') B
+			WHERE B.NUM BETWEEN 1+(${page}-1)*15 AND ${page}*15
+	</select>
+	
+	<select id= "getTotalBoards" parameterType="string" resultType="com.jass.preate.vo.Board">			
+		SELECT * FROM BOARDS WHERE WRITER=#{mid}
+	</select>
+	
+	<select id= "getLastCode" resultType="string">			
+		SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) FROM BOARDS
+	</select>
+	
+	<insert id="addBoard" parameterType="com.jass.preate.vo.Board">
+		<selectKey keyProperty="code" order="BEFORE" resultType="string">
+			SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) +1 FROM BOARDS
+		</selectKey>
+		INSERT INTO BOARDS (CODE,TITLE,WRITER,CONTENT,CLASSIFICATION,CATEGORY) 
+			VALUES(#{code},#{title},#{writer},#{content},#{classification},#{category})
+	</insert>
+	
+	<update id="changeBoard" parameterType="com.jass.preate.vo.Board">
+		UPDATE BOARDS SET TITLE=#{title},REGDATE=getDate(),Content=#{content},Category=#{category}) 	
+		WHERE CODE=#{code}
+	</update>
+	
+	<delete id = "removeBoard" parameterType="string">	
+		DELETE FROM BOARDS WHERE CODE = #{code}
+	</delete>
+
+</mapper>

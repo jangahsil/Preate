@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jass.preate.dao.BoardAttachmentDao">
+
+	<select id= "getBoardAttachments" parameterType="string" resultType="com.jass.preate.vo.BoardAttachment">			
+		SELECT * FROM BOARDATTACHMENTS WHERE BOARDCODE = #{boardCode}
+	</select>
+
+	<insert id="addBoardAttachment" parameterType="com.jass.preate.vo.BoardAttachment">
+		<selectKey keyProperty="code" order="BEFORE" resultType="string">
+			SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) +1 FROM BOARDATTACHMENTS
+		</selectKey>
+		INSERT INTO BOARDATTACHMENTS (CODE,NAME,TYPE,BOARDCODE) 
+			VALUES(#{code},#{name},#{type},#{boardCode})
+	</insert>
+
+	<delete id = "removeBoardAttachment" parameterType="string">	
+		DELETE FROM BOARDATTACHMENTS WHERE CODE = #{code}
+	</delete>
+	
+</mapper>

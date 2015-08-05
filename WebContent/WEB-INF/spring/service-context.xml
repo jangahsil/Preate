@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	<context:annotation-config/>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>
+	    <property name="url" value="jdbc:sqlserver://211.238.142.250:1433;database=jassdb"></property>
+	    <property name="username" value="jass"></property>
+	    <property name="password" value="jass150"></property>
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mapperLocations" 
+			value="classpath:com/jass/preate/dao/mybatis/mapper/*.xml"/>
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="advertiseDao" class="com.jass.preate.dao.mybatis.MyBatisAdvertiseDao"/>
+	<bean id="boardAttachmentDao" class="com.jass.preate.dao.mybatis.MyBatisBoardAttachmentDao"/>
+	<bean id="boardDao" class="com.jass.preate.dao.mybatis.MyBatisBoardDao"/>
+	<bean id="commentDao" class="com.jass.preate.dao.mybatis.MyBatisCommentDao"/>
+	<bean id="commentsCommentDao" class="com.jass.preate.dao.mybatis.MyBatisCommentsCommentDao"/>
+	<bean id="contestDao" class="com.jass.preate.dao.mybatis.MyBatisContestDao"/>
+	<bean id="customerServiceDao" class="com.jass.preate.dao.mybatis.MyBatisCustomerServiceDao"/>
+	<bean id="fieldSelectDao" class="com.jass.preate.dao.mybatis.MyBatisFieldSelectDao"/>
+	<bean id="joinRequestDao" class="com.jass.preate.dao.mybatis.MyBatisJoinRequestDao"/>
+	<bean id="memberDao" class="com.jass.preate.dao.mybatis.MyBatisMemberDao"/>
+	<bean id="messageDao" class="com.jass.preate.dao.mybatis.MyBatisMessageDao"/>
+	<bean id="needFieldDao" class="com.jass.preate.dao.mybatis.MyBatisNeedFieldDao"/>
+	<bean id="noticeDao" class="com.jass.preate.dao.mybatis.MyBatisNoticeDao"/>
+	<bean id="portfolioAttachedFileDao" class="com.jass.preate.dao.mybatis.MyBatisPortfolioAttachedFileDao"/>
+	<bean id="portfolioDao" class="com.jass.preate.dao.mybatis.MyBatisPortfolioDao"/>
+	<bean id="projectCommentDao" class="com.jass.preate.dao.mybatis.MyBatisProjectCommentDao"/>
+	<bean id="projectDao" class="com.jass.preate.dao.mybatis.MyBatisProjectDao"/>
+	<bean id="scheduleDao" class="com.jass.preate.dao.mybatis.MyBatisScheduleDao"/>
+	<bean id="scrapDao" class="com.jass.preate.dao.mybatis.MyBatisScrapDao"/>
+
+</beans>

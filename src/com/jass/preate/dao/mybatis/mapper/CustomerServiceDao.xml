@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jass.preate.dao.CustomerServiceDao">
+
+	<select id="getCustomerServices"  resultType="com.jass.preate.vo.CustomerService">
+    SELECT *
+    	FROM (SELECT ROW_NUMBER()
+				OVER (ORDER BY REGDATE DESC) NUM, CUSTOMERSERVICES.* 
+					FROM CUSTOMERSERVICES) C
+		WHERE (Writer LIKE '%${query}%' OR Title LIKE '%${query}%')  
+			AND C.NUM BETWEEN 1+(${page}-1)*10 AND 10*${page}
+    </select>
+    
+    
+     <select id="getCustomerService"  parameterType="string"  resultType="com.jass.preate.vo.CustomerService">
+     	SELECT * FROM CUSTOMERSERVICES WHERE CODE = #{code}
+     </select> 
+ 
+     
+     <insert id="addCustomerService" parameterType="com.jass.preate.vo.CustomerService">
+		<selectKey keyProperty="code" order="BEFORE" resultType="string">
+			SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM CUSTOMERSERVICES
+		</selectKey>
+		INSERT INTO CUSTOMERSERVICES (Code, Title, Writer, regDate, Content) VALUES(#{code}, #{title}, #{writer}, getDate(), #{content})
+	</insert>
+     
+    <delete id="removeCustomerService"  parameterType="string">
+    	DELETE CUSTOMERSERVICES WHERE CODE = #{code} 
+	</delete> 
+</mapper>
+

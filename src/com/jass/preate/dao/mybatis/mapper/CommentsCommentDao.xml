@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jass.preate.dao.CommentsCommentDao">
+
+	<select id="getTotalCommentsComments" parameterType="string" resultType="com.jass.preate.vo.CommentsComment">
+	    SELECT * FROM COMMENTSCOMMENTVIEW WHERE COMMENTCODE=#{commentCode}
+    </select>
+
+	<select id="getCommentsComments"  resultType="com.jass.preate.vo.CommentsComment">
+	    SELECT *
+	    	FROM (SELECT ROW_NUMBER()
+					OVER (ORDER BY REGDATE) NUM, COMMENTSCOMMENTVIEW.* 
+						FROM COMMENTSCOMMENTVIEW WHERE COMMENTCODE = #{commentCode}) C
+			WHERE C.NUM BETWEEN 1+(${page}-1)*10 AND 10*${page}
+    </select>
+       
+     <insert id="addCommentsComment" parameterType="com.jass.preate.vo.CommentsComment">
+		<selectKey keyProperty="code" order="BEFORE" resultType="string">
+			SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM COMMENTSCOMMENTS
+		</selectKey>
+		INSERT INTO COMMENTSCOMMENTS (Code, Writer, Content, BoardCode) 
+		VALUES(#{code}, #{writer}, #{content}, #{boardCode})
+	</insert>
+	
+	<update id="changeCommentsComment" parameterType="com.jass.preate.vo.CommentsComment">
+		UPDATE COMMENTSCOMMENTS SET Content=#{content}, RegDate=getDate() where CODE =#{code} 
+	</update>
+     
+     <delete id="removeCommentsComment"  parameterType="string">
+     	DELETE COMMENTSCOMMENTS WHERE CODE = #{code} 
+     </delete> 
+</mapper>

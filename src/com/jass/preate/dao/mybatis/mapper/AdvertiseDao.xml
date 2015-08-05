@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper   
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jass.preate.dao.AdvertiseDao">
+
+	<select id="getAdvertises" parameterType="string" resultType="com.jass.preate.vo.Advertise">
+		SELECT * FROM (
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) NUM,
+				ADVERTISE.* FROM ADVERTISE 
+			WHERE ${field} LIKE '%${query}%') A
+		WHERE A.NUM BETWEEN 1+(${page}-1)*15 AND 15*${page}
+	
+	</select>
+
+	<select id="getAdvertise" parameterType="string" resultType="com.jass.preate.vo.Advertise">
+		SELECT * FROM ADVERTISE WHERE CODE=#{code}
+	</select>
+	
+	<insert id="addAdvertise" parameterType="com.jass.preate.vo.Advertise">
+		<selectKey keyProperty="code" order="BEFORE" resultType="string"> 
+			SELECT ISNULL(MAX(CONVERT(INT,CODE)),0)+1 CODE FROM ADVERTISE          
+		</selectKey>
+		INSERT INTO ADVERTISE (CODE,NAME,WRITER,PHONE,EMAIL,HOMEPAGE,CLASSIFICATION) 
+			VALUES (#{code},#{name},#{writer},#{phone},#{email},#{homePage},#{classification})
+	</insert>
+	
+	<update id="changeAdvertise" parameterType="com.jass.preate.vo.Advertise">
+		UPDATE ADVERTISE SET(
+			NAME=#{name},
+			REGDATE=getDate(),
+			WRITER=#{writer},
+			PHONE=#{phone},
+			EMAIL=#{email},
+			HOMEPAGE=#{homePage},
+			CLASSIFICATION=#{classification}) 
+		WHERE CODE=#{code}
+	</update>	
+	
+	<delete id="removeAdvertise" parameterType="string">
+		DELETE FROM ADVERTISE WHERE CODE=#{code}
+	</delete>			
+
+</mapper>

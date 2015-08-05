@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jass.preate.dao.ProjectCommentDao"> 
+
+
+	<select id="getProjectComments" resultType="com.jass.preate.vo.ProjectComment">
+		SELECT * 
+		FROM(
+			SELECT 
+				ROW_NUMBER() OVER (ORDER BY REGDATE) NUM, 
+				PROJECTCOMMENTVIEW.* FROM PROJECTCOMMENTVIEW WHERE PROJECTCODE=#{projectCode}) M
+		WHERE M.NUM BETWEEN 1+(${page}-1)*10 AND 10*${page};
+	</select>
+
+	<insert id="addProjectComment" parameterType="com.jass.preate.vo.ProjectComment">
+		<selectKey keyProperty="code" resultType="string" order="BEFORE">
+			SELECT ISNULL(MAX(CONVERT(INT,CODE)), 0) + 1 CODE FROM PROJECTCOMMENTS
+		</selectKey>
+		INSERT INTO PROJECTCOMMENTS(Code, Content, Writer, projectCode) 
+		VALUES(#{code},#{content},#{writer},#{projectCode})
+	</insert>
+
+	<update id="changeProjectComment" parameterType="com.jass.preate.vo.ProjectComment">
+		UPDATE PROJECTCOMMENTS SET (CONTENT=#{content}) WHERE CODE =#{code}
+	</update>
+
+	<delete id="removeProjectComment" parameterType="string">
+		DELETE FROM PROJECTCOMMENTS WHERE CODE = #{code}
+	</delete>
+
+</mapper>
