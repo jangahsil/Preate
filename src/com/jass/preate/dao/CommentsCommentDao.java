@@ -15,5 +15,7 @@ public interface CommentsCommentDao {
 	public int changeCommentsComment(CommentsComment commentsComment);
 	
 	public int removeCommentsComment(String code);
+	
+	public int removeCommentsComments(String commentCode);
 
 }

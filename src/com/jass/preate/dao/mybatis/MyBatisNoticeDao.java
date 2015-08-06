@@ -52,9 +52,9 @@ public class MyBatisNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public int updateNotice(Notice notice) {
+	public int updateNotice(String code) {
 
-		return session.update("com.jass.preate.dao.NoticeDao.updateNotice", notice);
+		return session.update("com.jass.preate.dao.NoticeDao.updateNotice", code);
 	}
 
 	@Override

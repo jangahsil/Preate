@@ -63,10 +63,20 @@ public class MyBatisProjectCommentDao implements ProjectCommentDao {
 	@Override
 	public int removeProjectComment(String code) {
 
-		return session.delete(
-				"com.jass.preate.dao.ProjectCommentDao.removeProjectComment",
-				code);
+		return session.delete("removeProjectComment", code);
 
+	}
+	
+	@Override
+	public int removeProjectComments(String projectCode) {
+		
+		return session.delete("removeProjectComments", projectCode);
+	}
+
+	@Override
+	public List<String> getCodes(String projectCode) {
+
+		return session.selectList("getCodes", projectCode);
 	}
 
 }

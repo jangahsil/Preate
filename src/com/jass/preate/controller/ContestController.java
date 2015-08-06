@@ -33,7 +33,7 @@ public class ContestController {
 	}
 
 	@RequestMapping("contest")
-	public String projectSearch(Model model) {
+	public String contest(Model model) {
 
 		List<Contest> list = contestDao.getContests(1);
 		
@@ -44,7 +44,7 @@ public class ContestController {
 	}
 	
 	@RequestMapping("contestDetail")
-	public String projectDetail(Model model, String c) {
+	public String contestDetail(Model model, String c) {
 
 		Contest contest = contestDao.getContest(c);
 		model.addAttribute("con", contest);
@@ -54,13 +54,13 @@ public class ContestController {
 	}
 	
 	@RequestMapping(value="contestReg", method=RequestMethod.GET)
-	public String projectReg() {
+	public String contestReg() {
 		
 		return "/WEB-INF/view/contest/contestReg.jsp";
 	}
 	
 	@RequestMapping(value="contestReg", method=RequestMethod.POST)
-	public String projectReg(Contest contest, String start, String end, MultipartFile file, HttpServletRequest request) throws IOException, java.text.ParseException {
+	public String contestReg(Contest contest, String start, String end, MultipartFile file, HttpServletRequest request) throws IOException, java.text.ParseException {
 
 		String fname = null;
 		
@@ -105,6 +105,71 @@ public class ContestController {
 		
 		return "redirect:contest";
 		
+	}
+	
+	@RequestMapping(value="contestEdit", method=RequestMethod.GET)
+	public String contestEdit(Model model, String c) {
+		
+		Contest contest = contestDao.getContest(c);
+		model.addAttribute("con", contest);
+		
+		return "/WEB-INF/view/contest/contestReg.jsp";
+	}
+	
+	@RequestMapping(value="contestEdit", method=RequestMethod.POST)
+	public String contestEdit(Contest contest, String start, String end, MultipartFile file, HttpServletRequest request) throws IOException, java.text.ParseException {
+
+		String fname = null;
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
+		Date startDate = sdf.parse(start);
+		Date endDate = sdf.parse(end);
+
+		contest.setStartDate(startDate);
+		contest.setEndDate(endDate);
+		
+		if (!file.isEmpty()) {
+
+			ServletContext application = request.getServletContext();
+
+			String url = "/resource/upload/contest";
+			String path = application.getRealPath(url);
+			String temp = file.getOriginalFilename();
+			fname = temp.substring(temp.lastIndexOf("\\") + 1);
+			String fpath = path + "\\" + fname;
+
+			InputStream ins = file.getInputStream();
+			OutputStream outs = new FileOutputStream(fpath);
+
+			byte[] bowl = new byte[1024];
+			int len = 0;
+
+			while ((len = ins.read(bowl, 0, 1024)) >= 0) {
+				outs.write(bowl, 0, len);
+			}
+
+			outs.flush();
+			outs.close();
+			ins.close();
+			
+		}
+
+		contest.setWriter("jungnampyo");
+		contest.setFileName(fname);
+		
+		contestDao.changeContest(contest);
+		
+		return "redirect:contest";
+		
+	}
+	
+	@RequestMapping("contestRemove")
+	public String contestRemove(String c) {
+	
+		contestDao.removeContest(c);
+		
+		return "redirect:contest";
 	}
 	
 }

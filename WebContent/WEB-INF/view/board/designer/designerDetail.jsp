@@ -103,6 +103,7 @@
 						<li><a href="${ctxName}/board/designer/designerRecommend?c=${b.code}">추천하기</a></li>
 						<li><a href="${ctxName}/board/designer/designerEdit?c=${b.code}">수정</a></li>
 						<li><a href="${ctxName}/board/designer/designerRemove?c=${b.code}">삭제</a></li>
+						<li><a href="${ctxName}/board/designer/designerBoard">목록</a></li>
 					</ul>
 				</section>
 				

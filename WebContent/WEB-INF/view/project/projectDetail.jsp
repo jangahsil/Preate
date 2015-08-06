@@ -29,7 +29,7 @@
 		<h1>메인메뉴</h1>
 		<nav>
 			<h1><a href="">프로젝트 등록</a></h1>
-			<h1><a href="${ctxName}/project/projectSearch">프로젝트 검색</a></h1>
+			<h1><a href="${ctxName}/project/project">프로젝트 검색</a></h1>
 			<h1><a href="">포트폴리오</a></h1>
 			<h1><a href="">커뮤니티</a></h1>
 			<ul>
@@ -181,6 +181,14 @@
 							</fieldset>
 						</form>
 					</li>
+				</ul>
+			</section>
+			<section>
+				<h1>버튼 목록</h1>
+				<ul>
+					<li><a href="${ctxName}/project/projectEdit?c=${p.code}">수정</a></li>
+					<li><a href="${ctxName}/project/projectRemove?c=${p.code}">삭제</a></li>
+					<li><a href="${ctxName}/project/projectBoard">목록</a></li>
 				</ul>
 			</section>
 		</section>

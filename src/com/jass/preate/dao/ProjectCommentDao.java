@@ -16,5 +16,9 @@ public interface ProjectCommentDao {
 	public int changeProjectComment(ProjectComment projectComment);
 	
 	public int removeProjectComment(String code);
+	
+	public int removeProjectComments(String projectCode);
+	
+	public List<String> getCodes(String projectCode);
 
 }

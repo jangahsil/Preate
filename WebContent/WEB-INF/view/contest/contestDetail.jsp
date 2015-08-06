@@ -78,10 +78,9 @@
 				<section>
 					<h1>버튼 목록</h1>
 					<ul>
-						<li><input type="submit" value="추천하기"/></li>
-						<li><input type="submit" value="수정"/></li>
-						<li><input type="submit" value="삭제"/></li>
-						<li><a href="contest">목록</a></li>
+						<li><a href="${ctxName}/contest/contestEdit?c=${con.code}">수정</a></li>
+						<li><a href="${ctxName}/contest/contestRemove?c=${con.code}">삭제</a></li>
+						<li><a href="${ctxName}/contest/contest">목록</a></li>
 					</ul>
 				</section>
 			</section>

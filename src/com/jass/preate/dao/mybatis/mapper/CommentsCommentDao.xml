@@ -19,7 +19,7 @@
 		<selectKey keyProperty="code" order="BEFORE" resultType="string">
 			SELECT ISNULL(MAX(CAST(CODE AS INT)), 0)+1 CODE FROM COMMENTSCOMMENTS
 		</selectKey>
-		INSERT INTO COMMENTSCOMMENTS (Code, Writer, Content, CommentCode) 
+		INSERT INTO COMMENTSCOMMENTS (Code, Writer, Content, COMMENTCODE) 
 		VALUES(#{code}, #{writer}, #{content}, #{commentCode})
 	</insert>
 	
@@ -30,4 +30,9 @@
      <delete id="removeCommentsComment"  parameterType="string">
      	DELETE COMMENTSCOMMENTS WHERE CODE = #{code} 
      </delete> 
+     
+     <delete id="removeCommentsComments"  parameterType="string">
+     	DELETE COMMENTSCOMMENTS WHERE COMMENTCODE = #{commentCode} 
+     </delete> 
+     
 </mapper>

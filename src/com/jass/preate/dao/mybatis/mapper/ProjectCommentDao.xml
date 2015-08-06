@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<selectKey keyProperty="code" resultType="string" order="BEFORE">
 			SELECT ISNULL(MAX(CONVERT(INT,CODE)), 0) + 1 CODE FROM PROJECTCOMMENTS
 		</selectKey>
-		INSERT INTO PROJECTCOMMENTS(Code, Content, Writer, projectCode) 
+		INSERT INTO PROJECTCOMMENTS(Code, Content, Writer, PROJECTCODE) 
 		VALUES(#{code},#{content},#{writer},#{projectCode})
 	</insert>
 
@@ -29,5 +29,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="removeProjectComment" parameterType="string">
 		DELETE FROM PROJECTCOMMENTS WHERE CODE = #{code}
 	</delete>
+	
+	<delete id="removeProjectComments" parameterType="string">
+		DELETE FROM PROJECTCOMMENTS WHERE PROJECTCODE = #{projectCode}
+	</delete>
+	
+	<select id="getCodes" parameterType="string" resultType="string">
+		SELECT CODE FROM PROJECTCOMMENTS WHERE PROJECTCODE=#{projectCode}
+	</select>
 
 </mapper>

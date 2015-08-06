@@ -16,7 +16,7 @@ public interface NoticeDao {
 	
 	public int changeNotice(Notice notice);
 	
-	public int updateNotice(Notice notice);
+	public int updateNotice(String code);
 	
 	public int removeNotice(String code);
 

@@ -63,4 +63,10 @@ public class MyBatisCommentsCommentDao implements CommentsCommentDao {
 						code);
 	}
 
+	@Override
+	public int removeCommentsComments(String commentCode) {
+		
+		return session.delete("removeCommentsComments", commentCode);
+	}
+
 }

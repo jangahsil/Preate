@@ -126,4 +126,19 @@ public class ProjectController {
 		
 	}
 	
+	@RequestMapping("projectRemove")
+	public String projectRemove(String c) {
+	
+		List<String> codes = projectCommentDao.getCodes(c);
+		
+		for(String code : codes){
+			commentsCommentDao.removeCommentsComments(code);
+		}
+		
+		projectCommentDao.removeProjectComments(c);
+		projectDao.removeProject(c);
+		
+		return "redirect:project";
+	}
+	
 }

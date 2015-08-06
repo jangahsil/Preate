@@ -35,11 +35,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE NOTICES SET (CONTENT=#{content}) WHERE CODE =#{code}
 	</update>
 
-	<update id="updateNotice" parameterType="com.jass.preate.vo.Notice">
-		<selectKey keyProperty="hit" order="BEFORE" resultType="int">
-			SELECT HIT + 1 FROM NOTICES WHERE CODE=#{code}
-		</selectKey>
-		UPDATE NOTICES SET (HIT=${hit}) WHERE CODE =#{code}
+	<update id="updateNotice" parameterType="string">
+		UPDATE NOTICES SET HIT=HIT+1 WHERE CODE =#{code}
 	</update>
 
 	<delete id="removeNotice" parameterType="string">
