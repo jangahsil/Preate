@@ -1,0 +1,104 @@
+@CHARSET "EUC-KR";
+
+/* 전체 문서 */
+html{
+	width: 1920px;
+	height: 1080px;
+	background: purple;
+}
+
+/* body 부분의 공통 폰트 적용하는 부분 */
+body{
+	font-family: 돋움, Arial, sans-serif;
+	font-size:11px;
+	color:#979797;
+}
+
+/* 헤더 */
+#header{
+	width: 1920px;
+	height: 60px;
+	background: white;
+}
+
+
+/* 메인 메뉴와 컨텐트 영역 */
+#body{
+	width: 1920px;
+	height: 986px;
+	background: white;
+}
+
+/* 공동 컨텐트 부분 */
+.content-wrapper{
+	width: 1236px;
+	height: inherit;
+	min-height: inherit;
+	margin-right: auto;
+}
+
+#header .content-wrapper{
+	position: relative;
+	height: 60px;
+}
+
+/* 로고 부분 */
+#logo{
+	height: 60px;
+}
+#logo a{
+	background: url("../../images/logo.png") no-repeat center;
+	float: left;
+	height: 214px;
+	width: 220px;
+}
+
+/* 회원 메뉴(헤더상단) */
+#login-area{
+	height: 25px;
+	width: 230px; /* 217 */
+	right: 0px; /* 684 */
+	top: 19px;
+	position: absolute;
+}
+
+/* 메인메뉴 */
+#aside{
+	background: rgb(44, 146, 242);
+	width: 220px;
+	height: 832px;
+	float: left;
+	margin-top: 154px;
+}
+
+/* 컨텐트안의 타이틀 부분 : 아래 값은 index page 기준임  */
+#visual{
+	width: 1016px;
+	height: 206px;
+	background: url("../../images/main-introduce.png") no-repeat center;
+}
+
+/* 컨텐트 영역 */
+#main{
+	background: white;
+	height: inherit;
+	width: 1016px;
+	float: left;
+}
+
+/* 사용자 정보 */
+#footer{
+	width: 1920px;
+	height: 44px;
+	background: rgb(44, 146, 242);
+}
+
+/* float 무효화 */
+.clearfix:after{ /* 내 자신중에 다음 자식 */
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}

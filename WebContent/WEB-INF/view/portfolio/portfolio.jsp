@@ -117,8 +117,8 @@
 					<tbody>
 						<c:forEach var="p" items="${list}">
 						<tr>
-							<td><a href="portfolioImage?c=${p.code}" ><img src="../images/.png"  alt="images"></a></td>
-							<td><a href="portfolioImage?c=${p.code}">${p.title}</a></td>
+							<td><a href="portfolioImage"><img src="../images/.png" alt="images"></a></td>
+							<td><a href="portfolioImage">${p.title}</a></td>
 							<td>
 								<fmt:formatDate value="${p.regDate}" pattern="yyyy-MM-dd"/>
 							</td>
