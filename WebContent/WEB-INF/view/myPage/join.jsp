@@ -154,60 +154,60 @@
 								<tr>
 									<td><input type="checkbox" value="DV13" name="fieldCode">NET
 										<input type="checkbox" value="DV24" name="fieldCode">ABAP
-										<input type="checkbox" value="DV02" name="code">ANDROID</td>
+										<input type="checkbox" value="DV02" name="fieldCode">ANDROID</td>
 								</tr>
 
 								<tr>
-									<td><input type="checkbox" value="DV03" name="code">ASP
-										<input type="checkbox" value="DV04" name="code">ASP.NET
-										<input type="checkbox" value="DV06" name="code">C</td>
+									<td><input type="checkbox" value="DV03" name="fieldCode">ASP
+										<input type="checkbox" value="DV04" name="fieldCode">ASP.NET
+										<input type="checkbox" value="DV06" name="fieldCode">C</td>
 								</tr>
 
 								<tr>
-									<td><input type="checkbox" value="DV05" name="code">C#
-										<input type="checkbox" value="DV07" name="code">C++ <input
-										type="checkbox" value="DV08" name="code">COBOL</td>
+									<td><input type="checkbox" value="DV05" name="fieldCode">C#
+										<input type="checkbox" value="DV07" name="fieldCode">C++ <input
+										type="checkbox" value="DV08" name="fieldCode">COBOL</td>
 								</tr>
 
 								<tr>
-									<td><input type="checkbox" value="DV25" name="code">CSS
-										<input type="checkbox" value="DV09" name="code">DB <input
-										type="checkbox" value="DV26" name="code">DELPHI</td>
+									<td><input type="checkbox" value="DV25" name="fieldCode">CSS
+										<input type="checkbox" value="DV09" name="fieldCode">DB <input
+										type="checkbox" value="DV26" name="fieldCode">DELPHI</td>
 								</tr>
 
 								<tr>
-									<td><input type="checkbox" value="DV27" name="code">HTML
-										<input type="checkbox" value="DV28" name="code">IOS <input
-										type="checkbox" value="DV01" name="code">JAVA</td>
+									<td><input type="checkbox" value="DV27" name="fieldCode">HTML
+										<input type="checkbox" value="DV28" name="fieldCode">IOS <input
+										type="checkbox" value="DV01" name="fieldCode">JAVA</td>
 								</tr>
 
 								<tr>
-									<td><input type="checkbox" value="DV11" name="code">JSP
-										<input type="checkbox" value="DV10" name="code">JS <input
-										type="checkbox" value="DV12" name="code">LINUX</td>
+									<td><input type="checkbox" value="DV11" name="fieldCode">JSP
+										<input type="checkbox" value="DV10" name="fieldCode">JS <input
+										type="checkbox" value="DV12" name="fieldCode">LINUX</td>
 								</tr>
 
 								<tr>
-									<td><input type="checkbox" value="DV14" name="code">NEWTWORK
-										<input type="checkbox" value="DV15" name="code">PHP <input
-										type="checkbox" value="DV16" name="code">POWER BUILDER</td>
+									<td><input type="checkbox" value="DV14" name="fieldCode">NEWTWORK
+										<input type="checkbox" value="DV15" name="fieldCode">PHP <input
+										type="checkbox" value="DV16" name="fieldCode">POWER BUILDER</td>
 								</tr>
 
 								<tr>
-									<td><input type="checkbox" value="DV17" name="code">PYTHON
-										<input type="checkbox" value="DV18" name="code">QA <input
-										type="checkbox" value="DV19" name="code">RUBY</td>
+									<td><input type="checkbox" value="DV17" name="fieldCode">PYTHON
+										<input type="checkbox" value="DV18" name="fieldCode">QA <input
+										type="checkbox" value="DV19" name="fieldCode">RUBY</td>
 								</tr>
 
 								<tr>
-									<td><input type="checkbox" value="DV20" name="code">SERVER개발
-										<input type="checkbox" value="DV29" name="code">VB <input
+									<td><input type="checkbox" value="DV20" name="fieldCode">SERVER개발
+										<input type="checkbox" value="DV29" name="fieldCode">VB <input
 										type="checkbox" value="DV21" name="code">VC++</td>
 								</tr>
 
 								<tr>
-									<td><input type="checkbox" value="DV22" name="code">WINDOWS
-										<input type="checkbox" value="DV23" name="code">임베디드</td>
+									<td><input type="checkbox" value="DV22" name="fieldCode">WINDOWS
+										<input type="checkbox" value="DV23" name="fieldCode">임베디드</td>
 								</tr>
 
 							</tbody>

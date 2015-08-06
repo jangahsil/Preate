@@ -13,11 +13,15 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
 
+	<!-- <beans:bean id="NewlecAuthenticationSuccessHandler" 
+		class="com.newlecture.web.controller.NewlecAuthenticationSuccessHandler"/> -->
+		<!-- authentication-success-handler-ref="NewlecAuthenticationSuccessHandler" -->
 	<http>
 		<form-login 
 			login-page="/myPage/login"
 			default-target-url="/index"
-		/>
+			/>
+			
 		<logout logout-success-url="/index"/>
 		<intercept-url pattern="/board/designer/designerDetail" access="ROLE_USER"/>
 		<intercept-url pattern="/board/designer/designerReg" access="ROLE_USER"/>
