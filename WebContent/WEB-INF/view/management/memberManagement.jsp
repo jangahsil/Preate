@@ -26,24 +26,24 @@
 		</nav>
 		
 		<section>
-			<h1>검색폼</h1>
+			<h1 class="hidden">검색폼</h1>
 			<form method="post">
  			<fieldset>
-					<legend>회원검색폼</legend>
+					<legend class="hidden">회원검색폼</legend>
 					<label>카테고리</label>
 					<select name="field">
 						<option value="MID">아이디</option>
 						<option value="NAME">이름</option>
 					</select>
-					<p>회원목록</p>
-					<label >회원정보검색</label>
+					<label class="hidden">회원정보검색</label>
 					<input type="text" name="query"><input type="submit" value="검색" />
 			</fieldset>
 		</form> 
 		</section>
 		
 		<article>
-			<h1>회원 목록폼</h1>
+			<h1 class="hidden">회원 목록폼</h1>
+					<p>회원목록</p>
 			<table>
 				<thead>
 					<tr>
@@ -76,7 +76,7 @@
 		
 		
 		<section>
-			<h3>페이지</h3>
+			<h3 class="hidden">페이지</h3>
 			<ul>
 				<li><a href="memberManagement?page=1">1</a></li>
 				<li><a href="memberManagement?page=2">2</a></li>
