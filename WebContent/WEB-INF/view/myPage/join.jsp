@@ -102,12 +102,12 @@
 
 				<fieldset>
 					<legend>비밀번호 입력란</legend>
-					<label>비밀번호</label> <input type="text" name ="password" />
+					<label>비밀번호</label> <input type="password" name ="password" />
 				</fieldset>
 
 				<fieldset> 
 					<legend>비밀번호 확인 입력란</legend>
-					<label>비밀번호 확인</label> <input type="text" name ="passwordCheck" />
+					<label>비밀번호 확인</label> <input type="password" name ="passwordCheck" />
 				</fieldset>
 
 				<fieldset>
@@ -215,8 +215,8 @@
 
 					<tbody>
 						<tr>
-							<td><input type="checkbox" value="DV13" name="code">NET 
-							<input type="checkbox" value="DV24" name="code">ABAP 
+							<td><input type="checkbox" value="DV13" name="fieldCode">NET 
+							<input type="checkbox" value="DV24" name="fieldCode">ABAP 
 							<input type="checkbox" value="DV02" name="code">ANDROID</td>
 						</tr>
 

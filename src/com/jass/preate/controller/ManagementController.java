@@ -120,6 +120,7 @@ public class ManagementController {
 		
 	@RequestMapping(value="customerService",method=RequestMethod.POST)
 	public String customerService(Model model,String field,String query){
+		
 		List<CustomerService> list = customerService.getCustomerServices(1,field,query);
 		model.addAttribute("list",list);
 			
