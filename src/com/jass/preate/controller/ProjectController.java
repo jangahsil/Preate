@@ -99,15 +99,15 @@ public class ProjectController {
 		
 	}
 	
-	@RequestMapping(value="addProject",method=RequestMethod.GET)
-	public String addProject(){
+	@RequestMapping(value="projectReg",method=RequestMethod.GET)
+	public String projectReg(){
 		
-		return "/WEB-INF/view/project/addProject.jsp";
+		return "/WEB-INF/view/project/projectReg.jsp";
 	}
 		
 	
-	@RequestMapping(value="addProject",method=RequestMethod.POST)
-	public String addProject(Project p,String start, String dead, String end,HttpServletRequest request) throws ParseException{
+	@RequestMapping(value="projectReg",method=RequestMethod.POST)
+	public String projectReg(Project p,String start, String dead, String end,HttpServletRequest request) throws ParseException{
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		

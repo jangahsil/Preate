@@ -13,15 +13,47 @@
 <title>Insert title here</title>
 <style>
 
-/*	현재문제
-	1. 마우스 오버할때 세부 카테고리, css, java script필요 
-	2. 개발자 도구로 뽑아온 컬러 적용하는 법 (해결)
-	3. a태그 hidden 먹으면 하이퍼링크 안먹는데 글자 padding으로 먹여야 하나? 근데 패딩으로 하니까 글자가 왼쪽으로 안밀림, 왜 안가지??? (해결)
-	4. 회원 메뉴(헤더상단)전체 크기 : width 219px 안으로 이미지가 다 들어와야 하는데 다 안들어옴. (해결)
-	5. preate 로고 글자 text-intent 안먹는 문제 (해결)
-	6. 컨텐트 영역의 사진을 헤더쪽 영역을 침범하여 배치하는 방법  (해결)
-	7. 고객문의 버튼 점선이 잘려서 보임. 포토샵으로 다시 자르기 (해결)
-*/
+.addProject input[type="text"]{
+	width:20px;
+	height: 15px;
+}
+#title{
+	width:500px;
+	height: 15px;
+}
+#detail{
+	width: 500px;
+	height: 300px;
+}
+#budget{
+	width: 100px;
+}
+.input{
+	width: 400px;
+	height: 20px;
+	line-height:20px;
+	overflow: hidden;
+}
+.small-input{
+	width: 30px;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
+}
+#budget{
+	width: 150px;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
+}
+
+#input-detail{
+width: 400px;
+height: 400px;
+overflow: hidden;
+}
+
+/* ---------------------추가---------------------*/
 .hidden {
 	display: none;
 }
@@ -56,7 +88,7 @@
 	cursor: pointer;
 }
 
-/* 회원 로그인 메뉴 버튼이미지넣기 */
+ /* 회원 로그인 메뉴 버튼이미지넣기 */
 
 .login-button {
 	margin-top:10px;
@@ -195,7 +227,6 @@
 </style>
 </head>
 <body>
-
 	<header id="header">
 		<div class="content-wrapper">
 			<section>
@@ -258,128 +289,131 @@
 					</h1>
 				</nav>
 			</aside>
-<!-- ----------메인부분 ---------------->
-			<main id="main">
-			<div id="visual"></div>
-			<section id="main-content">
-				<h1 class="hidden">시작페이지</h1>
+			
+	<main id="main">
+<section id="main-content">
+		<h1>프로젝트 등록</h1>
+		<p>필수입력사항</p>
 
-				<section id="project">
-					<h1 class="hidden">프로젝트 목록</h1>
-					<table>
-						<thead>
-							<tr>
-								<th>스크랩</th>
-								<th>번호</th>
-								<th>제목</th>
-								<th>작성자</th>
-								<th>모집분야</th>
-								<th>남은날짜</th>
-								<th>기획상태</th>
-								<th>예상기간</th>
-								<th>예상비용</th>
-								<th>지역1</th>
-								<th>지역2</th>
-								<th>내용</th>
-								<th>지원자</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="p" items="${list}">
-								<tr>
-									<td>true</td>
-									<td>${p.code}</td>
-									<td><a href="project/projectDetail?c=${p.code}">${p.title}</a></td>
-									<td>${p.writerName}</td>
-									<td>${p.classification}</td>
-									<td><fmt:formatDate value="${p.deadline}"
-											pattern="yyyy-MM-dd" /></td>
-									<td>${p.planningState}</td>
-									<td>30일</td>
-									<td>${p.budget}원</td>
-									<td>${p.area1_1}${p.area1_2}</td>
-									<td>${p.area2_1}${p.area2_2}</td>
-									<td>${p.content}</td>
-									<td>
-										<form>
-											<select>
-												<option>${p.joinCount}명지원</option>
-												<option>지원자1</option>
-												<option>지원자2</option>
-												<option>지원자3</option>
-											</select>
-										</form>
-									</td>
-								<tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</section>
+		<h1>등록 메뉴</h1>
+		<form action="" method="post">
+			<nav class="addProject">
+				<dl>
+					<dt>제목</dt>
+					<dd>
+						<textarea class="input" name="title" ></textarea>
+					</dd>
+					<dt>모집 구분</dt>
+					<dd>
+						<select name="classification">
+							<option >개발</option>
+							<option>디자인</option>
+						</select>
+					<dt>총 인원</dt>
+					<dd>
+						<textarea class="small-input"  name="totalPeople" ></textarea>명
+					</dd>
+					<dt>필요 개발자</dt>
+					<dd>
+						<textarea class="small-input"  name="needDeveloper" ></textarea>명
+					</dd>
+					<dt>필요 디자이너</dt>
+					<dd>
+						<textarea class="small-input" name="needDesigner"></textarea>명
+					</dd>
+					<dt>예산</dt>
+					<dd>
+						<textarea id="budget"   name="budget"></textarea>원
+					</dd>
+					<dt>사전 미팅 여부</dt>
+					<dd>
+						<select name="meeting">
+							<option value="true">Y</option>
+							<option value="false">N</option>
+						</select>
+					</dd>
+					<dt>지역</dt>
+					<dd>
+					
+						<select name="area1_1">
+							<option >서울</option>
+							<option >경기</option>
+							<option>인천</option>
+							<option>부산</option>
+							<option>대구</option>
+							<option>대전</option>
+							<option>광주</option>
+							<option>울산</option>
+							<option>강원</option>
+							<option>경남</option>
+							<option>경북</option>
+							<option>전남</option>
+							<option>전북</option>
+							<option>충남</option>
+							<option>충북</option>
+							<option>제주</option>
+							<option>세종</option>
+						</select>
+						
+					</dd>
+					<dt>상세주소</dt>
+						<dd><textarea class="input"  name="area1_2"></textarea><dd>
+						
+					<dt>예상 시작일</dt>
+					<dd>
+						<input type="datetime" name="start" >
+					</dd>
+					<dt>모집 마감일</dt>
+					<dd>
+						<input type="datetime" name="dead" >
+					</dd>
+					<dt>프로젝트 종료일</dt>
+					<dd>
+						<input type="datetime" name="end" >
+					</dd>
+				</dl>
 
-				<section id="contest">
+				<!-- <ul>
+				<li>1<input type="date" name="startDate"> </li>
+				<li>2<input type="date" name="deadline"> </li>
+				<li>3<input type="date" name="endDate"> </li>
+			</ul> -->
+				<!-- 		<input type="submit" value="테스트 등록"> -->
+				<!-- </nav> -->
 
-					<h1 class="hidden">공모전 목록</a>
-					</h1>
-					<table>
-						<thead>
-							<tr>
-								<th>번호</th>
-								<th>제목</th>
-								<th>작성일</th>
-								<th>시작일</th>
-								<th>종료일</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="con" items="${list2}">
-								<tr>
-									<td>${con.code}</td>
-									<td><a href="contest/contestDetail?c=${con.code}">${con.title}</a></td>
-									<td>${con.writerNick}</td>
-									<td><fmt:formatDate value="${con.regDate}"
-											pattern="yyyy-MM-dd" /></td>
-									<td><fmt:formatDate value="${con.startDate}"
-											pattern="yyyy-MM-dd" /></td>
-									<td><fmt:formatDate value="${con.endDate}"
-											pattern="yyyy-MM-dd" /></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</section>
-
-				<section id="notice">
-					<h1 class="hidden">공지사항 목록</a>
-					</h1>
-					<table>
-						<thead>
-							<tr>
-								<th>번호</th>
-								<th>게시판</th>
-								<th>제목</th>
-								<th>작성일</th>
-								<th>조회수</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="n" items="${list3}">
-								<tr>
-									<td>${n.code}</td>
-									<td>${n.boardClassification}</td>
-									<td><a href="management/noticeDetail?c=${n.code}">${n.title}</a></td>
-									<td><fmt:formatDate value="${n.regDate}"
-											pattern="yyyy-MM-dd" /></td>
-									<td>${n.hit}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</section>
-			</section>
-			</main>
-		</div>
+				<!-- <section>
+			<h1>기획상태폼</h1> -->
+				<!-- <legend>기획상태선택폼</legend> -->
+				<p>기획상태</p>
+		
+		
+		<!------------------------    손보기 ------------------------------------>
+					<ul>
+						<li><input type="radio" name="PlanningState" value="아이디어">아이디어만 있습니다</li>
+						<li><input type="radio" name="PlanningState" value="간단히 정리">필요한 내용들을 간단히 정리해두었습니다</li>
+						<li><input type="radio" name="PlanningState" value="기획문서존재">상세한 기획문서가 존재합니다</li>
+					</ul>		
+				<!-- </section>
+		<nav>-->
+				<dl>
+					<dt>세부내용</dt>
+					<dd>
+						<textarea id="input-detail" name="content"></textarea>
+					</dd>
+					<dd>
+						<input type="submit" value="등록">
+					</dd>
+					<dd>
+						<a href="">취소</a>
+					</dd>
+				</dl>
+			</nav>
+		</form>
+		</section>
+	</main>
 	</div>
-	<footer id="footer">
+		</div>
+		<footer id="footer">
 		<div class="content-wrapper"></div>
 	</footer>
 </body>
