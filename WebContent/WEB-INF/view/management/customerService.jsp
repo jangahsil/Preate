@@ -24,19 +24,19 @@
 		</nav>
 		
 		<section>
-			<h1>검색폼</h1>
+			<h1 class="hidden">검색폼</h1>
 			<form method="post">
 					<select name="field">
 						<option value="title">제목</option>
 						<option value="writer">작성자</option>
 					</select>
-					<p>문의목록</p>
-					<label>문의정보검색</label><input type="text" name="query"><input type="submit" value="검색" />
+					<p class="hidden">문의목록</p>
+					<label>검색</label><input type="text" name="query"><input type="submit" value="검색" />
 			</form>
 		</section>
 	
 		<article>
-			<h1>문의 목록폼</h1>
+			<h1 class="hidden">문의 목록폼</h1>
 			<table>
 			
 				<thead>
@@ -76,7 +76,7 @@
 		</article>
 	
 		<section>
-			<h3>페이지</h3>
+			<h3 class="hidden">페이지</h3>
 			<ul>
 				<li><a href="customerService?page=1">1</a></li>
 				<li><a href="customerService?page=2">2</a></li>

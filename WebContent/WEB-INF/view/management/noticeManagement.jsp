@@ -14,7 +14,7 @@
 		<p>원하는 관리 메뉴를 선택하세요</p>
 
 		<nav>
-			<h1>관리 메뉴</h1>
+			<h1 class="hidden">관리 메뉴</h1>
 			<ul>
 				<li><a href="">회원관리</a></li>
 				<li><a href="">게시글관리</a></li>
@@ -25,20 +25,20 @@
 		</nav>
 
 		<section>
-			<h1>검색폼</h1>
+			<h1 class="hidden">검색폼</h1>
 			<form>
 					<label>카테고리</label> <select>
 						<option >전문가</option>
 						<option>비전문가</option>
 					</select>
-					<p>공지목록</p>
+					<p class="hidden">공지목록</p>
 					<label>공지정보검색</label><input type="text"><input
 						type="submit" value="검색" />
 			</form>
 		</section>
 
 		<article>
-			<h1>공지 목록폼</h1>
+			<h1 class="hidden">공지 목록폼</h1>
 			<table>
 				<thead>
 					<tr>
@@ -66,7 +66,7 @@
 		</article>
 
 		<section>
-			<h3>페이지</h3>
+			<h3 class="hidden">페이지</h3>
 			<ul>
 				<li><a href="noticeManagement?page=1">1</a></li>
 				<li><a href="noticeManagement?page=2">2</a></li>
