@@ -47,20 +47,24 @@
 
 /* 회원 로그인 메뉴 버튼이미지넣기 */
 .login-button {
-	margin-top: 10px;
 	width: 54px;
 	height: 23px;
 	background: url("../images/btn-login.png") no-repeat
 		bottom;
 	float: left;
 }
-
+.logout-button{
+	width: 64px;
+	height: 23px;
+	background: url("../images/btn-logout.png") no-repeat
+		bottom;
+	float: left;
+}
 /* #member-menu ul li:first-child {
 	background: url("${ctxName}/resource/images/btn-login.png") no-repeat center;
 	width: 54px;
 } */
 .join-button {
-	margin-top: 10px;
 	width: 64px;
 	height: 23px;
 	background: url("../images/btn-join.png") no-repeat
@@ -72,7 +76,6 @@
 	width: 64px;
 } */
 .mypage-button {
-	margin-top: 10px;
 	width: 75px;
 	height: 23px;
 	background: url("../images/btn-mypage.png") no-repeat

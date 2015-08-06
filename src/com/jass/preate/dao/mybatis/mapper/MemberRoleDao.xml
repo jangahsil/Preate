@@ -4,7 +4,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.jass.preate.dao.AdvertiseDao">
+<mapper namespace="com.jass.preate.dao.MemberRoleDao">
 
 	<insert id="addMemberRole" parameterType="com.jass.preate.vo.MemberRole">
 		INSERT INTO MEMBERROLES (MID, ROLENAME) 
