@@ -23,9 +23,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<selectKey keyProperty="code" order="BEFORE" resultType="string">
 			SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) + 1 FROM PORTFOLIO
 		</selectKey>
-		INSERT INTO PORTFOLIO (CODE,WRITER,TITLE,STATE,PROJECTENDDATE,LIKEHIT,PUBLICCHECK) 
-			VALUES(#{code},#{writer},#{title},#{state},#{projectEndDate},0,#{publicCheck})
+		INSERT INTO PORTFOLIO (CODE,TITLE,STATE) 
+			VALUES(#{code},#{title},#{state})
 	</insert>
+	
+	 <select id="getLastCode" resultType="string">
+	    	SELECT ISNULL(MAX(CAST(CODE AS INT)), 0) CODE FROM PORTFOLIO
+	 </select>
 	
 	<update id="changePortfolio" parameterType="com.jass.preate.vo.Portfolio">
 		UPDATE PORTFOLIO SET 

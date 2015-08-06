@@ -56,7 +56,7 @@ public class PortfolioController {
 		
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/portfolio/portfolio.jsp";
+		return "portfolio.portfolio";
 		
 	}
 	
@@ -69,24 +69,25 @@ public class PortfolioController {
 		List<FieldSelect> list = fieldSelectDao.getFieldSelects(mid);
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/portfolio/portfolioDetail.jsp";
+		return "portfolio.portfolioDetail";
 		
 	}
 	
 	@RequestMapping(value="portfolioReg", method=RequestMethod.GET)
 	public String portfolioReg() {
 		
-		return "/WEB-INF/view/portfolio/portfolioReg.jsp";
+		return "portfolio.portfolioReg";
 	}
 	
 	
 	@RequestMapping(value = "portfolioReg", method = RequestMethod.POST)
 	public String portfolioReg(Portfolio portfolio, MultipartFile file,
 			HttpServletRequest request) throws IOException {
-
-		// portfolio.setWriter(principal.getName());
+		
+		portfolio.setWriter("car");
+		
 		portfolioDao.addPortfolio(portfolio);
-		String lastCode = portfolioDao.getLastCode();
+		
 
 		if (!file.isEmpty()) {
 
@@ -105,18 +106,19 @@ public class PortfolioController {
 			byte[] bowl = new byte[1024];
 			int len = 0;
 
-			while ((len = ins.read(bowl, 0, 1024)) >= 0)
+			while ((len = ins.read(bowl, 0, 1024)) >= 0){
 				outs.write(bowl, 0, len);
+			}
 
 			outs.flush();
 			outs.close();
 			ins.close();
 
 			PortfolioAttachedFile portfolioAttachedFile = new PortfolioAttachedFile();
-			portfolioAttachedFile.setPortfolioCode(lastCode);
 			portfolioAttachedFile.setName(fname);
-			portfolioAttachedFileDao
-					.addPortfolioAttachedFile(portfolioAttachedFile);
+			portfolioAttachedFile.setPortfolioCode(portfolioDao.getLastCode());
+			
+			portfolioAttachedFileDao.addPortfolioAttachedFile(portfolioAttachedFile);
 		}
 
 		return "redirect:portfolio";
