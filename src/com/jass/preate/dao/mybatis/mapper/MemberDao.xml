@@ -64,6 +64,7 @@
 		,#{universityName},#{schoolState}
 		,${careerYear})
 	</insert>
+	
 
 
 	<delete id="removeMember" parameterType="string">

@@ -14,7 +14,7 @@ import com.jass.preate.vo.Member;
 
 @Controller
 @RequestMapping("/myPage/*")
-public class CustomerController {
+public class MemberController {
 
 	private MemberDao memberDao;
 	private FieldSelectDao fieldSelectDao;
@@ -31,7 +31,7 @@ public class CustomerController {
 
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public String join() {
-		return "/WEB-INF/view/myPage/join.jsp"; // forward
+		return "myPage.join"; // forward
 	}
 
 	@RequestMapping(value="join", method=RequestMethod.POST)
