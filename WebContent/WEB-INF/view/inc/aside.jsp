@@ -10,17 +10,17 @@
 			<aside id="aside">
 				<h1 class="hidden">메인메뉴</h1>
 				<nav>
-					<h1 class="button">
-						<a href="" class="button">프로젝트 등록</a>
+					<h1>
+						<a href="${ctxName}/project/projectReg" class="button project-reg-button">프로젝트 등록</a>
 					</h1>
-					<h1 class="button">
-						<a href="${ctxName}/project/projectSearch">프로젝트 검색</a>
+					<h1>
+						<a href="${ctxName}/project/project" class="button project-search-button">프로젝트 검색</a>
 					</h1>
-					<h1 class="button">
-						<a href="">포트폴리오</a>
+					<h1>
+						<a href="${ctxName}/portfolio/portfolio" class="button portfolio-button">포트폴리오</a>
 					</h1>
-					<h1 class="button">
-						<a href="">커뮤니티</a>
+					<h1>
+						<a href="${ctxName}/board/free/freeBoard" class="button cummunity-button">커뮤니티</a>
 					</h1>
 					<ul class="hidden">
 						<li><a href="${ctxName}/board/free/freeBoard">자유게시판</a></li>
@@ -29,17 +29,17 @@
 						<li><a href="${ctxName}/board/designer/designerBoard">디자이너
 								게시판</a></li>
 					</ul>
-					<h1 class="button">
-						<a href="">마이 프로젝트</a>
+					<h1>
+						<a href="" class="button my-project-button">마이 프로젝트</a>
 					</h1>
-					<h1 class="button">
-						<a href="">제휴센터 소개</a>
+					<h1>
+						<a href="" class="button advertise-button">제휴센터 소개</a>
 					</h1>
-					<h1 class="button">
-						<a href="">고객문의</a>
+					<h1>
+						<a href="" class="button customer-qna-button">고객문의</a>
 					</h1>
-					<h1 class="button">
-						<a href="">관리자 메뉴</a>
+					<h1>
+						<a href="${ctxName}/management/memberManagement" class="button management-button">관리자 메뉴</a>
 					</h1>
 				</nav>
 			</aside>
