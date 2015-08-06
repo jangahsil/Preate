@@ -42,7 +42,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<%-- <c:forEach var="p" items="${list}"> --%>
+						<%-- <c:forEach var="p" items="${list2}"> --%>
 						<tr>
 							<td>뷰티아리아갤러리</td>
 							<!--  //해당 작성자가 등록한 포트폴리오 전체를 보여줘야함!-->

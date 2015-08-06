@@ -69,6 +69,9 @@ public class PortfolioController {
 		List<FieldSelect> list = fieldSelectDao.getFieldSelects(mid);
 		model.addAttribute("list", list);
 		
+		List<PortfolioAttachedFile> list2 = portfolioAttachedFileDao.getPortfolioAttachedFiles(c);
+		model.addAttribute("list2", list2);
+		
 		return "portfolio.portfolioDetail";
 		
 	}
