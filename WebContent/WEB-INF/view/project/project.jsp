@@ -29,7 +29,7 @@
 		<section>
 			<h1>메인메뉴</h1>
 			<nav>
-				<h1><a href="">프로젝트 등록</a></h1>
+				<h1><a href="${ctxName}/project/projectReg">프로젝트 등록</a></h1>
 				<h1><a href="${ctxName}/project/projectSearch">프로젝트 검색</a></h1>
 				<h1><a href="">포트폴리오</a></h1>
 				<h1><a href="">커뮤니티</a></h1>

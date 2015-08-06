@@ -102,7 +102,7 @@ public class ProjectController {
 	@RequestMapping(value="projectReg",method=RequestMethod.GET)
 	public String projectReg(){
 		
-		return "/WEB-INF/view/project/projectReg.jsp";
+		return "project.projectReg";
 	}
 		
 	
