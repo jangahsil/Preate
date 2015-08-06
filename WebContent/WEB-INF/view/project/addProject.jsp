@@ -24,6 +24,29 @@
 #budget{
 	width: 100px;
 }
+.input{
+	width: 400px;
+	height: 20px;
+	line-height:20px;
+	overflow: hidden;
+}
+.small-input{
+	width: 30px;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
+}
+#budget{
+	width: 150px;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
+}
+#input-detail{
+width: 400px;
+height: 400px;
+overflow: hidden;
+}
 </style>
 </head>
 <body>
@@ -72,7 +95,7 @@
 				<dl>
 					<dt>제목</dt>
 					<dd>
-						<input type="text" name="title" id="title">
+						<textarea class="input" name="title" ></textarea>
 					</dd>
 					<dt>모집 구분</dt>
 					<dd>
@@ -82,19 +105,19 @@
 						</select>
 					<dt>총 인원</dt>
 					<dd>
-						<input type="text" name="totalPeople" >명
+						<textarea class="small-input"  name="totalPeople" ></textarea>명
 					</dd>
 					<dt>필요 개발자</dt>
 					<dd>
-						<input type="text" name="needDeveloper" >명
+						<textarea class="small-input"  name="needDeveloper" ></textarea>명
 					</dd>
 					<dt>필요 디자이너</dt>
 					<dd>
-						<input type="text" name="needDesigner">명
+						<textarea class="small-input" name="needDesigner"></textarea>명
 					</dd>
 					<dt>예산</dt>
 					<dd>
-						<input id="budget" type="text" name="budget">원
+						<textarea id="budget"   name="budget"></textarea>원
 					</dd>
 					<dt>사전 미팅 여부</dt>
 					<dd>
@@ -128,7 +151,7 @@
 						
 					</dd>
 					<dt>상세주소</dt>
-						<dd><input type="text" name="area1_2"><d>
+						<dd><textarea class="input"  name="area1_2"></textarea><dd>
 						
 					<dt>예상 시작일</dt>
 					<dd>
@@ -159,17 +182,17 @@
 		
 		
 		<!------------------------    손보기 ------------------------------------>
-		<!-- 		<ul>
-						<li><input type="radio" name="planningState" value="1"> 전구</li>
-						<li><input type="radio" name="planningState" value="2"> 기획</li>
-						<li><input type="radio" name="planningState" value="3"> 문서</li>
-					</ul>		 -->
+					<ul>
+						<li><input type="radio" name="PlanningState" value="아이디어">아이디어만 있습니다</li>
+						<li><input type="radio" name="PlanningState" value="간단히 정리">필요한 내용들을 간단히 정리해두었습니다</li>
+						<li><input type="radio" name="PlanningState" value="기획문서존재">상세한 기획문서가 존재합니다</li>
+					</ul>		
 				<!-- </section>
 		<nav>-->
 				<dl>
 					<dt>세부내용</dt>
 					<dd>
-						<input id="detail" type="text" name="content" >
+						<textarea id="input-detail" name="content"></textarea>
 					</dd>
 					<dd>
 						<input type="submit" value="등록">

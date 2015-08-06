@@ -118,7 +118,6 @@ public class ProjectController {
 		p.setStartDate(startDate);
 		p.setDeadline(deadline);
 		p.setEndDate(endDate);
-		p.setPlanningState("아이디어");
 		p.setWriter("js");
 		
 		projectDao.addProject(p);
