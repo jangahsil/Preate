@@ -15,6 +15,15 @@
 		<put-attribute name="body" value="/WEB-INF/view/board/{1}/{2}.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
 	</definition>
+
+	<definition name="myPage.*.*" template="/WEB-INF/view/inc/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+		<put-attribute name="aside" value="/WEB-INF/view/inc/aside.jsp" />
+		<put-attribute name="body" value="/WEB-INF/view/myPage/{1}/{2}.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/view/inc/footer.jsp" />
+	</definition>
+
+
 	<definition name="*.*" template="/WEB-INF/view/inc/layout.jsp">
 		<put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
 		<put-attribute name="aside" value="/WEB-INF/view/inc/aside.jsp" />

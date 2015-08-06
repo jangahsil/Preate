@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
-
+<!-- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +65,7 @@
 				</h1>
 			</nav>
 		</section>
-	</aside>
+	</aside> -->
 	
 	<main>
 	<section>
@@ -84,9 +84,9 @@
 			</form>
 			</section>
 	</main>
-	<footer>
+<!-- 	<footer>
 		<section></section>
 	</footer>
 
 </body>
-</html>
+</html> -->

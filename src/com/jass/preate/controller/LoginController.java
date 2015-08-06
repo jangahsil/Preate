@@ -11,7 +11,7 @@ public class LoginController{
 	@RequestMapping("login")
 	public String login()
 	{
-		return "/WEB-INF/view/myPage/login/login.jsp";
+		return "myPage.login.login";
 	}
 }
 
