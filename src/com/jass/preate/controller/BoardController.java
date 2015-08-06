@@ -54,7 +54,7 @@ public class BoardController {
 		
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/board/designer/designerBoard.jsp";
+		return "board.designer.designerBoard";
 		
 	}
 	
@@ -65,7 +65,7 @@ public class BoardController {
 		
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/board/developer/developerBoard.jsp";
+		return "board.developer.developerBoard";
 		
 	}
 	
@@ -77,7 +77,7 @@ public class BoardController {
 		
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/board/free/freeBoard.jsp";
+		return "board.free.freeBoard";
 		
 	}
 	
@@ -95,7 +95,7 @@ public class BoardController {
 		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list2", list2);
 		
-		return "/WEB-INF/view/board/designer/designerDetail.jsp";
+		return "board.designer.designerDetail";
 		
 	}
 	
@@ -116,7 +116,7 @@ public class BoardController {
 		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list2", list2);
 		
-		return "/WEB-INF/view/board/designer/designerDetail.jsp";
+		return "board.designer.designerDetail";
 		
 		/*return "redirect:designerDetail?c=" + c;*/
 		
@@ -136,7 +136,7 @@ public class BoardController {
 		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list2", list2);
 		
-		return "/WEB-INF/view/board/developer/developerDetail.jsp";
+		return "board.developer.developerDetail";
 		
 	}
 	
@@ -157,7 +157,7 @@ public class BoardController {
 		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list2", list2);
 		
-		return "/WEB-INF/view/board/developer/developerDetail.jsp";
+		return "board.developer.developerDetail";
 		
 		/*return "redirect:developerDetail?c=" + c;*/
 		
@@ -177,7 +177,7 @@ public class BoardController {
 		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list2", list2);
 		
-		return "/WEB-INF/view/board/free/freeDetail.jsp";
+		return "board.free.freeDetail";
 		
 	}
 	
@@ -198,7 +198,7 @@ public class BoardController {
 		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list2", list2);
 		
-		return "/WEB-INF/view/board/free/freeDetail.jsp";
+		return "board.free.freeDetail";
 		
 		/*return "redirect:freeDetail?c=" + c;*/
 		
@@ -207,7 +207,7 @@ public class BoardController {
 	@RequestMapping(value="designer/designerReg", method=RequestMethod.GET)
 	public String designerReg() {
 	
-		return "/WEB-INF/view/board/designer/designerReg.jsp";
+		return "board.designer.designerReg";
 	}
 	
 	@RequestMapping(value="designer/designerReg", method=RequestMethod.POST)
@@ -258,7 +258,7 @@ public class BoardController {
 	@RequestMapping(value="developer/developerReg", method=RequestMethod.GET)
 	public String developerReg() {
 	
-		return "/WEB-INF/view/board/developer/developerReg.jsp";
+		return "board.developer.developerReg";
 	}
 	
 	@RequestMapping(value="developer/developerReg", method=RequestMethod.POST)
@@ -309,7 +309,7 @@ public class BoardController {
 	@RequestMapping(value="free/freeReg", method=RequestMethod.GET)
 	public String freeReg() {
 	
-		return "/WEB-INF/view/board/free/freeReg.jsp";
+		return "board.free.freeReg";
 	}
 	
 	@RequestMapping(value="free/freeReg", method=RequestMethod.POST)
@@ -366,7 +366,7 @@ public class BoardController {
 		List<BoardAttachment> list = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/board/designer/designerEdit.jsp";
+		return "board.designer.designerEdit";
 	}
 	
 	@RequestMapping(value="designer/designerEdit", method=RequestMethod.POST)
@@ -422,7 +422,7 @@ public class BoardController {
 		List<BoardAttachment> list = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/board/developer/developerEdit.jsp";
+		return "board.developer.developerEdit";
 	}
 	
 	@RequestMapping(value="developer/developerEdit", method=RequestMethod.POST)
@@ -478,7 +478,7 @@ public class BoardController {
 		List<BoardAttachment> list = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/board/designer/designerEdit.jsp";
+		return "board.free.freeEdit";
 	}
 	
 	@RequestMapping(value="free/freeEdit", method=RequestMethod.POST)

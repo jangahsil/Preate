@@ -39,7 +39,7 @@ public class ContestController {
 		
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/contest/contest.jsp";
+		return "contest.contest";
 		
 	}
 	
@@ -49,14 +49,14 @@ public class ContestController {
 		Contest contest = contestDao.getContest(c);
 		model.addAttribute("con", contest);
 		
-		return "/WEB-INF/view/contest/contestDetail.jsp";
+		return "contest.contestDetail";
 		
 	}
 	
 	@RequestMapping(value="contestReg", method=RequestMethod.GET)
 	public String contestReg() {
 		
-		return "/WEB-INF/view/contest/contestReg.jsp";
+		return "contest.contestReg";
 	}
 	
 	@RequestMapping(value="contestReg", method=RequestMethod.POST)
@@ -113,7 +113,7 @@ public class ContestController {
 		Contest contest = contestDao.getContest(c);
 		model.addAttribute("con", contest);
 		
-		return "/WEB-INF/view/contest/contestReg.jsp";
+		return "contest.contestEdit";
 	}
 	
 	@RequestMapping(value="contestEdit", method=RequestMethod.POST)
