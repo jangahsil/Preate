@@ -49,7 +49,7 @@ public class HomeController {
 		List<Notice> list3 = noticeDao.getTotalNotices(1);
 		model.addAttribute("list3", list3);
 		
-		return "/WEB-INF/view/index.jsp";
+		return "home.index";
 		
 	}
 	

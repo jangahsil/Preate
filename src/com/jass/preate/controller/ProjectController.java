@@ -58,7 +58,7 @@ public class ProjectController {
 		
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/project/project.jsp";
+		return "project.project";
 		
 	}
 	
@@ -74,7 +74,7 @@ public class ProjectController {
 		List<NeedField> list2 = needFieldDao.getNeedFields(c);
 		model.addAttribute("list2", list2);
 		
-		return "/WEB-INF/view/project/projectDetail.jsp";
+		return "project.projectDetail";
 	}
 	
 	@RequestMapping(value="projectDetail", method=RequestMethod.POST)
