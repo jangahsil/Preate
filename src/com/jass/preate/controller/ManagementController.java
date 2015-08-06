@@ -64,7 +64,7 @@ public class ManagementController {
 			
 			model.addAttribute("list",list);
 		}
-		return "/WEB-INF/view/management/memberManagement.jsp";
+		return "management.memberManagement";
 	}
 	
 	@RequestMapping(value="memberManagement",method=RequestMethod.POST)
@@ -74,7 +74,7 @@ public class ManagementController {
 		
 		model.addAttribute("list", list);
 		
-		return "/WEB-INF/view/management/memberManagement.jsp";
+		return "management.memberManagement";
 		
 	}
 	
@@ -115,7 +115,7 @@ public class ManagementController {
 			model.addAttribute("list",list);
 			
 		}
-				return "/WEB-INF/view/management/customerService.jsp";
+				return "management.customerService";
 	}
 		
 	@RequestMapping(value="customerService",method=RequestMethod.POST)
@@ -124,7 +124,7 @@ public class ManagementController {
 		List<CustomerService> list = customerService.getCustomerServices(1,field,query);
 		model.addAttribute("list",list);
 			
-				return "/WEB-INF/view/management/customerService.jsp";
+				return "management.customerService";
 	}
 		
 	/*----------------------------------공지 관리 컨트롤---------------------------*/
@@ -143,7 +143,7 @@ public class ManagementController {
 		model.addAttribute("list",list);
 		}
 		
-		return  "/WEB-INF/view/management/noticeManagement.jsp";
+		return  "management.noticeManagement";
 	}
 	
 
