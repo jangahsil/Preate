@@ -76,4 +76,9 @@ public class MyBatisProjectDao implements ProjectDao {
 				code);
 	}
 
+	@Override
+	public List<Project> getProjects() {
+		return getProjects(1, null, "");
+	}
+
 }

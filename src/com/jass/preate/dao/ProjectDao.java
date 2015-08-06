@@ -8,6 +8,8 @@ public interface ProjectDao {
 	
 	public Project getProject(String code);
 	
+	public List<Project> getProjects();
+	
 	public List<Project> getProjects(int page);
 	
 	public List<Project> getProjects(
