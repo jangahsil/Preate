@@ -18,10 +18,8 @@
 					<nav id="member-menu">
 						<h1 class="hidden">회원메뉴</h1>
 						<ul>
-							<li><a href="${ctxName}/myPage/login"
-								class="button login-button">로그인</a></li>
-							<li><a href="${ctxName}/myPage/joinBasic"
-								class="button join-button">회원가입</a></li>
+							<li><a href="${ctxName}/myPage/login" class="button login-button">로그인</a></li>
+							<li><a href="${ctxName}/myPage/join" class="button join-button">회원가입</a></li>
 							<li><a href="" class="button mypage-button">마이페이지</a></li>
 						</ul>
 					</nav>

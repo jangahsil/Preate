@@ -11,11 +11,11 @@
 				<nav>
 					<h1>가입순서</h1>
 					<ul>
-						<li><a href="join_basic.jsp">기본정보</a></li>
-						<li><a href="join_state.jsp">현황정보</a></li>
-						<li><a href="join_career.jsp">경력정보</a></li>
+						<li><a href="join_basic">기본정보</a></li>
+						<li><a href="join_state">현황정보</a></li>
+						<li><a href="join_career">경력정보</a></li>
 					</ul>
-				</nav>
+				</nav>S
 
 				<p>*:필수입력사항</p>
 

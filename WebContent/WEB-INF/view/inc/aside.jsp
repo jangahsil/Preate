@@ -30,7 +30,7 @@
 								게시판</a></li>
 					</ul>
 					<h1>
-						<a href="" class="button my-project-button">마이 프로젝트</a>
+						<a href="${ctxName}/myPage/Project" class="button my-project-button">마이 프로젝트</a>
 					</h1>
 					<h1>
 						<a href="" class="button advertise-button">제휴센터 소개</a>
