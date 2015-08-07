@@ -5,6 +5,10 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
 
+p{
+	margin-top: 15px;
+}
+
 #visual{
 	border: 1px solid red;
 	margin-left: 29px;
@@ -15,7 +19,7 @@
 
 #main-content section{
 	border: 1px solid blue;
-	width: 956px; /* 956-(29*2) */
+	width: 956px; 
 	margin-top: 24px;
 	margin-left: 29px;
 	margin-right: 29px;
@@ -29,21 +33,29 @@
 }
 
 #basic-info fieldset{
-	margin-top: 10px;
+	margin-top: 15px;
 	width: 449px;
 	float: left;
 }
 
 #current-info fieldset{
+	margin-top: 15px;
 	width: 449px;
 	float: left;
 }
 
 #career-info fieldset{
+	margin-top: 15px;
 	width: 449px;
 	float: left;
 }
 
+#career-info li{
+	width: 120px;
+	height: 15px;
+	margin-top: 3px;
+	float: left;
+}
 
 </style>
 		<main id="main">
@@ -187,114 +199,70 @@
 
 
 						<div id="career-info" class="clearfix"> 
+						
 						<p>경력정보</p>
 						
-						<table>
-							<thead>
-								<tr>
-									<th>개발</th>
-								</tr>
-							</thead>
+						<div>
+							<ul>
+								<li><input type="checkbox" value="DV13" name="fieldCode">NET</li>
+								<li><input type="checkbox" value="DV24" name="fieldCode">ABAP</li>
+								<li><input type="checkbox" value="DV02" name="fieldCode">ANDROID</li>
+								<li><input type="checkbox" value="DV03" name="fieldCode">ASP</li>
+								<li><input type="checkbox" value="DV04" name="fieldCode">ASP.NET</li>
 
-							<tbody>
-								<tr>
-									<td><input type="checkbox" value="DV13" name="fieldCode">NET
-										<input type="checkbox" value="DV24" name="fieldCode">ABAP
-										<input type="checkbox" value="DV02" name="fieldCode">ANDROID</td>
-								</tr>
+								<li><input type="checkbox" value="DV06" name="fieldCode">C</li>
+								<li><input type="checkbox" value="DV05" name="fieldCode">C#</li>
+								<li><input type="checkbox" value="DV07" name="fieldCode">C++ </li>
+								<li><input type="checkbox" value="DV08" name="fieldCode">COBOL</li>
+								<li><input type="checkbox" value="DV25" name="fieldCode">CSS</li>
 
-								<tr>
-									<td><input type="checkbox" value="DV03" name="fieldCode">ASP
-										<input type="checkbox" value="DV04" name="fieldCode">ASP.NET
-										<input type="checkbox" value="DV06" name="fieldCode">C</td>
-								</tr>
+								<li><input type="checkbox" value="DV09" name="fieldCode">DB </li>
+								<li><input type="checkbox" value="DV26" name="fieldCode">DELPH</li>
+								<li><input type="checkbox" value="DV27" name="fieldCode">HTML</li>
+								<li><input type="checkbox" value="DV28" name="fieldCode">IOS </li>
+								<li><input type="checkbox" value="DV01" name="fieldCode">JAVA</li>
 
-								<tr>
-									<td><input type="checkbox" value="DV05" name="fieldCode">C#
-										<input type="checkbox" value="DV07" name="fieldCode">C++ <input
-										type="checkbox" value="DV08" name="fieldCode">COBOL</td>
-								</tr>
+								<li><input type="checkbox" value="DV11" name="fieldCode">JSP</li>
+								<li><input type="checkbox" value="DV10" name="fieldCode">JS </li>
+								<li><input type="checkbox" value="DV12" name="fieldCode">LINUX</li>
+								<li><input type="checkbox" value="DV14" name="fieldCode">NEWTWORK</li>
+								<li><input type="checkbox" value="DV15" name="fieldCode">PHP</li>
 
-								<tr>
-									<td><input type="checkbox" value="DV25" name="fieldCode">CSS
-										<input type="checkbox" value="DV09" name="fieldCode">DB <input
-										type="checkbox" value="DV26" name="fieldCode">DELPHI</td>
-								</tr>
+								<li><input type="checkbox" value="DV16" name="fieldCode">POWER BUILDER</li>
+								<li><input type="checkbox" value="DV17" name="fieldCode">PYTHON</li>
+								<li><input type="checkbox" value="DV18" name="fieldCode">QA </li>
+								<li><input type="checkbox" value="DV19" name="fieldCode">RUBY</li>
+								<li><input type="checkbox" value="DV20" name="fieldCode">SERVER개발</li>
 
-								<tr>
-									<td><input type="checkbox" value="DV27" name="fieldCode">HTML
-										<input type="checkbox" value="DV28" name="fieldCode">IOS <input
-										type="checkbox" value="DV01" name="fieldCode">JAVA</td>
-								</tr>
+								<li><input type="checkbox" value="DV29" name="fieldCode">VB </li>
+								<li><input type="checkbox" value="DV21" name="code">VC++</li>
+								<li><input type="checkbox" value="DV22" name="fieldCode">WINDOWS</li>
+								<li><input type="checkbox" value="DV23" name="fieldCode">임베디드</li>
+							</ul>
+						</div>
 
-								<tr>
-									<td><input type="checkbox" value="DV11" name="fieldCode">JSP
-										<input type="checkbox" value="DV10" name="fieldCode">JS <input
-										type="checkbox" value="DV12" name="fieldCode">LINUX</td>
-								</tr>
+						<div>
+							<ul>
+								<li><input type="checkbox" value="DS02" name="code">HTML5</li>
+								<li><input type="checkbox" value="DS03" name="code">그래픽디자인</li>
+								<li><input type="checkbox" value="DS11" name="code">모바일</li>
+								<li><input type="checkbox" value="DS04" name="code">액션스크립트</li>
+								<li><input type="checkbox" value="DS05" name="code">웹디자인</li>
 
-								<tr>
-									<td><input type="checkbox" value="DV14" name="fieldCode">NEWTWORK
-										<input type="checkbox" value="DV15" name="fieldCode">PHP <input
-										type="checkbox" value="DV16" name="fieldCode">POWER BUILDER</td>
-								</tr>
+								<li><input type="checkbox" value="DS06" name="code">웹표준</li>
+								<li><input type="checkbox" value="DS07" name="code">파워포인트</li>
+								<li><input type="checkbox" value="DS08" name="code">퍼블리싱 </li>
+								<li><input type="checkbox" value="DS09" name="code">포토샵</li>
+								<li><input type="checkbox" value="DS10" name="code">플래시</li>
 
-								<tr>
-									<td><input type="checkbox" value="DV17" name="fieldCode">PYTHON
-										<input type="checkbox" value="DV18" name="fieldCode">QA <input
-										type="checkbox" value="DV19" name="fieldCode">RUBY</td>
-								</tr>
+								<li><input type="checkbox" value="DS01" name="code">3D</li>
+							</ul>
+						</div>
 
-								<tr>
-									<td><input type="checkbox" value="DV20" name="fieldCode">SERVER개발
-										<input type="checkbox" value="DV29" name="fieldCode">VB <input
-										type="checkbox" value="DV21" name="code">VC++</td>
-								</tr>
-
-								<tr>
-									<td><input type="checkbox" value="DV22" name="fieldCode">WINDOWS
-										<input type="checkbox" value="DV23" name="fieldCode">임베디드</td>
-								</tr>
-
-							</tbody>
-						</table>
-
-						<table>
-							<thead>
-								<tr>
-									<th>디자인/퍼블리싱</th>
-								</tr>
-							</thead>
-
-							<tbody>
-								<tr>
-									<td><input type="checkbox" value="DS02" name="code">HTML5
-										<input type="checkbox" value="DS03" name="code">그래픽디자인
-										<input type="checkbox" value="DS11" name="code">모바일</td>
-								</tr>
-
-								<tr>
-									<td><input type="checkbox" value="DS04" name="code">액션스크립트
-										<input type="checkbox" value="DS05" name="code">웹디자인 <input
-										type="checkbox" value="DS06" name="code">웹표준</td>
-								</tr>
-
-								<tr>
-									<td><input type="checkbox" value="DS07" name="code">파워포인트
-										<input type="checkbox" value="DS08" name="code">퍼블리싱 <input
-										type="checkbox" value="DS09" name="code">포토샵</td>
-								</tr>
-
-								<tr>
-									<td><input type="checkbox" value="DS10" name="code">플래시
-										<input type="checkbox" value="DS01" name="code">3D</td>
-								</tr>
-							</tbody>
-						</table>
 
 						<fieldset>
-							<label class="hidden">희망업무형태구분필드</label> <label>희망업무형태</label> <select
-								name="hopeBusiness">
+							<label class="hidden">희망업무형태구분필드</label> <label>희망업무형태</label> 
+							<select name="hopeBusiness">
 								<option value="구분">구분</option>
 								<option value="무관">무관</option>
 								<option value="재택">재택</option>
