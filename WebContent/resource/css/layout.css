@@ -94,7 +94,7 @@ body{
 }
 
 /* float 무효화 */
-.clearfix:after{ /* 내 자신중에 다음 자식 */
+.clearfix:after{ /* 내 자식중에 다음 자식 */
 	content: ".";
 	display: block;
 	clear: both;

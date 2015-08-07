@@ -3,73 +3,107 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<style>
 
-		<main>
-			<section>
-				<h1>회원가입내용</h1>
+#visual{
+	border: 1px solid red;
+	margin-left: 29px;
+	width: 956px;
+	height: 62px;
+	background: url("../resource/images/myPage/join-title.png") no-repeat center;
+}
 
-				<nav>
-					<h1>가입순서</h1>
-					<ul>
-						<li><a href="join_basic">기본정보</a></li>
-						<li><a href="join_state">현황정보</a></li>
-						<li><a href="join_career">경력정보</a></li>
-					</ul>
-				</nav>S
+#main-content section{
+	border: 1px solid blue;
+	width: 956px; /* 956-(29*2) */
+	margin-top: 24px;
+	margin-left: 29px;
+	margin-right: 29px;
+	padding-top: 0px;
+	padding-left: 0px;
+}
 
-				<p>*:필수입력사항</p>
+#join {
+	width: 1016px;
+	border: 1px solid red;
+}
 
-				<section>
+#basic-info fieldset{
+	margin-top: 10px;
+	width: 449px;
+	float: left;
+}
+
+#current-info fieldset{
+	width: 449px;
+	float: left;
+}
+
+#career-info fieldset{
+	width: 449px;
+	float: left;
+}
+
+
+</style>
+		<main id="main">
+			<section id="main-content">
+				<div id="visual"></div>
+				<h1 class="hidden">회원가입</h1>
+				
+				<section id="join">
 					<form method="post">
-						<h1>기본정보 페이지</h1>
-
+						<h1>회원가입정보</h1>
+						
+						<div id="basic-info" class="clearfix">
+							<p>기본 정보</p>
+							<p>*:필수입력사항</p>
 						<fieldset>
-							<legend>ID 입력란</legend>
-							<label>ID</label> <input type="text" name="mid" /> <input
-								type="submit" value="중복확인" />
+							<legend class="hidden">ID 입력란</legend>
+							<label>ID</label> 
+							<input type="text" name="mid" /> <input type="submit" value="중복확인" />
 						</fieldset>
 
-
 						<fieldset>
-							<legend>닉네임 입력란</legend>
+							<legend class="hidden">닉네임 입력란</legend>
 							<label>닉네임</label> <input type="text" name="nickName" /> <input
 								type="submit" value="중복확인" />
 						</fieldset>
 
-
 						<fieldset>
-							<legend>비밀번호 입력란</legend>
+							<legend class="hidden">비밀번호 입력란</legend>
 							<label>비밀번호</label> <input type="password" name="password" />
 						</fieldset>
 
 						<fieldset>
-							<legend>비밀번호 확인 입력란</legend>
+							<legend class="hidden">비밀번호 확인 입력란</legend>
 							<label>비밀번호 확인</label> <input type="password"
 								name="passwordCheck" />
 						</fieldset>
 
 						<fieldset>
-							<legend>성명 입력란</legend>
+							<legend class="hidden">성명 입력란</legend>
 							<label>성명</label> <input type="text" name="name" />
 						</fieldset>
 
 						<fieldset>
-							<legend>생년월일 및 성별 입력란</legend>
+							<legend class="hidden">생년월일 및 성별 입력란</legend>
 							<label>생년월일/성별</label> <input type="text" name="birth" /> <label>성별검색필드</label>
 							<select name="gender">
+								<option value="구분">구분</option>
 								<option value="남">남</option>
 								<option value="여">여</option>
 							</select>
 						</fieldset>
 
 						<fieldset>
-							<legend>전화번호 입력란</legend>
+							<legend class="hidden">전화번호 입력란</legend>
 							<label>전화번호</label> <input type="text" name="phone" /> <span>[대시(-)를
 								포함할 것: 예) 010-3456-2934]</span>
 						</fieldset>
 
 						<fieldset>
-							<legend>e-mail 입력란</legend>
+							<legend class="hidden">e-mail 입력란</legend>
 							<label>E-mail</label> <input type="text" name="eMail" />
 							<!-- 					<label>이메일검색필드</label> <select>
 						<option>naver.com</option>
@@ -91,7 +125,7 @@
 						</fieldset>
 
 						<fieldset>
-							<legend>홈페이지 주소 입력란</legend>
+							<legend class="hidden">홈페이지 주소 입력란</legend>
 							<label>홈페이지</label> <input type="text" name="homepage" />
 						</fieldset>
 
@@ -102,14 +136,19 @@
 				</fieldset> -->
 
 						<fieldset>
-							<legend>주소 입력란</legend>
-							<label>기본주소</label><input type="text" name="address" /> <label>상세주소</label><input
-								type="text" name="detailAddress" />
+							<legend class="hidden">주소 입력란</legend>
+							<label>기본주소</label><input type="text" name="address" /> 
+							<label>상세주소</label><input type="text" name="detailAddress" />
 						</fieldset>
-
+						</div>
+						
+						<div id="current-info" class="clearfix">
+						<p>현황 정보</p>
+						
 						<fieldset>
-							<label>현재상태</label> <label>현재상태구분필드</label> <select
+							<label class="hidden">현재상태구분필드</label> <label>현재상태</label> <select
 								name="currentState">
+								<option value="구분">구분</option>
 								<option value="재직">재직중</option>
 								<option value="재택">프리랜서[재택]</option>
 								<option value="상주">프리랜서[상주]</option>
@@ -125,8 +164,9 @@
 						</fieldset>
 
 						<fieldset>
-							<label>재학구분</label><label>재학구분필드</label> <select
+							<label class="hidden">재학구분필드</label><label>재학구분</label> <select
 								name="schoolState">
+								<option value="구분">구분</option>
 								<option value="재학">재학</option>
 								<option value="휴학">휴학</option>
 								<option value="졸업예정">졸업예정</option>
@@ -135,14 +175,20 @@
 						</fieldset>
 
 						<fieldset>
-							<label>학년</label> <label>학년구분필드</label> <select name="grade">
+							<label class="hidden">학년구분필드</label> <label>학년</label> <select name="grade">
+								<option value="구분">구분</option>
 								<option value="1">1학년</option>
 								<option value="2">2학년</option>
 								<option value="3">3학년</option>
 								<option value="4">4학년</option>
 							</select>
 						</fieldset>
+						</div>
 
+
+						<div id="career-info" class="clearfix"> 
+						<p>경력정보</p>
+						
 						<table>
 							<thead>
 								<tr>
@@ -247,8 +293,9 @@
 						</table>
 
 						<fieldset>
-							<label>희망업무형태</label> <label>희망업무형태구분필드</label> <select
+							<label class="hidden">희망업무형태구분필드</label> <label>희망업무형태</label> <select
 								name="hopeBusiness">
+								<option value="구분">구분</option>
 								<option value="무관">무관</option>
 								<option value="재택">재택</option>
 								<option value="반상주">반상주</option>
@@ -267,9 +314,10 @@
 						</fieldset>
 
 						<fieldset>
-							<legend>등록 버튼</legend>
+							<legend class="hidden">등록 버튼</legend>
 							<label>등록</label><input type="submit" value="등록" />
 						</fieldset>
+						</div>
 					</form>
 				</section>
 			</section>
