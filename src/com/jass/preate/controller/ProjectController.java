@@ -52,7 +52,7 @@ public class ProjectController {
 	}
 
 	@RequestMapping("project")
-	public String projectSearch(Model model) {
+	public String project(Model model) {
 
 		List<Project> list = projectDao.getProjects(1);
 		

@@ -49,9 +49,9 @@
 								<form>
 									<select>
 										<option>${p.joinCount}명지원</option>
-										<option>지원자1</option>
-										<option>지원자2</option>
-										<option>지원자3</option>
+										<c:forEach var="j" items="${p.joinRequest}">
+										<option>${j.mid}</option>
+										</c:forEach>
 									</select>
 								</form>
 							</td>
