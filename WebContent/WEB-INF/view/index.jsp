@@ -34,7 +34,7 @@
 						<tr>
 							<td>true</td>
 							<td>${p.code}</td>
-							<td><a href="project/projectDetail?c=${p.code}">${p.title}</a></td>
+							<td><a href="projectIndex/projectDetail?c=${p.code}">${p.title}</a></td>
 							<td>${p.writerName}</td>
 							<td>${p.classification}</td>
 							<td><fmt:formatDate value="${p.deadline}"

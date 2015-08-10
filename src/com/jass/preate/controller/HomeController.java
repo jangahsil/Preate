@@ -40,7 +40,7 @@ public class HomeController {
 	@RequestMapping("/index")
 	public String index(Model model) {
 
-		List<Project> list = projectDao.getProjects(1);		
+		List<Project> list = projectDao.getProjectsIndex(1);		
 		model.addAttribute("list", list);
 
 		List<Contest> list2 = contestDao.getContests(1);
