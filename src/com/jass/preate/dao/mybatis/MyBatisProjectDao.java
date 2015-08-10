@@ -80,38 +80,13 @@ public class MyBatisProjectDao implements ProjectDao {
 	public List<Project> getProjects() {
 		return getProjects(1, null, "");
 	}
-
-	@Override
-	public List<Project> getProjectsIndex() {
-		return getProjects(1, null, "");
-	}
-
-	@Override
-	public List<Project> getProjectsIndex(int page) {
-		return getProjects(page, null, "");
-	}
-
-	@Override
-	public List<Project> getProjectsIndex(int page, String category) {
-		return getProjects(page, category, "");
-	}
 	
 	@Override
-	public List<Project> getProjectsIndex(int page, String category, String query) {
+	public List<Project> getProjectsIndex(int page) {
 
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("page", page);
-		params.put("category", category);
-		params.put("query", query);
 
-		List<Project> list = session.selectList("getProjectsIndex", params);
-
-		for (Project p : list) {
-			List<JoinRequest> list2 = session.selectList("getJoinRequests",
-					p.getCode());
-			p.setJoinRequest(list2);
-		}
-
-		return list;
+		return session.selectList("getProjectsIndex", params);
 	}
 }
