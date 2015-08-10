@@ -3,17 +3,107 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
+<style>
 
-	<main>
-		<section>
-			<h1>포트폴리오</h1>
+#visual {
+	/* border: 1px solid blue; /*여기*/ 
+	margin-left: 29px;
+	width: 956px;
+	height: 62px;
+	background: url("../resource/images/portfolio/portfolio-title.png")
+		no-repeat center;
+} 
+
+
+/*-------------------------버튼------------------------------------*/
+
+.portfolio-btn-search {
+	width: 44px;
+	height: 24px;
+	background: url("../resource/images/portfolio/portfolio-btn-search.png")
+		no-repeat center;
+}
+
+.reg-button {
+	width:54px;
+	height:23px;
+	background: url("../resource/images/btn-reg.png")
+			no-repeat center;
+			float:left;
+
+}
+
+
+.list-button {
+	width:54px;
+	height:23px;
+	background: url("../resource/images/btn-list.png")
+			no-repeat center;
+
+}
+
+/*-------------------------------------------------------------------*/
+
+
+/*------------------------포트폴리오 목록 테이블 부분------------------------------------*/
+#portfolio-table table {
+	/* width: inherit; */
+	width: 956px;
+	/* border: 1px solid red; /*여기*/
+}
+
+#portfolio-table tr {
+	float: left;    /*float:left옵션을 tr에 준다*/
+}
+
+#portfolio-table td {
+/* 	border: 1px solid green; /*여기*/ 
+	width: 276px;
+	display: inline-block;
+	padding: 20px;
+	text-align: center;
+	height: 220px;
+	line-height: 20px;
+	background: url("../resource/images/portfolio/portfolio-contents-image.png")
+		no-repeat center;
+}
+/*---------------------------------------------------------------------------*/
+
+/*---------------------------------페이지-------------------------------------*/
+#pager{
+	margin-top: 10px;
+	text-align: center;
+	font-size: 15px;
+}
+#pager div{
+	display: inline-block;
+}
+#pager li{
+	float: left;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+#pager li:FIRST-CHILD a{
+	font-weight: bold;
+}
+/*----------------------------------------------------------------------------*/
+
+
+</style>
+
+	<main id="main">
+		<div id="visual"></div>
+		<section id="main-content">
+			<h1 class="hidden">포트폴리오</h1>
 	
-			<section>
-				<h1>포트폴리오 분야 검색</h1>
+			<section class="search-form">
+				<h1 class="hidden">포트폴리오 분야 검색</h1>
 				<form>
 					<fieldset>
-						<legend>분야정보</legend>
-						<label>검색필드</label> 
+						<legend class=hidden>분야정보</legend>
+						<label class="hidden">검색필드</label> 
 						<select>
 							<option>IOS</option>
 							<option>Android</option>
@@ -32,65 +122,65 @@
 							<option>GIS</option>
 							<option>기타</option>
 						</select> 
-						<label>검색어</label> 
+						<label class="hidden">검색어</label> 
 						<input type="text" /> 
-						<input type="submit" value="검색" />
+						<input class="button portfolio-btn-search" type="submit" value="검색" />
 					</fieldset>
 				</form>
 			</section>
 	
-			<section>
-				<h1>포트폴리오 목록</h1>
+			<section id="portfolio-table">
+				<h1 class="hidden">포트폴리오 목록</h1>
 				
 				<table>
-					<thead>
-						<tr>
-							<th>이미지</th>
-							<th>제 목</th>
-							<th>작성일</th>
-							<th>작성자</th>
+					<thead class="hidden">
+						<tr class="hidden">
+							<th class="hidden">이미지</th>
+							<th class="hidden">제 목</th>
+							<th class="hidden">작성일</th>
+							<th class="hidden">작성자</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="p" items="${list}">
 						<tr>
-							<td><a href="portfolioImage"><img src="../images/.png" alt="images"></a></td>
-							<td><a href="portfolioImage">${p.title}</a></td>
-							<td>
-								<fmt:formatDate value="${p.regDate}" pattern="yyyy-MM-dd"/>
-							</td>
-							<td><a href="portfolioDetail?c=${p.code}&mid=${p.writer}">${p.writerName}</a></td> 
+						<td>
+							<a id=image href="portfolioImage"><img src="../images/.png" alt="images"></a>
+							<br><br><br><br><br><br><br><br>
+							<a href="portfolioImage">${p.title}</a>
+							<br>
+							<fmt:formatDate value="${p.regDate}" pattern="yyyy-MM-dd"/>
+							<br>
+							<a href="portfolioDetail?c=${p.code}&mid=${p.writer}">${p.writerName}</a>
+						</td>
 						</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 			</section>
 	
-			<nav>
-				<h1>페이지</h1>
+			<section id="button-list">
+				<h1 class="hidden">버튼 목록</h1>
+				<ul>
+					<!-- <li><input type="submit" value="등록" /></li> 
+					<li><input type="submit" value="목록" /></li>-->
+					<li><a href="portfolioReg" class="button reg-button">등록</a></li>
+					<li><a href="portfolio" class="button list-button">목록</a></li>
+				</ul>
+			</section>
+			
+			<nav id="pager">
+				<div>
+				<h1 class="hidden">페이지</h1>
 				<ul>
 					<li><a href="">1</a></li>
 					<li><a href="">2</a></li>
 					<li><a href="">3</a></li>
 					<li><a href="">4</a></li>
 					<li><a href="">5</a></li>
-					<li><a href="">6</a></li>
-					<li><a href="">7</a></li>
-					<li><a href="">8</a></li>
-					<li><a href="">9</a></li>
-					<li><a href="">10</a></li>
 				</ul>
+				</div>
 			</nav>
-			
-			<section>
-				<h1>버튼 목록</h1>
-				<ul>
-					<!-- <li><input type="submit" value="등록" /></li> 
-					<li><input type="submit" value="목록" /></li>-->
-					<li><a href="portfolioReg">등록</a></li>
-					<li><a href="portfolio">목록</a></li>
-				</ul>
-			</section>
 			
 		</section>
 		</main>
