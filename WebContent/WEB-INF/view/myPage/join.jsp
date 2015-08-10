@@ -5,20 +5,42 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
 
+
+/* ------------------------------ 전체가 공유하는 부분 설정  ------------------------------ */
 p{
 	margin-top: 15px;
 }
 
+#main-content  input[type="text"]{
+	width: 90px;
+}
+
+/* 기본정보, 현재상태, 경력정보 이미지 부분 */
+.sub-title-visual{
+	width: 645px;
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+label{
+	margin-left: 60px;
+	display: inline-block;
+	text-align: center;
+	width: 70px;
+}
+
+/* ------------------------------ title image ------------------------------ */
 #visual{
-	border: 1px solid red;
 	margin-left: 29px;
 	width: 956px;
 	height: 62px;
 	background: url("../resource/images/myPage/join-title.png") no-repeat center;
 }
 
+/* ------------------------------ main section ------------------------------ */
 #main-content section{
-	border: 1px solid blue;
 	width: 956px; 
 	margin-top: 24px;
 	margin-left: 29px;
@@ -27,9 +49,15 @@ p{
 	padding-left: 0px;
 }
 
+/* -------------------- main-content 영역 중, image 영역을 제외한 아래 영역 -------------------- */
 #join {
 	width: 1016px;
-	border: 1px solid red;
+}
+
+/* ------------------------------ 기본 정보 부분 ------------------------------ */
+#basic-info{
+	width: 956px;
+	height: 280px;
 }
 
 #basic-info fieldset{
@@ -38,10 +66,40 @@ p{
 	float: left;
 }
 
+#basic-info > div:FIRST-CHILD {
+	background: url("../resource/images/myPage/join-basicinform.png") no-repeat center;
+}
+
+#address input[type="text"]{
+	width: 300px;
+}
+
+#home-page input[type="text"]{
+	width: 300px;
+}
+
+/* ------------------------------ 현재 상태 부분 ------------------------------ */
+
+#current-info{
+	width: 956px;
+	height: 150px;
+}
+
 #current-info fieldset{
 	margin-top: 15px;
 	width: 449px;
 	float: left;
+}
+
+#current-info > div:FIRST-CHILD {
+	background: url("../resource/images/myPage/join-currentinform.png") no-repeat center;
+}
+
+/* ------------------------------ 경력 정보 부분 ------------------------------ */
+
+#career-info{
+	width: 956px;
+	height: 300px;
 }
 
 #career-info fieldset{
@@ -50,12 +108,53 @@ p{
 	float: left;
 }
 
+.check-box{
+	margin-top: 20px;
+}
+
 #career-info li{
 	width: 120px;
 	height: 15px;
 	margin-top: 3px;
+	margin-left: 60px;
 	float: left;
 }
+
+#career-year input[type="text"]{
+	width: 40px;
+}
+
+#career-info > div:FIRST-CHILD {
+	background: url("../resource/images/myPage/join-careerinform.png") no-repeat center;
+}
+
+/* ------------------------------ 버튼 부분 ------------------------------ */
+
+.submit-button label{
+	margin-left: 300px;
+}
+
+.cancel-button label{
+	margin-left: -50px;
+}
+
+.submit-button input[type="submit"]{
+	width: 54px;
+	height: 23px;
+	margin-left: auto;
+	margin-right: auto;
+	background: url("../resource/images/myPage/join-btn-join.png") no-repeat center;
+}
+
+.cancel-button input[type="submit"]{
+	width: 54px;
+	height: 23px;	
+	margin-left: auto;
+	margin-right: auto;
+	background: url("../resource/images/myPage/join-btn-cancel.png") no-repeat center;
+}
+
+
 
 </style>
 		<main id="main">
@@ -67,40 +166,42 @@ p{
 					<form method="post">
 						<h1>회원가입정보</h1>
 						
-						<div id="basic-info" class="clearfix">
-							<p>기본 정보</p>
+						<div id="basic-info" class="clearfix info-box">
+							<div class="sub-title-visual"></div>
+							<p class="hidden">기본 정보</p>
 							<p>*:필수입력사항</p>
-						<fieldset>
+						<fieldset id="id">
 							<legend class="hidden">ID 입력란</legend>
 							<label>ID</label> 
 							<input type="text" name="mid" /> <input type="submit" value="중복확인" />
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="nick-name">
 							<legend class="hidden">닉네임 입력란</legend>
 							<label>닉네임</label> <input type="text" name="nickName" /> <input
 								type="submit" value="중복확인" />
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="password">
 							<legend class="hidden">비밀번호 입력란</legend>
 							<label>비밀번호</label> <input type="password" name="password" />
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="password-check">
 							<legend class="hidden">비밀번호 확인 입력란</legend>
 							<label>비밀번호 확인</label> <input type="password"
 								name="passwordCheck" />
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="name">
 							<legend class="hidden">성명 입력란</legend>
 							<label>성명</label> <input type="text" name="name" />
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="birth">
 							<legend class="hidden">생년월일 및 성별 입력란</legend>
-							<label>생년월일/성별</label> <input type="text" name="birth" /> <label>성별검색필드</label>
+							<label>생년월일/성별</label> <input type="text" name="birth" /> 
+							<label>성별검색필드</label>
 							<select name="gender">
 								<option value="구분">구분</option>
 								<option value="남">남</option>
@@ -108,13 +209,13 @@ p{
 							</select>
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="phone">
 							<legend class="hidden">전화번호 입력란</legend>
-							<label>전화번호</label> <input type="text" name="phone" /> <span>[대시(-)를
-								포함할 것: 예) 010-3456-2934]</span>
+							<label>전화번호</label> <input type="text" name="phone" /> 
+							<span>[대시(-)를 포함할 것: 예) 010-3456-2934]</span>
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="e-mail">
 							<legend class="hidden">e-mail 입력란</legend>
 							<label>E-mail</label> <input type="text" name="eMail" />
 							<!-- 					<label>이메일검색필드</label> <select>
@@ -136,7 +237,7 @@ p{
 					</select> -->
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="home-page">
 							<legend class="hidden">홈페이지 주소 입력란</legend>
 							<label>홈페이지</label> <input type="text" name="homepage" />
 						</fieldset>
@@ -147,19 +248,22 @@ p{
 					<input type="submit" value="우편번호검색" />
 				</fieldset> -->
 
-						<fieldset>
+						<fieldset id="address">
 							<legend class="hidden">주소 입력란</legend>
 							<label>기본주소</label><input type="text" name="address" /> 
+							<br><br>
 							<label>상세주소</label><input type="text" name="detailAddress" />
 						</fieldset>
 						</div>
 						
-						<div id="current-info" class="clearfix">
-						<p>현황 정보</p>
+						<div id="current-info" class="clearfix info-box">
+						<div class="sub-title-visual"></div>
+						<p class="hidden">현황 정보</p>
 						
-						<fieldset>
-							<label class="hidden">현재상태구분필드</label> <label>현재상태</label> <select
-								name="currentState">
+						<fieldset id="current-state">
+							<legend class="hidden">현재상태구분필드</legend> 
+							<label>현재상태</label> 
+							<select name="currentState">
 								<option value="구분">구분</option>
 								<option value="재직">재직중</option>
 								<option value="재택">프리랜서[재택]</option>
@@ -167,17 +271,18 @@ p{
 							</select>
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="university-name">
 							<label>학교명</label> <input type="text" name="universityName">
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="major">
 							<label>전공명</label> <input type="text" name="major">
 						</fieldset>
 
-						<fieldset>
-							<label class="hidden">재학구분필드</label><label>재학구분</label> <select
-								name="schoolState">
+						<fieldset id="school-state">
+							<legend class="hidden">재학구분필드</legend>
+							<label>재학구분</label> 
+							<select name="schoolState">
 								<option value="구분">구분</option>
 								<option value="재학">재학</option>
 								<option value="휴학">휴학</option>
@@ -186,8 +291,8 @@ p{
 							</select>
 						</fieldset>
 
-						<fieldset>
-							<label class="hidden">학년구분필드</label> <label>학년</label> <select name="grade">
+						<fieldset id="grade">
+							<legend class="hidden">학년구분필드</legend> <label>학년</label> <select name="grade">
 								<option value="구분">구분</option>
 								<option value="1">1학년</option>
 								<option value="2">2학년</option>
@@ -198,11 +303,11 @@ p{
 						</div>
 
 
-						<div id="career-info" class="clearfix"> 
+						<div id="career-info" class="clearfix info-box"> 
+						<div class="sub-title-visual"></div>
+						<p class="hidden">경력정보</p>
 						
-						<p>경력정보</p>
-						
-						<div>
+						<div class="check-box" class="clearfix">
 							<ul>
 								<li><input type="checkbox" value="DV13" name="fieldCode">NET</li>
 								<li><input type="checkbox" value="DV24" name="fieldCode">ABAP</li>
@@ -241,7 +346,7 @@ p{
 							</ul>
 						</div>
 
-						<div>
+						<div id="check-box" class="clearfix">
 							<ul>
 								<li><input type="checkbox" value="DS02" name="code">HTML5</li>
 								<li><input type="checkbox" value="DS03" name="code">그래픽디자인</li>
@@ -260,8 +365,8 @@ p{
 						</div>
 
 
-						<fieldset>
-							<label class="hidden">희망업무형태구분필드</label> <label>희망업무형태</label> 
+						<fieldset id="hope-business">
+							<legend class="hidden">희망업무형태구분필드</legend> <label>희망업무형태</label> 
 							<select name="hopeBusiness">
 								<option value="구분">구분</option>
 								<option value="무관">무관</option>
@@ -272,18 +377,25 @@ p{
 							</select>
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="career-year">
 							<label>경력년수</label> <input type="text" name="careerYear" />년<input
 								type="text" />개월
 						</fieldset>
 
-						<fieldset>
+						<fieldset id="career">
 							<label>기타경력사항</label> <input type="text" name="career" />
 						</fieldset>
 
-						<fieldset>
+						<fieldset class="submit-button">
 							<legend class="hidden">등록 버튼</legend>
-							<label>등록</label><input type="submit" value="등록" />
+							<label class="button">등록</label>
+							<input class="button" type="submit" value="등록" />
+						</fieldset>
+						
+						<fieldset class="cancel-button">
+							<legend class="hidden">취소 버튼</legend>
+							<label class="button">취소</label>
+							<input class="button" type="submit" value="취소" />
 						</fieldset>
 						</div>
 					</form>
