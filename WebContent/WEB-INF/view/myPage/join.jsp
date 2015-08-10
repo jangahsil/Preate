@@ -11,6 +11,13 @@ p{
 	margin-top: 15px;
 }
 
+label{
+	margin-left: 60px;
+	display: inline-block;
+	text-align: center;
+	width: 70px;
+}
+
 #main-content  input[type="text"]{
 	width: 90px;
 }
@@ -24,12 +31,7 @@ p{
 }
 
 
-label{
-	margin-left: 60px;
-	display: inline-block;
-	text-align: center;
-	width: 70px;
-}
+
 
 /* ------------------------------ title image ------------------------------ */
 #visual{
@@ -57,7 +59,7 @@ label{
 /* ------------------------------ 기본 정보 부분 ------------------------------ */
 #basic-info{
 	width: 956px;
-	height: 280px;
+	height: 250px;
 }
 
 #basic-info fieldset{
@@ -67,6 +69,7 @@ label{
 }
 
 #basic-info > div:FIRST-CHILD {
+	width: 956px;
 	background: url("../resource/images/myPage/join-basicinform.png") no-repeat center;
 }
 
@@ -76,6 +79,26 @@ label{
 
 #home-page input[type="text"]{
 	width: 300px;
+}
+
+#basic-info p{
+	width:
+}
+
+#id input[type="submit"]{
+	width: 54px;
+	height: 23px;
+	margin-left: auto;
+	margin-right: auto;
+	background: url("../resource/images/myPage/btn-overlap.png") no-repeat center;
+}
+
+#nick-name input[type="submit"]{
+	width: 54px;
+	height: 23px;
+	margin-left: auto;
+	margin-right: auto;
+	background: url("../resource/images/myPage/btn-overlap.png") no-repeat center;
 }
 
 /* ------------------------------ 현재 상태 부분 ------------------------------ */
@@ -92,6 +115,7 @@ label{
 }
 
 #current-info > div:FIRST-CHILD {
+	width: 956px;
 	background: url("../resource/images/myPage/join-currentinform.png") no-repeat center;
 }
 
@@ -125,36 +149,35 @@ label{
 }
 
 #career-info > div:FIRST-CHILD {
+	width: 956px;
 	background: url("../resource/images/myPage/join-careerinform.png") no-repeat center;
 }
 
 /* ------------------------------ 버튼 부분 ------------------------------ */
 
-.submit-button label{
-	margin-left: 300px;
-}
-
 .cancel-button label{
-	margin-left: -50px;
+	margin-left: 0px;
 }
 
-.submit-button input[type="submit"]{
-	width: 54px;
-	height: 23px;
-	margin-left: auto;
-	margin-right: auto;
-	background: url("../resource/images/myPage/join-btn-join.png") no-repeat center;
+.submit-button label{
+	margin-left: 320px;
 }
 
 .cancel-button input[type="submit"]{
 	width: 54px;
-	height: 23px;	
+	height: 23px;
 	margin-left: auto;
 	margin-right: auto;
 	background: url("../resource/images/myPage/join-btn-cancel.png") no-repeat center;
 }
 
-
+ .submit-button input[type="submit"]{
+	width: 54px;
+	height: 23px;	
+	margin-left: auto;
+	margin-right: auto;
+	background: url("../resource/images/myPage/join-btn-join.png") no-repeat center;
+}
 
 </style>
 		<main id="main">
@@ -164,22 +187,21 @@ label{
 				
 				<section id="join">
 					<form method="post">
-						<h1>회원가입정보</h1>
+						<h1 class="hidden">회원가입정보</h1>
 						
 						<div id="basic-info" class="clearfix info-box">
 							<div class="sub-title-visual"></div>
 							<p class="hidden">기본 정보</p>
-							<p>*:필수입력사항</p>
 						<fieldset id="id">
 							<legend class="hidden">ID 입력란</legend>
 							<label>ID</label> 
-							<input type="text" name="mid" /> <input type="submit" value="중복확인" />
+							<input type="text" name="mid" /> <input type="submit" class="button" value="중복확인" />
 						</fieldset>
 
 						<fieldset id="nick-name">
 							<legend class="hidden">닉네임 입력란</legend>
 							<label>닉네임</label> <input type="text" name="nickName" /> <input
-								type="submit" value="중복확인" />
+								type="submit" class="button" value="중복확인" />
 						</fieldset>
 
 						<fieldset id="password">
@@ -309,58 +331,58 @@ label{
 						
 						<div class="check-box" class="clearfix">
 							<ul>
-								<li><input type="checkbox" value="DV13" name="fieldCode">NET</li>
-								<li><input type="checkbox" value="DV24" name="fieldCode">ABAP</li>
-								<li><input type="checkbox" value="DV02" name="fieldCode">ANDROID</li>
-								<li><input type="checkbox" value="DV03" name="fieldCode">ASP</li>
-								<li><input type="checkbox" value="DV04" name="fieldCode">ASP.NET</li>
+								<li><input type="checkbox" value="DV13" name="fieldCode"> NET</li>
+								<li><input type="checkbox" value="DV24" name="fieldCode"> ABAP</li>
+								<li><input type="checkbox" value="DV02" name="fieldCode"> ANDROID</li>
+								<li><input type="checkbox" value="DV03" name="fieldCode"> ASP</li>
+								<li><input type="checkbox" value="DV04" name="fieldCode"> ASP.NET</li>
 
-								<li><input type="checkbox" value="DV06" name="fieldCode">C</li>
-								<li><input type="checkbox" value="DV05" name="fieldCode">C#</li>
-								<li><input type="checkbox" value="DV07" name="fieldCode">C++ </li>
-								<li><input type="checkbox" value="DV08" name="fieldCode">COBOL</li>
-								<li><input type="checkbox" value="DV25" name="fieldCode">CSS</li>
+								<li><input type="checkbox" value="DV06" name="fieldCode"> C</li>
+								<li><input type="checkbox" value="DV05" name="fieldCode"> C#</li>
+								<li><input type="checkbox" value="DV07" name="fieldCode"> C++ </li>
+								<li><input type="checkbox" value="DV08" name="fieldCode"> COBOL</li>
+								<li><input type="checkbox" value="DV25" name="fieldCode"> CSS</li>
 
-								<li><input type="checkbox" value="DV09" name="fieldCode">DB </li>
-								<li><input type="checkbox" value="DV26" name="fieldCode">DELPH</li>
-								<li><input type="checkbox" value="DV27" name="fieldCode">HTML</li>
-								<li><input type="checkbox" value="DV28" name="fieldCode">IOS </li>
-								<li><input type="checkbox" value="DV01" name="fieldCode">JAVA</li>
+								<li><input type="checkbox" value="DV09" name="fieldCode"> DB </li>
+								<li><input type="checkbox" value="DV26" name="fieldCode"> DELPH</li>
+								<li><input type="checkbox" value="DV27" name="fieldCode"> HTML</li>
+								<li><input type="checkbox" value="DV28" name="fieldCode"> IOS </li>
+								<li><input type="checkbox" value="DV01" name="fieldCode"> JAVA</li>
 
-								<li><input type="checkbox" value="DV11" name="fieldCode">JSP</li>
-								<li><input type="checkbox" value="DV10" name="fieldCode">JS </li>
-								<li><input type="checkbox" value="DV12" name="fieldCode">LINUX</li>
-								<li><input type="checkbox" value="DV14" name="fieldCode">NEWTWORK</li>
-								<li><input type="checkbox" value="DV15" name="fieldCode">PHP</li>
+								<li><input type="checkbox" value="DV11" name="fieldCode"> JSP</li>
+								<li><input type="checkbox" value="DV10" name="fieldCode"> JS </li>
+								<li><input type="checkbox" value="DV12" name="fieldCode"> LINUX</li>
+								<li><input type="checkbox" value="DV14" name="fieldCode"> NEWTWORK</li>
+								<li><input type="checkbox" value="DV15" name="fieldCode"> PHP</li>
 
-								<li><input type="checkbox" value="DV16" name="fieldCode">POWER BUILDER</li>
-								<li><input type="checkbox" value="DV17" name="fieldCode">PYTHON</li>
-								<li><input type="checkbox" value="DV18" name="fieldCode">QA </li>
-								<li><input type="checkbox" value="DV19" name="fieldCode">RUBY</li>
-								<li><input type="checkbox" value="DV20" name="fieldCode">SERVER개발</li>
+								<li><input type="checkbox" value="DV16" name="fieldCode"> POWER BUILDER</li>
+								<li><input type="checkbox" value="DV17" name="fieldCode"> PYTHON</li>
+								<li><input type="checkbox" value="DV18" name="fieldCode"> QA </li>
+								<li><input type="checkbox" value="DV19" name="fieldCode"> RUBY</li>
+								<li><input type="checkbox" value="DV20" name="fieldCode"> SERVER개발</li>
 
-								<li><input type="checkbox" value="DV29" name="fieldCode">VB </li>
-								<li><input type="checkbox" value="DV21" name="code">VC++</li>
-								<li><input type="checkbox" value="DV22" name="fieldCode">WINDOWS</li>
-								<li><input type="checkbox" value="DV23" name="fieldCode">임베디드</li>
+								<li><input type="checkbox" value="DV29" name="fieldCode"> VB </li>
+								<li><input type="checkbox" value="DV21" name="code"> VC++</li>
+								<li><input type="checkbox" value="DV22" name="fieldCode"> WINDOWS</li>
+								<li><input type="checkbox" value="DV23" name="fieldCode"> 임베디드</li>
 							</ul>
 						</div>
 
 						<div id="check-box" class="clearfix">
 							<ul>
-								<li><input type="checkbox" value="DS02" name="code">HTML5</li>
-								<li><input type="checkbox" value="DS03" name="code">그래픽디자인</li>
-								<li><input type="checkbox" value="DS11" name="code">모바일</li>
-								<li><input type="checkbox" value="DS04" name="code">액션스크립트</li>
-								<li><input type="checkbox" value="DS05" name="code">웹디자인</li>
+								<li><input type="checkbox" value="DS02" name="code"> HTML5</li>
+								<li><input type="checkbox" value="DS03" name="code"> 그래픽디자인</li>
+								<li><input type="checkbox" value="DS11" name="code"> 모바일</li>
+								<li><input type="checkbox" value="DS04" name="code"> 액션스크립트</li>
+								<li><input type="checkbox" value="DS05" name="code"> 웹디자인</li>
 
-								<li><input type="checkbox" value="DS06" name="code">웹표준</li>
-								<li><input type="checkbox" value="DS07" name="code">파워포인트</li>
-								<li><input type="checkbox" value="DS08" name="code">퍼블리싱 </li>
-								<li><input type="checkbox" value="DS09" name="code">포토샵</li>
-								<li><input type="checkbox" value="DS10" name="code">플래시</li>
+								<li><input type="checkbox" value="DS06" name="code"> 웹표준</li>
+								<li><input type="checkbox" value="DS07" name="code"> 파워포인트</li>
+								<li><input type="checkbox" value="DS08" name="code"> 퍼블리싱 </li>
+								<li><input type="checkbox" value="DS09" name="code"> 포토샵</li>
+								<li><input type="checkbox" value="DS10" name="code"> 플래시</li>
 
-								<li><input type="checkbox" value="DS01" name="code">3D</li>
+								<li><input type="checkbox" value="DS01" name="code"> 3D</li>
 							</ul>
 						</div>
 
@@ -378,12 +400,11 @@ label{
 						</fieldset>
 
 						<fieldset id="career-year">
-							<label>경력년수</label> <input type="text" name="careerYear" />년<input
-								type="text" />개월
+							<label>경력년수</label> <input type="text" name="careerYear" /> 년 <input
+								type="text" /> 개월
 						</fieldset>
-
-						<fieldset id="career">
-							<label>기타경력사항</label> <input type="text" name="career" />
+						
+						<fieldset>
 						</fieldset>
 
 						<fieldset class="submit-button">
@@ -397,6 +418,7 @@ label{
 							<label class="button">취소</label>
 							<input class="button" type="submit" value="취소" />
 						</fieldset>
+						
 						</div>
 					</form>
 				</section>
