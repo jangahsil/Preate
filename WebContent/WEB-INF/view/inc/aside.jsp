@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
  
 			<aside id="aside">
@@ -39,7 +38,11 @@
 						<a href="" class="button customer-qna-button">고객문의</a>
 					</h1>
 					<h1>
-						<a href="${ctxName}/management/memberManagement" class="button management-button">관리자 메뉴</a>
+						<security:authorize ifAnyGranted="ROLE_ADMIN">
+						<a href="${ctxName}/management/memberManagement" 
+						class="button management-button">
+						관리자 메뉴</a>
+						</security:authorize>
 					</h1>
 				</nav>
 			</aside>

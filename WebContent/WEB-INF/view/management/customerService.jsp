@@ -1,31 +1,36 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link href="../resource/css/management/title.css" rel="stylesheet" type="text/css" />
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <script type="text/javascript" src="../js/modernizr.js"></script>
+<style>
 
+	
+</style>
 	<main id="main">
 	<section id="main-content">
 		<h1 class="hidden">고객문의관리창</h1>
+		<p class="manage-title"></p>
+		<div id="contents">
 		<p>관리</p>
 		<p>원하는 관리 메뉴를 선택하세요</p>
 
 		<nav>
-			<h1>관리 메뉴</h1>
-			<ul>
-				<li><a href="">회원관리</a></li>
-				<li><a href="">게시글관리</a></li>
-				<li><a href="">제휴업체 관리</a></li>
-				<li><a href="">공지 관리</a></li>
-				<li><a href="">고객문의</a></li>
+			<h1 class="hidden">관리 메뉴</h1>
+			<ul class="ma-menu clearfix">
+				<li><a href="${ctxName}/management/memberManagement">회원관리</a></li>
+				<li><a href="${ctxName}/management/noticeManagement">공지 관리</a></li>
+				<li class="select">고객문의</a></li>
+				<li>제휴업체 관리</li>
 			</ul>
 		</nav>
 		
 		<section>
 			<h1 class="hidden">검색폼</h1>
-			<form method="post">
+			<form class="s-form clearfix" method="post">
 					<select name="field">
 						<option value="title">제목</option>
 						<option value="writer">작성자</option>
@@ -77,7 +82,7 @@
 	
 		<section>
 			<h3 class="hidden">페이지</h3>
-			<ul>
+			<ul class="pager">
 				<li><a href="customerService?page=1">1</a></li>
 				<li><a href="customerService?page=2">2</a></li>
 				<li><a href="customerService?page=3">3</a></li>
@@ -85,6 +90,7 @@
 				<li><a href="customerService?page=5">5</a></li>
 			</ul>
 		</section>
+		</div>
 	</section>
 			</main>
 		</div>

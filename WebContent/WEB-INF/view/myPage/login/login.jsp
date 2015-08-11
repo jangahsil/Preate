@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -13,10 +14,6 @@
 	background: white;
 }
 
-#login {
-	width: 956px;
-	height: 700px;
-}
 
 #login-field {
 	margin-left: 240px;
@@ -112,7 +109,20 @@
 	height: 25px;
 }
 
+#login {
+	width: 956px;
+	height: 700px;
+}
 </style>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 
 <main id="main">
 <section id="main-content">

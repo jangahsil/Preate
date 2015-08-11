@@ -2,8 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="ctxName" value="${pageContext.request.contextPath}" />
+<script type="text/javascript">
 
+</script>
+<c:set var="ctxName" value="${pageContext.request.contextPath}" />
 <main id="main">
 	<div id="visual"></div>
 	<section id="main-content">
@@ -14,10 +16,10 @@
 			<table>
 				<thead>
 					<tr>
-						<th>스크랩</th>
-						<th>번호</th>
+<!-- 						<th>스크랩</th>
+						<th>번호</th> -->
 						<th>제목</th>
-						<th>작성자</th>
+<!-- 						<th>작성자</th> -->
 						<th>모집분야</th>
 						<th>남은날짜</th>
 						<th>기획상태</th>
@@ -25,17 +27,17 @@
 						<th>예상비용</th>
 						<th>지역1</th>
 						<th>지역2</th>
-						<th>내용</th>
-						<th>지원자</th>
+<!-- 						<th>내용</th> -->
+						<!-- <th>지원자</th> -->
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="p" items="${list}">
 						<tr>
-							<td>true</td>
-							<td>${p.code}</td>
-							<td><a href="project/projectDetail?c=${p.code}">${p.title}</a></td>
-							<td>${p.writerName}</td>
+<%-- 							<td>true</td>
+							<td>${p.code}</td> --%>
+							<td><a href="projectIndex/projectDetail?c=${p.code}">${p.title}</a></td>
+<%-- 							<td>${p.writerName}</td> --%>
 							<td>${p.classification}</td>
 							<td><fmt:formatDate value="${p.deadline}"
 									pattern="yyyy-MM-dd" /></td>
@@ -44,16 +46,16 @@
 							<td>${p.budget}원</td>
 							<td>${p.area1_1}${p.area1_2}</td>
 							<td>${p.area2_1}${p.area2_2}</td>
-							<td>${p.content}</td>
+<%-- 							<td>${p.content}</td> --%>
 							<td>
-								<form>
+<%-- 								<form>
 									<select>
 										<option>${p.joinCount}명지원</option>
 										<c:forEach var="j" items="${p.joinRequest}">
 										<option>${j.mid}</option>
 										</c:forEach>
 									</select>
-								</form>
+								</form> --%>
 							</td>
 						<tr>
 					</c:forEach>
@@ -68,11 +70,11 @@
 			<table>
 				<thead>
 					<tr>
-						<th>번호</th>
+<!-- 						<th>번호</th>
 						<th>제목</th>
 						<th>작성일</th>
 						<th>시작일</th>
-						<th>종료일</th>
+						<th>종료일</th> -->
 					</tr>
 				</thead>
 				<tbody>
@@ -87,6 +89,7 @@
 									pattern="yyyy-MM-dd" /></td>
 							<td><fmt:formatDate value="${con.endDate}"
 									pattern="yyyy-MM-dd" /></td>
+							<%-- <td><img src="${ctxName}/resource/upload/board/${con.FileName}.jpg"></td> --%>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -94,6 +97,7 @@
 		</section>
 
 		<section id="notice">
+		
 			<h1 class="hidden">공지사항 목록</a>
 			</h1>
 			<table>

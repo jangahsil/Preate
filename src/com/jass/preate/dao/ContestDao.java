@@ -13,12 +13,14 @@ public interface ContestDao {
 	public List<Contest> getContests(int page
 										,String field
 										,String query
-				);
+	);
 	
 	public int addContest(Contest contest);
 	
 	public int changeContest(Contest contest);
 	
 	public int removeContest(String code);
+	
+	public List<Contest> getContestsIndex(int page);
 	
 }

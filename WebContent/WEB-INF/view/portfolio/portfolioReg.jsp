@@ -6,6 +6,8 @@
 	<main>
 	<section>
 		<h1>포트폴리오 등록</h1>
+		<div class=portfolio-title>
+		</div>
 
 		<section>
 			<h1>포트폴리오 등록폼</h1>

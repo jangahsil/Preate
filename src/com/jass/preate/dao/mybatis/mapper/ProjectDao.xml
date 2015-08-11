@@ -19,6 +19,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)) P
 		WHERE P.NUM BETWEEN ((${page} - 1) * 9 + 1) AND (${page} * 9)
 	</select>
+	
+	<select id="getProjectsIndex" resultType="com.jass.preate.vo.Project">
+		SELECT * FROM (
+		SELECT ROW_NUMBER() OVER (ORDER BY CONVERT(INT,CODE) DESC) NUM,
+		PROJECTVIEW.* FROM PROJECTVIEW) P
+		WHERE P.NUM BETWEEN ((${page} - 1) * 3 + 1) AND (${page} * 3)
+	</select>
 
 	<!-- <insert id="addProject" parameterType="com.jass.preate.vo.Project"> 
 		<selectKey keyProperty="code" resultType="string" order="BEFORE"> SELECT 
