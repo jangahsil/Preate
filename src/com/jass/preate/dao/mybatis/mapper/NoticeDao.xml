@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				ROW_NUMBER() OVER (ORDER BY CONVERT(INT,CODE) DESC) NUM, 
 				NOTICEVIEW.*
 			FROM NOTICEVIEW) N
-		WHERE N.NUM BETWEEN 1+(${page}-1)*15 AND 15*${page}
+		WHERE N.NUM BETWEEN 1+(${page}-1)*5 AND 5*${page}
 	</select>
 
 	<insert id="addNotice" parameterType="com.jass.preate.vo.Notice">
