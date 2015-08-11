@@ -51,6 +51,18 @@
 	overflow: hidden;
 }
 
+#project-list{
+	width: 800px;
+	height: 800px;
+	border: 1px red solid;
+}
+#table > td:FIRST-CHILD+td+td{
+	width: 927px;
+	height: 39px;
+	background: url("${ctxName}/resource/images/project/btn-search.png")
+		no-repeat center;
+}
+
 
 </style>
 
@@ -81,7 +93,7 @@
 	</nav>
 
 	<section id="project-list">
-		<h1>프로젝트 목록</h1>
+		<h1 class="hidden">프로젝트 목록</h1>
 		<table>
 			<thead>
 				<tr>
@@ -100,7 +112,7 @@
 					<th>지원자</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="table">
 				<c:forEach var="p" items="${list}">
 					<tr>
 						<td>true</td>

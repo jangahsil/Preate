@@ -13,7 +13,6 @@
 	background: white;
 }
 
-
 #login-field {
 	margin-left: 240px;
 	margin-right: auto;
@@ -99,7 +98,7 @@
 }
 
 .id-label{
-	padding-left: 12px;
+	padding-left: 15px;
 }
 
 
