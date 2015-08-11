@@ -14,7 +14,6 @@
 		no-repeat center;
 } 
 
-
 /*-------------------------버튼------------------------------------*/
 
 .portfolio-btn-search {
@@ -25,11 +24,13 @@
 }
 
 .reg-button {
+
+	
 	width:54px;
 	height:23px;
 	background: url("../resource/images/btn-reg.png")
 			no-repeat center;
-			float:left;
+	float:left;
 
 }
 
@@ -44,7 +45,6 @@
 
 /*-------------------------------------------------------------------*/
 
-
 /*------------------------포트폴리오 목록 테이블 부분------------------------------------*/
 #portfolio-table table {
 	/* width: inherit; */
@@ -57,7 +57,7 @@
 }
 
 #portfolio-table td {
-/* 	border: 1px solid green; /*여기*/ 
+ /* 	border: 1px solid green;여기 */
 	width: 276px;
 	display: inline-block;
 	padding: 20px;
@@ -144,9 +144,9 @@
 					<tbody>
 						<c:forEach var="p" items="${list}">
 						<tr>
-						<td>
+						<td><br>
 							<a id=image href="portfolioImage"><img src="../images/.png" alt="images"></a>
-							<br><br><br><br><br><br><br><br>
+							<br><br><br><br><br><br>
 							<a href="portfolioImage">${p.title}</a>
 							<br>
 							<fmt:formatDate value="${p.regDate}" pattern="yyyy-MM-dd"/>
