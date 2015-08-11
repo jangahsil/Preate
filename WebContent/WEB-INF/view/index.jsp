@@ -4,6 +4,9 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript">
 
+
+
+/* D:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp2 */
 </script>
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
 <main id="main">
@@ -65,7 +68,7 @@
 
 		<section id="contest">
 
-			<h1 class="hidden">공모전 목록</a>
+			<h1 class="hidden">공모전 목록
 			</h1>
 			<table>
 				<thead>
@@ -80,7 +83,7 @@
 				<tbody>
 					<c:forEach var="con" items="${list2}">
 						<tr>
-							<td>${con.code}</td>
+<%-- 							<td>${con.code}</td>
 							<td><a href="contest/contestDetail?c=${con.code}">${con.title}</a></td>
 							<td>${con.writerNick}</td>
 							<td><fmt:formatDate value="${con.regDate}"
@@ -88,8 +91,8 @@
 							<td><fmt:formatDate value="${con.startDate}"
 									pattern="yyyy-MM-dd" /></td>
 							<td><fmt:formatDate value="${con.endDate}"
-									pattern="yyyy-MM-dd" /></td>
-							<%-- <td><img src="${ctxName}/resource/upload/board/${con.FileName}.jpg"></td> --%>
+									pattern="yyyy-MM-dd" /></td> --%>
+							<td><img src="${ctxName}/resource/upload/board/${con.fileName}"></td>
 						</tr>
 					</c:forEach>
 				</tbody>
