@@ -4,10 +4,6 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
 
-<script type="text/javascript">
-
-</script>
-
 <main id="main">
 	<div id="visual"></div>
 	<section id="main-content">
@@ -15,37 +11,16 @@
 
 		<section id="project">
 			<h1 class="hidden">프로젝트 목록</h1>
-			<table>
-				<thead>
-					<tr>
-						<th>제목</th>
-						<th>모집분야</th>
-						<th>남은날짜</th>
-						<th>기획상태</th>
-						<th>예상기간</th>
-						<th>예상비용</th>
-						<th>지역1</th>
-						<th>지역2</th>
-					</tr>
-				</thead>
-				<tbody>
+				<ul>
 					<c:forEach var="p" items="${list}">
-						<tr>
-							<td><a href="projectIndex/projectDetail?c=${p.code}">${p.title}</a></td>
-							<td>${p.classification}</td>
-							<td><fmt:formatDate value="${p.deadline}"
-									pattern="yyyy-MM-dd" /></td>
-							<td>${p.planningState}</td>
-							<td>30일</td>
-							<td>${p.budget}원</td>
-							<td>${p.area1_1}${p.area1_2}</td>
-							<td>${p.area2_1}${p.area2_2}</td>
-							<td>
-							</td>
-						<tr>
+							<li><a href="projectIndex/projectDetail?c=${p.code}">제목: ${p.title}</a></li>
+							<li>모집분야: ${p.classification}</li>
+							<li>남은날짜: <fmt:formatDate value="${p.deadline}"
+									pattern="yyyy-MM-dd" /></li>
+							<li>기획상태: ${p.planningState}</li>
+							<li>지역: ${p.area1_1}${p.area1_2}</li>
 					</c:forEach>
-				</tbody>
-			</table>
+				</ul>
 		</section>
 
 		<section id="contest">

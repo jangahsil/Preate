@@ -207,12 +207,19 @@
 	border: 1px solid red;
 }
 
-#project>table {
-	padding-left: 20px;
+#project ul {
+	width: 975px;
+	height: 165px;
 	margin-top: 15px;
+	margin-left: 33px;
+	background: url("../images/main-project-view.png") no-repeat top;
+	float: left;
+	border: 1px solid blue;
 }
 
-
+#project li{
+	width: 300px;
+}
 
 /* ------------------------------ Contest 영역 ------------------------------ */
 
@@ -230,7 +237,6 @@
 	background: url("../../re/images/main-contest-title.png") no-repeat top;
 	margin-top: 15px;
 	margin-left: 33px;
-	border: 1px solid blue;
 }
 
 /* ------------------------------ Notice 영역 ------------------------------ */
