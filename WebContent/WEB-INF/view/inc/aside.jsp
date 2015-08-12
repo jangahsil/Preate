@@ -7,7 +7,7 @@
 <script type="text/javascript">
 	var win=null;
 	function btnopen(){
-		win=open("customer.html","고객문의","width=600px,height=400px");
+		win=open("customer","고객문의","width=600px,height=400px");
 	}
 	addEventListener("load",function(){
 		var btn=document.getElementById("customer");
