@@ -15,7 +15,6 @@
 
 #project-search-classify {
 	margin-top: 50px;
-	margin-bottom: 87px;
 	float: left;
 }
 
@@ -51,7 +50,7 @@
 
 #project-list{
 	margin-left: 46px;
-	margin-top: 65px;
+	margin-top: 88px;
 }
 
 #project-detail-list ul {
