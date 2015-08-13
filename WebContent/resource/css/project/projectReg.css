@@ -124,17 +124,20 @@
 	background: url("../../images/project/project-contents-detailaddress.png") no-repeat;
 }
 #detail-address{
+	
 	width: 50px;
 	height: 15px;
 	background: url("../../images/project/project-contents-detailaddress.png") no-repeat;
 }
 #start-data{
+	padding-right:34px;
 	width: 66px;
 	height: 14px;
 	background: url("../../images/project/project-contents-startdate.png") no-repeat;
 	
 }
 #end-data{
+	padding-right:34px;
 	width: 66px;
 	height: 14px;
 	background: url("../../images/project/project-contents-collectenddate.png") no-repeat;
@@ -156,10 +159,11 @@
 	background: url("../../images/project/project-contents-won.png") no-repeat;
 }
 
-.button:HOVER{
+/* .button:HOVER{
 	cursor: default;
-}
+} */
 input[type=datetime]{
+	padding-left:3px;
 	border: 1px double #bdbdbd;
 	width: 75px;
 	height:18px;
@@ -171,6 +175,7 @@ input[type=datetime]{
 	height: 200px;
 	line-height: 30px;
 	border: 1px double #bdbdbd;
+	padding-left: 10px;
 }
 
 input[type=submit]{
@@ -222,8 +227,8 @@ input[type=submit]:HOVER{
 	margin-left: 270px;
 }
 #plan-form{
-	width:600px;
-	height:170px;
+	width:610px;
+	height:190px;
 	margin-top:20px;
 	display: inline-block;
 	border: 1px dotted;
@@ -252,3 +257,10 @@ input[type=submit]{
 	margin-top: 20px;
 	margin-left: 20px;
 	}
+.text-move:HOVER {
+	cursor: default;
+}
+input[type=radio]{
+margin-left: 31px;
+margin-top: 8px;
+}
