@@ -8,11 +8,30 @@
 	type="text/css" />
 	<script type="text/javascript">
 		addEventListener("load",function(){
-			
+	//------------------취소-------------		
 			var btn=document.getElementById("cancel");
+			
 			btn.onclick=function(){
 					win=open("alert","","width=100px,height=100px");
 				};
+	//---------------------체크------------------
+			var check=document.getElementById("btn-reg");
+			check.onclick=function(){
+				var title =null;
+				var content=null;
+				title=document.getElementById("text");
+				 content=document.getElementById("text2");
+			 
+				if(title.value==""){	
+				 alert("제목을 입력하세요");
+					return false;
+					};
+					
+					if(content.value==""){
+						alert("내용을 입력하세요");
+						return false;
+					};
+			};
 		});
 		
 	</script>
@@ -25,16 +44,16 @@
 <form action="" method="post" name="check">
 	<fieldset>
 	<label class="title button">제목 </label>
-	<input id="text" type="text" name="title">
+	<input id="text" class="text"  type="text" name="title">
 	</fieldset>
 	<div id="content-form">
 	<ul>
 		<li class="button content" >내용</li>
-	<li><textarea id="text" rows="" cols="" name="content"></textarea></li>
+	<li><textarea id="text2" class="text" rows="" cols="" name="content"></textarea></li>
 	</ul>
 	</div>
 	<div id="reg-button">
-	<input class="button" type="submit" value="작성" />
+	<input id="btn-reg" class="button" type="submit" value="작성" />
 	<input id="cancel" class="button" type="button" value="취소" />
 	</div>
 	</form>

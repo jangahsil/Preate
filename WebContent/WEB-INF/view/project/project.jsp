@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
+
 <style>
 #visual {
 	margin-left: 29px;
