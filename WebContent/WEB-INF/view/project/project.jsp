@@ -3,7 +3,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
+<style>
+	
 
+</style>
 <main>
 	<section>
 		<h1>프로젝트 검색</h1>
