@@ -14,9 +14,15 @@
 		no-repeat center;
 } 
 
+/*---------------------------------검색창---------------------------*/
+#portfolio-search
+{
+	margin-left:700px;
+}
 /*-------------------------버튼------------------------------------*/
 
 .portfolio-btn-search {
+	
 	width: 44px;
 	height: 24px;
 	background: url("../resource/images/portfolio/portfolio-btn-search.png")
@@ -25,7 +31,8 @@
 
 .reg-button {
 
-	
+	margin-left:50px;
+	margin-right:15px;
 	width:54px;
 	height:23px;
 	background: url("../resource/images/btn-reg.png")
@@ -102,7 +109,7 @@
 				<h1 class="hidden">포트폴리오 분야 검색</h1>
 				<form>
 					<fieldset>
-						<legend class=hidden>분야정보</legend>
+						<!-- <legend class=hidden>분야정보</legend>
 						<label class="hidden">검색필드</label> 
 						<select>
 							<option>IOS</option>
@@ -121,9 +128,9 @@
 							<option>API</option>
 							<option>GIS</option>
 							<option>기타</option>
-						</select> 
+						</select>  -->
 						<label class="hidden">검색어</label> 
-						<input type="text" /> 
+						<input id="portfolio-search" type="text" /> 
 						<input class="button portfolio-btn-search" type="submit" value="검색" />
 					</fieldset>
 				</form>
@@ -166,6 +173,7 @@
 					<li><input type="submit" value="목록" /></li>-->
 					<li><a href="portfolioReg" class="button reg-button">등록</a></li>
 					<li><a href="portfolio" class="button list-button">목록</a></li>
+				
 				</ul>
 			</section>
 			
