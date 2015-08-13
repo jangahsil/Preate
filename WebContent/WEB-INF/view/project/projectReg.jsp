@@ -30,6 +30,7 @@
 					return false;
 				}
 				;  
+		};
 		var radioCheck=document.getElementById("plan-check").getElementsByTagName("input");
 		var radioCtn=0;
 		for(var i=0; i<radioCheck.length ; i++){
