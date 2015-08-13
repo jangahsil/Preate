@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+.manage-title{
+	margin-top:29px;
+	margin-left:auto;
+	margin-right:auto;
+	width:956px;
+	height:62px;
+	background: url("../../images/management/manage-title.png");
+}
+
+.select{
+	font-weight: 900;
+}
+	#contents{
+		padding-left: 50px;
+		padding-top: 70px;
+	}
+	.ma-menu li{
+	padding-left:10px;
+		float: left;
+	}
+	.s-form{
+		display: inline-block;
+		padding-left: 200px;
+	}
+	.pager li{
+		float: left;
+		padding-left: 30px;
+		padding-right: auto;
+		
+	}

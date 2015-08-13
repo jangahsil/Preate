@@ -1,0 +1,254 @@
+@CHARSET "UTF-8";
+
+.project-title {
+	
+	margin-left: 29px;
+	width: 956px;
+	height: 62px;
+	background: url("../../images/project/title-project-reg.png");
+}
+
+#main-content section{
+	margin-top: 30px;
+	margin-left: 180px;
+	
+}
+.input {
+	width: 350px;
+	height: 18px;
+	overflow: hidden;
+	line-height: 18px;
+}
+
+.small-input {
+	width: 28px;
+	height: 18px;
+	overflow: hidden;
+	line-height: 18px;
+}
+
+#budget {
+	width: 95px;
+	height: 18px;
+	overflow: hidden;
+	line-height: 18px;
+}
+
+#address {
+	width: 320px;
+	height: 18px;
+	overflow: hidden;
+	line-height: 18px;
+}
+
+#idea {
+	width: 80px;
+	height: 80px;
+	background: url("../../images/project/idea.png") no-repeat;
+}
+
+#doc {
+	width: 80px;
+	height: 80px;
+	background: url("../../images/project/doc.png") no-repeat;
+}
+
+#plan {
+	width: 80px;
+	height: 80px;
+	background: url("../../images/project/plan.png") no-repeat;
+}
+
+/* -----글씨 관리--- */
+.text-move {
+	text-indent: -999px;
+}
+
+#plan-state {
+	width: 53px;
+	height: 14px;
+	background: url("../../images/project/project-contents-planstate.png") no-repeat;
+}
+
+#project-title {
+	width: 29px;
+	height: 13px;
+	background: url("../../images/project/project-contents-subject.png") no-repeat bottom;
+}
+
+#group {
+	
+	width: 50px;
+	height: 14px;
+	background:
+		url("../../images/project/project-contents-classification.png") no-repeat;
+}
+
+#total-people{
+	width: 50px;
+	height: 14px;
+	background: url("../../images/project/project-contents-totalpeople.png") no-repeat;
+}#myoung{
+	width: 11px;
+	height: 16px;
+	background: url("../../images/project/project-contents-people.png") no-repeat;
+}
+#need-devel{
+	width: 67px;
+	height: 14px;
+	background: url("../../images/project/project-contents-needdeveloper.png") no-repeat;
+}
+
+#need-designer{
+	width: 79px;
+	height: 14px;
+	background: url("../../images/project/project-contents-needdesigner.png") no-repeat;
+}
+#text-budget{
+	width: 25px;
+	height: 14px;
+	background: url("../../images/project/project-contents-budget.png") no-repeat;
+}#text-meeting{
+	width: 75px;
+	height: 15px;
+	background: url("../../images/project/project-contents-meeting.png") no-repeat;
+}
+#area{
+	width: 24px;
+	height: 13px;
+	background: url("../../images/project/project-contents-area.png") no-repeat;
+}
+#detail-address{
+	width: 50px;
+	height: 15px;
+	background: url("../../images/project/project-contents-detailaddress.png") no-repeat;
+}
+#detail-address{
+	width: 50px;
+	height: 15px;
+	background: url("../../images/project/project-contents-detailaddress.png") no-repeat;
+}
+#start-data{
+	width: 66px;
+	height: 14px;
+	background: url("../../images/project/project-contents-startdate.png") no-repeat;
+	
+}
+#end-data{
+	width: 66px;
+	height: 14px;
+	background: url("../../images/project/project-contents-collectenddate.png") no-repeat;
+}
+#project-end{
+	width: 92px;
+	height: 14px;
+	background: url("../../images/project/project-contents-projectenddate.png") no-repeat;
+}
+#detail-text{
+	margin-top:15px;
+	width: 50px;
+	height: 14px;
+	background: url("../../images/project/project-contents-detail.png") no-repeat;
+}
+#won{
+	width: 11px;
+	height: 16px;
+	background: url("../../images/project/project-contents-won.png") no-repeat;
+}
+
+.button:HOVER{
+	cursor: default;
+}
+input[type=datetime]{
+	border: 1px double #bdbdbd;
+	width: 75px;
+	height:18px;
+	
+}
+#input-detail{
+	margin-top:8px;
+	width: 600px;
+	height: 200px;
+	line-height: 30px;
+	border: 1px double #bdbdbd;
+}
+
+input[type=submit]{
+	width:54px;
+	height:23px;
+	background: url("../../images/btn-reg.png") no-repeat center;
+}
+#cancel{
+	text-decoration:none;
+	width:54px;
+	height:23px;
+	background: url("../../images/btn-cancel.png") no-repeat;
+}
+
+textarea{
+	border: 1px double #bdbdbd;
+}
+select{
+	border: 1px double #bdbdbd;
+}
+input[type=submit]:HOVER{
+	cursor: pointer;
+}
+#cancel:HOVER {
+	cursor: pointer;
+}
+
+/*----------- 가구배치------------- */
+.text-position{
+	padding-top:15px;
+	width: 449px;
+	float: left;
+}
+.text-position label{
+	padding-left: 5px;
+}
+.padding{
+	padding-top: 22px;
+}
+.r-padding{
+	padding-right: 8px;
+}
+#total-people{
+	padding-right: 29px;
+}
+#plan-state{
+	margin-top:10px;
+	display: inline-block;
+	margin-left: 270px;
+}
+#plan-form{
+	width:600px;
+	height:170px;
+	margin-top:20px;
+	display: inline-block;
+	border: 1px dotted;
+}
+thead th{
+	padding-left: 80px;
+}
+#plan{
+	padding-left: 30px;
+}
+table{
+	padding-left: 98px;
+}
+#area-se{
+	margin-left: 10px;
+}
+input[type=submit]{
+	display:inline-block;
+	float:left;
+	margin-top: 20px;
+	margin-left: 240px;
+}
+
+
+#cancel{
+	margin-top: 20px;
+	margin-left: 20px;
+	}

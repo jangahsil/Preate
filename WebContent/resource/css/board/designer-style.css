@@ -1,0 +1,168 @@
+@CHARSET "UTF-8";
+@IMPORT url("../reset.css");
+@IMPORT url("../layout.css");
+@IMPORT url("../style.css");
+
+a{
+	color: inherit;
+    text-decoration: none;
+}
+#main h1:FIRST-CHILD {
+	width: 956px;
+	height: 62px;
+	background: url("../../images/board/board-designer-title.png");
+	text-indent: -100px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 29px;
+}
+#category{
+	margin-top: 30px;
+	margin-left: 35px;
+}
+.all-button{
+	width: 89px;
+	height: 13px;
+	background: url("../../images/board/board-category-all.png") no-repeat center;
+	float: left;
+}
+.theory-button{
+	width: 65px;
+	height: 13px;
+	background: url("../../images/board/board-category-theory.png") no-repeat center;
+	float: left;
+}
+.tool-button{
+	width: 58px;
+	height: 13px;
+	background: url("../../images/board/board-category-tool.png") no-repeat center;
+	float: left;
+}
+.tip-button{
+	width: 84px;
+	height: 14px;
+	background: url("../../images/board/board-category-tip.png") no-repeat center;
+	float: left;
+}
+.qna-button{
+	width: 86px;
+	height: 13px;
+	background: url("../../images/board/board-category-qna.png") no-repeat center;
+	float: left;
+}
+
+#board-table{
+	margin-top: 20px;	
+}
+#board-table table{
+    width: inherit;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: auto;
+	margin-right: auto;
+}
+#board-table tr{
+	height: 30px;
+    line-height: 30px;
+}
+#board-table th,
+#board-table td {
+    text-align: center;
+    border-bottom: 1px solid rgba(192,191,191,1);
+}
+#board-table th:FIRST-CHILD,
+#board-table td:FIRST-CHILD {
+	width: 70px;
+}
+#board-table th:FIRST-CHILD + th,
+#board-table td:FIRST-CHILD + td{
+	width: 460px;
+}
+#board-table td:FIRST-CHILD + td{
+	text-align: left;
+	text-indent: 20px;
+}
+#board-table th:FIRST-CHILD + th + th,
+#board-table td:FIRST-CHILD + td + td{
+	width: 120px;
+}
+#board-table th:FIRST-CHILD + th + th + th,
+#board-table td:FIRST-CHILD + td + td + td{
+	width: 120px;
+}
+#board-table th:FIRST-CHILD + th + th + th + th,
+#board-table td:FIRST-CHILD + td + td + td + td{
+	width: 70px;
+}
+#board-table th:FIRST-CHILD + th + th + th + th + th,
+#board-table td:FIRST-CHILD + td + td + td + td + td{
+	width: 70px;
+}
+#board-table th{
+	/* color: rgba(246,246,246,1); */
+	background: rgba(192,191,191,1) url("../../images/board/bg-title-sp.png") no-repeat left center;
+}
+#board-table th:FIRST-CHILD{
+	background: rgba(192,191,191,1);
+}
+
+#button-list{
+	position: relative;
+	margin-top: 15px;
+}
+#button-list div{
+	position: absolute;
+	right: 50px;
+	display: inline-block;
+}
+.reg-button{
+	width: 54px;
+	height: 23px;
+	background: url("../../images/btn-reg.png") no-repeat center;
+	float: left;
+}
+.list-button{
+	width: 54px;
+	height: 23px;
+	background: url("../../images/btn-list.png") no-repeat center;
+	float: left;
+	margin-left: 15px;
+}
+
+#pager{
+	margin-top: 10px;
+	text-align: center;
+	font-size: 15px;
+}
+#pager div{
+	display: inline-block;
+}
+#pager li{
+	float: left;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+#pager li:FIRST-CHILD a{
+	font-weight: bold;
+}
+
+#board-search{
+	margin-top: 25px;
+	position: relative;
+}
+#board-search form{
+	position: absolute;
+	right: 50px;
+	display: inline-block;
+}
+#board-search input[type="text"]{
+	
+}
+.search-button{
+	width: 54px;
+	height: 23px;
+	background: url("../../images/btn-search.png") no-repeat center;
+}

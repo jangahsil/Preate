@@ -27,4 +27,5 @@ public interface ProjectDao {
 	
 	public int removeProject(String code);
 	
-} 
+	public List<Project> getProjectsIndex(int page);
+}

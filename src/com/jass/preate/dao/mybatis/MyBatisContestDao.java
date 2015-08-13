@@ -61,4 +61,13 @@ public class MyBatisContestDao implements ContestDao{
 
 		return getContests(page, "TITLE", "");
 	}
+
+	@Override
+	public List<Contest> getContestsIndex(int page) {
+		
+		HashMap<String,Object> params= new HashMap<String, Object>();
+		params.put("page",page);
+
+		return session.selectList("com.jass.preate.dao.ContestDao.getContestsIndex",params);
+	}
 }

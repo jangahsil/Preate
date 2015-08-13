@@ -4,7 +4,17 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-
+<script type="text/javascript">
+	var win=null;
+	function btnopen(){
+		win=open("customer","고객문의","width=600px,height=400px");
+	}
+	addEventListener("load",function(){
+		var btn=document.getElementById("customer");
+		btn.onclick=btnopen;
+		
+	});
+</script>
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
  
 			<aside id="aside">
@@ -36,10 +46,15 @@
 						<a href="" class="button advertise-button">제휴센터 소개</a>
 					</h1>
 					<h1>
-						<a href="" class="button customer-qna-button">고객문의</a>
+						<input type="button"  class="button customer-qna-button hidden" id="customer" >
+						<p class="hidden">고객문의</p>
 					</h1>
 					<h1>
-						<a href="${ctxName}/management/memberManagement" class="button management-button">관리자 메뉴</a>
+						<security:authorize ifAnyGranted="ROLE_ADMIN">
+						<a href="${ctxName}/management/memberManagement" 
+						class="button management-button">
+						관리자 메뉴</a>
+						</security:authorize>
 					</h1>
 				</nav>
 			</aside>

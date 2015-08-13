@@ -25,7 +25,7 @@ public class MyBatisProjectDao implements ProjectDao {
 		return session.selectOne("com.jass.preate.dao.ProjectDao.getProject",
 				code);
 	}
-
+	
 	@Override
 	public List<Project> getProjects(int page) {
 		return getProjects(page, null, "");
@@ -80,5 +80,13 @@ public class MyBatisProjectDao implements ProjectDao {
 	public List<Project> getProjects() {
 		return getProjects(1, null, "");
 	}
+	
+	@Override
+	public List<Project> getProjectsIndex(int page) {
 
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		params.put("page", page);
+
+		return session.selectList("getProjectsIndex", params);
+	}
 }
