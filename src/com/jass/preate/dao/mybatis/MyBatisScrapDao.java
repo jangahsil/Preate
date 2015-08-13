@@ -1,9 +1,14 @@
 package com.jass.preate.dao.mybatis;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jass.preate.dao.ScrapDao;
+import com.jass.preate.vo.JoinRequest;
+import com.jass.preate.vo.Project;
 import com.jass.preate.vo.Scrap;
 
 public class MyBatisScrapDao implements ScrapDao {
@@ -26,5 +31,11 @@ public class MyBatisScrapDao implements ScrapDao {
 
 		return session.delete("com.jass.preate.dao.ScrapDao.removeScrap", code);
 	}
+
+	@Override
+		public List<String> getProjectCodes(String mid) {
+			return getProjectCodes(mid);
+		}
+
 
 }

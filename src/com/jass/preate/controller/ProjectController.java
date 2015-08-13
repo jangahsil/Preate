@@ -62,6 +62,8 @@ public class ProjectController {
 		
 	}
 	
+	
+	
 	@RequestMapping(value="projectDetail", method=RequestMethod.GET)
 	public String projectDetail(Model model, String c) {
 		

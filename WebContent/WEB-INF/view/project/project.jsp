@@ -20,11 +20,12 @@
 	border: 1px solid red;
 }
 
+
 #project-search-classify {
 	margin-top: 50px;
-	margin-bottom: 87px;
 	float: left;
 }
+
 
 #real-search-form input:FIRST-CHILD {
 	width: 150px;
@@ -58,7 +59,7 @@
 
 #project-list{
 	margin-left: 46px;
-	margin-top: 65px;
+	margin-top: 88px;
 }
 
 #project-detail-list ul {
