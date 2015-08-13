@@ -12,11 +12,19 @@
 		no-repeat center;
 }
 
+#project-search{
+	margin-left: 30px;
+	width: 952px;
+	height: 900px;
+	border: 1px solid red;
+}
+
 
 #project-search-classify {
 	margin-top: 50px;
 	float: left;
 }
+
 
 #real-search-form input:FIRST-CHILD {
 	width: 150px;
