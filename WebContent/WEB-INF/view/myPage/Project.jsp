@@ -1,8 +1,6 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="ctxName" value="${pageContext.request.contextPath}" />
 
 <main>
 <section>
@@ -106,7 +104,7 @@
 				<tr>
 					<td>${n.title}</td>
 					<td><a href="projectSearchDetail.jsp?c=${n.code}">${n.title}</a></td>
-					<td>${n.deadLine}</td>
+					<td>${n.endDate}</td>
 					<%-- <td><fmt:formatDate value="${n.regDate}" pattern="YYYY-MM-dd"/></td> --%>
 					<td>${n.content}</td>
 				</tr>
