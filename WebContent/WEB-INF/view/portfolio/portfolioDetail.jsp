@@ -73,6 +73,7 @@
 #writer-intro dt:FIRST-CHILD {
 
 	/* border :1px solid blue; */
+	height:15px;
 	background: url("../resource/images/portfolio/portfolio-contents-name.png")
 		no-repeat;
 
@@ -80,12 +81,14 @@
 
 #writer-intro dt:FIRST-CHILD+dd+dt {
 	/* border :1px solid blue; */
+	height:15px;
 	background: url("../resource/images/portfolio/portfolio-contents-currentstate.png")
 		no-repeat;
 
 }
 
 #writer-intro dt:FIRST-CHILD+dd+dt+dd+dt {
+	height: 15px;
 	/* border :1px solid blue; */
 	background: url("../resource/images/portfolio/portfolio-contents-career.png")
 		no-repeat;
@@ -94,6 +97,7 @@
 
 #tools dt:FIRST-CHILD {
 	/* border :1px solid blue; */
+	height:15px;
 	background: url("../resource/images/portfolio/portfolio-contents-usedtool.png")
 		no-repeat;
 }

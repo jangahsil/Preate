@@ -14,6 +14,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO PORTFOLIOATTACHEDFILES (CODE,NAME,TYPE,PORTFOLIOCODE)
 			VALUES(#{code},#{name},#{type},#{portfolioCode})
 	</insert>
+	
+	<!-- 여기추가!! -->
+	<select id= "getPortfolioAttachedFile" parameterType="string" resultType="com.jass.preate.vo.PortfolioAttachedFile">			
+		SELECT * FROM PORTFOLIOATTACHEDFILES WHERE CODE =#{portfolioCode}
+	</select>
+	<!-- == -->
 
 	<delete id="removePortfolioAttachedFile" parameterType="string">
 		DELETE FROM PORTFOLIOATTACHEDFILES WHERE CODE = #{code}

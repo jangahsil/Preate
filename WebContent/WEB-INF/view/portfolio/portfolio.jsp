@@ -19,6 +19,7 @@
 #portfolio-search
 {
 	margin-left:700px;
+	
 }
 /*-------------------------버튼------------------------------------*/
 
@@ -30,23 +31,23 @@
 		no-repeat center;
 }
 
-.reg-button {
+.portfolio-reg-button {
 
 	margin-left:50px;
 	margin-right:15px;
 	width:54px;
 	height:23px;
-	background: url("../resource/images/btn-reg.png")
+	background: url("../resource/images/portfolio/portfolio-btn-reg.png")
 			no-repeat center;
 	float:left;
 
 }
 
 
-.list-button {
+.portfolio-list-button {
 	width:54px;
 	height:23px;
-	background: url("../resource/images/btn-list.png")
+	background: url("../resource/images/portfolio/portfolio-btn-list.png")
 			no-repeat center;
 
 }
@@ -62,6 +63,7 @@
 
 #portfolio-table tr {
 	float: left;    /*float:left옵션을 tr에 준다*/
+	border
 }
 
 #portfolio-table td {
@@ -172,8 +174,8 @@
 				<ul>
 					<!-- <li><input type="submit" value="등록" /></li> 
 					<li><input type="submit" value="목록" /></li>-->
-					<li><a href="portfolioReg" class="button reg-button">등록</a></li>
-					<li><a href="portfolio" class="button list-button">목록</a></li>
+					<li><a href="portfolioReg" class="button portfolio-reg-button">등록</a></li>
+					<li><a href="portfolio" class="button portfolio-list-button">목록</a></li>
 				
 				</ul>
 			</section>

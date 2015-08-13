@@ -9,6 +9,7 @@
 		
 		<section>
 			<h1>포트폴리오 상세 이미지</h1>
+			<p>이미지가 아직안떠요ㅠㅠ</p>
 			<p><img src="../images/.png" alt="images"></p>
 		</section>
 		
