@@ -33,5 +33,9 @@
 	
 	<definition name="customer" template="/WEB-INF/view/customer.jsp">
 	</definition>
+	<definition name="customerClose" template="/WEB-INF/view/customerClose.jsp">
+	</definition>
+	<definition name="alert" template="/WEB-INF/view/alert.jsp">
+	</definition>
 				
 </tiles-definitions>
