@@ -258,25 +258,14 @@
 	margin-top: 9px;
 }
 
-#notice>table {
-	width: 924px;
-	height: 185px;
-	margin-left: 33px;
-	margin-top: 15px;
-	border-collapse:collapse;
-	border-spacing: 0px;
-}
+
 
 #notice>table thead{
 	display: inline-block;
-	border-collapse:collapse;
-	border-spacing: 0px;
 }
 
 #notice>table tbody{
 	display: inline-block;
-	border-collapse:collapse;
-	border-spacing: 0px;
 }
 
 /* 공지게시판 제목 */
@@ -285,21 +274,24 @@
 	width: 924px;
 	height: 30px;
 	line-height: 30px;
-	border: solid 1px #BDBDBD;
+	border-top: solid 1px #BDBDBD;
+
+
 	display: inline-block;
-	border-collapse:collapse;
-	border-collapse: separate;
 }
 
 #notice thead th{
 	text-align: center;
-	border: solid 1px #BDBDBD;
-	border-collapse:collapse;
-	border-spacing: 0px;
+	border-bottom: solid 1px #BDBDBD;
+}
+
+#notice th{
+	background: #f5f5f5 url("../images/bg-title-sp.png") no-repeat left center;
 }
 
 #notice thead th:FIRST-CHILD{
 	width: 62px;
+	background: #f5f5f5 none;
 }
 
 #notice thead th:FIRST-CHILD + th{
@@ -323,9 +315,7 @@
 
 #notice tbody td{
 	text-align: center;
-	border: solid 1px #BDBDBD;
-	border-collapse:collapse;
-	border-spacing: 0px;
+	border-bottom: solid 1px #BDBDBD;
 }
 
 #notice tbody td:FIRST-CHILD{
@@ -348,7 +338,13 @@
 #notice tbody td:FIRST-CHILD + td + td + td + td{
 	width: 62px;
 }
-
+#notice table {
+	width: 924px;
+	height: 185px;
+	margin-left: 33px;
+	margin-top: 15px;
+	border-collapse:collapse;
+}
 
 
 
