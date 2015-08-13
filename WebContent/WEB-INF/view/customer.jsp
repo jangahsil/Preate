@@ -16,9 +16,10 @@
 		});
 		
 	</script>
-<script type="text/javascript" src="../js/modernizr.js"></script>
+
 
 <title>고객문의</title>
+<title>Insert title here</title>
 </head>
 <body>
 <form action="" method="post" name="check">
