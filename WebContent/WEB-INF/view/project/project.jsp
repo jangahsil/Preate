@@ -4,6 +4,8 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
 <style>
+
+/* ----------------------------- 비쥬얼 상단  ----------------------------------*/
 #visual {
 	margin-left: 29px;
 	width: 956px;
@@ -11,6 +13,9 @@
 	background: url("${ctxName}/resource/images/project/project-title.png")
 		no-repeat center;
 }
+
+
+/* ----------------------------- 프로젝트 검색  ----------------------------------*/
 
 #project-search{
 	margin-left: 30px;
@@ -54,33 +59,159 @@
 	overflow: hidden;
 }
 
+
+
+/* -----------------------------프로젝트 목록  ----------------------------------*/
 #project-list{
 	margin-left: 46px;
 	margin-top: 88px;
 }
 
-#project-detail-list ul {
+#project-detail-list{
 	width: 800px;
-	height: 200px;
-	border: 1px solid #eeeeee;
+	border: 1px solid purple;
 }
 
-#project-detail-list li {	
-	float: left;
-}
-
-#project-detail-list li:FIRST-CHILD {
+#subject{
 	width: 800px;
 	height: 23px;
 	background: #eeeeee;
 	padding-top: 8px;
 	text-indent: 20px;
+	float: left;
 }
 
-#project-detail-list li:FIRST-CHILD+li {
-	
+#content1{
+	width: 596px;
+	height: 50px;
+	border-top: 1px solid #eeeeee;
+	border-left: 1px solid #eeeeee;
+	float:left;
+	background: red;
 }
+
+#content2{
+	width: 596px;
+	height: 50px;
+	border-left: 1px solid #eeeeee;
+	background: yellow;
+	float: left;
+}
+
+#content3{
+	width: 596px;
+	height: 50px;
+	border-left: 1px solid #eeeeee;
+	border-bottom: 1px solid #eeeeee;
+	background: green;
+	float: left;
+	margin-bottom: 30px;
+}
+
+#img-box{
+	border: 1px solid #eeeeee;
+	width: 201px;
+	height:150px;
+	background: blue;
+	float: right;
+}
+
+/* ---------------------------content1--------------------------- */
+#content1 li:FIRST-CHILD {
+	width: 38px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-writer.png")
+		no-repeat center;
+	float:left;
+}
+
+#content1 li:FIRST-CHILD+li{
+	float:left;
+}
+
+#content1 li:FIRST-CHILD+li+li {
+	width: 50px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-recruitment.png")
+	no-repeat center;
+	float:left;
+}
+
+#content1 li:FIRST-CHILD+li+li+li{
+	float:left;
+}
+
+
+#content1 li:FIRST-CHILD+li+li+li+li {
+	width: 50px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-recruitment.png")
+	no-repeat center;
+	float:left;
+}
+
+
+
+/* content2 */
+#content2 li:FIRST-CHILD {
+	width: 48px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-planstate.png")
+	no-repeat center;
+	float:left;
+}
+
+#content2 li:FIRST-CHILD+li{
+	float:left;
+}
+
+#content2 li:FIRST-CHILD+li+li {
+	width: 50px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-expecteddate.png")
+	no-repeat center;
+	float:left;
+}
+
+#content2 li:FIRST-CHILD+li+li+li{
+	float:left;
+}
+
+#content2 li:FIRST-CHILD+li+li+li+li {
+	width: 50px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-expectbudget.png")
+	no-repeat center;
+	float:left;
+}
+
+
+
+
+/* content3 */
+#content3 li:FIRST-CHILD {
+	width: 30px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-area.png")
+	no-repeat center;
+	float: left;
+}
+
+#content3 li:FIRST-CHILD+li{
+	float:left;
+}
+
+#content3 li:FIRST-CHILD+li+li {
+	width: 24px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-cont.png")
+	no-repeat center;
+	float:left;
+}
+
 </style>
+
+
 
 
 <main id="main">
@@ -112,35 +243,48 @@
 			<h1 class="hidden">프로젝트 목록</h1>
 			<div id="project-detail-list">
 				<c:forEach var="p" items="${list}">
-					<ul>
-						<li><a href="">★</a> &nbsp;&nbsp;&nbsp; <a
-							href="projectDetail?c=${p.code}">${p.title}</a></li>
-						<li>번호</li>
-						<li>${p.code}</li>
-						<li>작성자</li>
+					<ul id="subject">
+						<li><a href="">★</a> &nbsp;&nbsp;&nbsp; 
+						<a href="projectDetail?c=${p.code}">${p.title}</a>
+						</li>
+					</ul>
+								
+					<ul id="content1">
+						<li></li>
 						<li>${p.writerName}</li>
-						<li>모집분야</li>
+						<li></li>
 						<li>${p.classification}</li>
-						<li>남은날짜</li>
+						<li></li>
 						<li><fmt:formatDate value="${p.deadline}"
 								pattern="yyyy-MM-dd" /></li>
-						<li>기획상태</li>
+					</ul>
+					
+					<ul id="img-box">
+						
+					</ul>
+					
+					<ul id="content2">
+						<li></li>
 						<li>${p.planningState}</li>
-						<li>예상기간</li>
+						<li></li>
 						<li>30일</li>
-						<li>예상비용</li>
+						<li></li>
 						<li>${p.budget}원</li>
-						<li>지역1 ${p.area1_1}${p.area1_2}</li>
-						<li>지역2 ${p.area2_1}${p.area2_2}</li>
-						<li>내용 ${p.content}</li>
-						<form>
+					</ul>
+					
+					<ul id="content3">
+						<li></li>
+						<li> ${p.area1_1}${p.area1_2}</li>
+						<li></li>
+						<li> ${p.content}</li>
+<%-- 						<form>
 							<select>
-								<option>지원자 ${p.joinCount}명지원</option>
+								<option>${p.joinCount}명지원</option>
 								<c:forEach var="j" items="${p.joinRequest}">
 									<option>${j.mid}</option>
 								</c:forEach>
 							</select>
-						</form>
+						</form> --%>
 					</ul>
 				</c:forEach>
 			</div>
@@ -199,7 +343,7 @@
 			</table>
 		</section>
 
-		<section>
+<!-- 		<section>
 			<h1>필요기술</h1>
 			<table>
 				<thead>
@@ -219,7 +363,7 @@
 					</tr>
 				</tbody>
 			</table>
-		</section>
+		</section> -->
 	</div>
 </section>
 </main>
