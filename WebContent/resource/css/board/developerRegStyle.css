@@ -1,0 +1,96 @@
+@CHARSET "UTF-8";
+@IMPORT url("../reset.css");
+@IMPORT url("../layout.css");
+@IMPORT url("../style.css");
+
+
+/* ------------------------------ title image 부분 ------------------------------ */
+
+#visual{
+	margin-left: 29px;
+	width: 956px;
+	height: 62px;
+	background: url("../../images/board/board-developer-title.png") no-repeat center;
+}
+
+/* ------------------------------ 메인 공통 ------------------------------ */
+
+#main-content section{
+	font:  13px;
+}
+
+#main-content dl dt{
+	margin-top: 10px;
+	text-align: left;
+	font-size: 13px;
+}
+
+#main-content h1{
+	font-size: 20px;
+	text-align: center;
+}
+
+/* ------------------------------ 카테고리 부분 ------------------------------ */
+
+#main-content select{
+	margin-top: 10px;
+	display: inline-block;
+	width: 200px;
+	border: 1px solid #bdbdbd;
+}
+
+/* ------------------------------ 제목 부분 ------------------------------ */
+
+#main-content input[type="text"]{
+	padding-left: 5px;
+	margin-top: 10px;
+	width: 956px;
+	height: 25px;
+	line-height: 25px;
+	border: 1px solid #bdbdbd;
+}
+
+/* ------------------------------ 첨부파일 부분 ------------------------------ */
+
+.btn-find{
+	margin-top: 10px;
+	width: 200px;
+	height: 23px;
+	line-height: 23px;
+	border: none;
+}
+
+/* ------------------------------ 내용 부분 ------------------------------ */
+
+#main-content textarea{
+	padding-left: 5px;
+	margin-top: 10px;
+	width: 956px;
+	height: 300px;
+	line-height: 25px;
+	border: 1px solid #bdbdbd;
+}
+
+/* ------------------------------ 버튼 부분 ------------------------------ */
+
+#main-content div {
+	text-align: center;
+}
+
+.btn-write{
+	margin-top: 30px;
+	margin-left: 20px;
+	display: inline-block;
+	width: 54px;
+	height: 23px;
+	background: url("../../images/board/btn-write.png") no-repeat center;
+}
+
+.btn-cancel{
+	margin-top: 30px;
+	margin-left: 20px;
+	display: inline-block;
+	width: 54px;
+	height: 23px;
+	background: url("../../images/board/btn-cancel.png") no-repeat center;
+}
