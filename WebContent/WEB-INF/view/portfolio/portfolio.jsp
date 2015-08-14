@@ -4,7 +4,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
 <style>
-/*테스트*/
+
 
 #visual {
 	/* border: 1px solid blue; /*여기*/ 
@@ -15,11 +15,10 @@
 		no-repeat center;
 } 
 
+
 /*---------------------------------검색창---------------------------*/
-#portfolio-search
-{
-	margin-left:700px;
-	
+#portfolio-search {	
+	margin-left:700px;	
 }
 /*-------------------------버튼------------------------------------*/
 
@@ -33,7 +32,7 @@
 
 .portfolio-reg-button {
 
-	margin-left:50px;
+	margin-left:775px;
 	margin-right:15px;
 	width:54px;
 	height:23px;
@@ -63,7 +62,6 @@
 
 #portfolio-table tr {
 	float: left;    /*float:left옵션을 tr에 준다*/
-	border
 }
 
 #portfolio-table td {
@@ -81,9 +79,10 @@
 
 /*---------------------------------페이지-------------------------------------*/
 #pager{
-	margin-top: 10px;
+	margin-top: 0px;
 	text-align: center;
-	font-size: 15px;
+	font-size: 13px;
+	
 }
 #pager div{
 	display: inline-block;
