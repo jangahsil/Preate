@@ -2,9 +2,19 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
+<style>
 
+	#visual{
+	margin-left: 29px;
+	width: 956px;
+	height: 62px;
+	background: url("../../resource/images/board//board-free-title.png") no-repeat center;
+	}
+
+</style>
 <main>
-	<section>
+	<section id="main-content">
+		<div id="visual"></div>
 		<section>
 			<h1>게시물 작성</h1>
 			<form method="post" enctype="multipart/form-data">

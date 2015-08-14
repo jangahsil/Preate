@@ -23,6 +23,7 @@ import com.jass.preate.dao.CommentDao;
 import com.jass.preate.vo.Board;
 import com.jass.preate.vo.BoardAttachment;
 import com.jass.preate.vo.Comment;
+import com.jass.preate.vo.CustomerService;
 
 @Controller
 @RequestMapping("/board/*")
@@ -80,6 +81,27 @@ public class BoardController {
 		return "board.free.freeBoard";
 		
 	}
+	
+/*	@RequestMapping(value="free/freeBoard", method=RequestMethod.GET)
+	public String freeBoard(Model model) {
+		
+
+		List<Board> list = boardDao.getBoards(1, "free");
+		
+		model.addAttribute("list", list);
+		
+		return "board.free.freeBoard";
+		
+	}
+	
+	@RequestMapping(value = "free/freeBoard", method = RequestMethod.POST)
+	public String freeBoard(Model model, String field, String query) {
+
+		List<Board> list = boardDao.getBoards(1, "free", field, query);
+		model.addAttribute("list", list);
+
+		return "management.customerService";
+	}*/
 	
 	@RequestMapping(value="designer/designerDetail", method=RequestMethod.GET)
 	public String designerDetail(Model model, String c) {

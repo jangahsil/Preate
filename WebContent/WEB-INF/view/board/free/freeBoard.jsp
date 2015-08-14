@@ -45,8 +45,8 @@
 				<div>
 					<h1 class="hidden">버튼 목록</h1>
 					<ul class="clearfix">
-						<li><a href="designerReg" class="button reg-button">등록</a></li>
-						<li><a href="designerBoard" class="button list-button">목록</a></li>
+						<li><a href="freeReg" class="button reg-button">등록</a></li>
+						<li><a href="freeBoard" class="button list-button">목록</a></li>
 					</ul>
 				</div>
 			</section>
