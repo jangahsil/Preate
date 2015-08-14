@@ -4,14 +4,83 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
 
-<main>
-	<section>
-		<article>
-			<h1>게시물 내용</h1>
-			<table>
+<style>
+
+#visual {
+
+	/* border: 1px solid blue; */
+	margin-left: 29px;
+	width: 956px;
+	height: 62px;
+	background: url("../../resource/images/board/board-free-title.png") no-repeat center;
+} 
+
+.break {
+	clear:left;
+}
+
+
+.title {
+	border-bottom: 1px solid #e9e9e9; 
+	border-right: 1px solid #e9e9e9; 
+	text-align: center;
+	text-indent: 0px;
+	width: 70px;
+	background: #f5f5f5;
+	
+}
+
+.line {
+
+	float:left;
+	height:30px;
+	line-height:30px;
+	/* width:565px; */
+	text-indent:10px; 
+	border-bottom: 1px solid #e9e9e9;
+	/* border-top: 1px solid #e9e9e9; */
+}
+
+/* .text {
+	text-weight:bold;
+} */
+
+.half {
+ 	width:205px;
+}
+
+.content {
+	width:530px;
+	padding:10px;
+	border-bottom: 1px solid #e9e9e9;
+	line-height:1.5;
+}
+
+.detail {
+	border-top: 2px solid #e9e9e9;
+	width: 553px;
+}
+
+.space-top-l {
+	margin-top:49px;
+	margin-left:50px;
+}
+
+.full {
+	width:480px;
+}
+
+</style>
+							
+<main id="main">
+ 	<div id="visual"></div>
+	<section id="main-content">
+		<article class="detail space-top-l">
+			<h1 class="hidden">게시물 내용</h1>
+			<%-- <table>
 				<thead>
 					<tr>
-						<th>코드</th>
+						
 						<th>제목</th>
 						<th>작성자</th>
 						<th>작성일</th>
@@ -22,9 +91,8 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>${b.code}</td>
+						
 						<td>${b.title}</td>
-						<td>${b.category}</td>
 						<td>${b.writer}</td>
 						<td><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd"/></td>
 						<td>${b.recommend}</td>
@@ -32,17 +100,35 @@
 						<td>${b.content}</td>
 					</tr>
 				</tbody>
-			</table>
+			</table> --%>
+			
+			<dl>
+				<dt class="hidden">class="hidden">번호</dt>
+				<dd class="hidden">class="hidden">${b.code}</dd>
+				<dt class="line title detail-break">제목</dt>
+				<dd class="line full">${b.title}</dd>
+				<dt class="line title detail-break">작성자</dt>
+				<dd class="line half">${b.writer}</dd>
+				<dt class="line title">작성일</dt>
+				<dd class="line half"><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd"/></dd>
+				<dt class="line title detail-break">추천수</dt>
+				<dd class="line half">${b.recommend}</dd>
+				<dt class="line title">조회수</dt>
+				<dd class="line half">${b.hit}</dd>
+				<dt class="hidden">내용</dt>
+				<dd class="content break">${b.content}</dd>
+			</dl>
 		</article>
 		
 		
 		<section>
 			<h1>첨부파일 목록</h1>
-			<ul>
+			<dl>
 				<c:forEach var="file" items="${list2}">
-				<li><a href="${ctxName}/download/board?file=${file.name}">${file.name}</a></li>
+				<dt>첨부파일 목록</dt>
+				<dd class="detail-cell detail-cell-full"><a href="${ctxName}/download/board?file=${file.name}">${file.name}</a></dd>
 				</c:forEach>
-			</ul>
+			</dl>
 		</section>
 		
 		<section>
