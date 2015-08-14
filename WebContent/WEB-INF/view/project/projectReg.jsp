@@ -167,10 +167,10 @@
 						</thead>
 						<tbody id="plan-check">
 							<tr>
-								<td><input id="idea-btn" type="radio" name="PlanningState" value="아이디어"> <br>좋은 아이디어가 <br>있습니다
+								<td><input id="idea-btn" type="radio" name="PlanningState" value="아이디어"> <br>좋은 아이디어가 <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp있습니다
 								</td>
-								<td><input type="radio" name="PlanningState" value="간단히 정리"><br>필요한 내용들을 <br>간단히 정리하였습니다</td>
-								<td><input type="radio" name="PlanningState" value="기획문서존재"><br> 상세한 기획문서가<br>존재 합니다</td>
+								<td><input type="radio" name="PlanningState" value="간단히 정리"><br>&nbsp&nbsp&nbsp필요한 내용들을 <br>간단히 정리하였습니다</td>
+								<td><input type="radio" name="PlanningState" value="기획문서존재"><br> 상세한 기획문서가<br>&nbsp&nbsp&nbsp&nbsp&nbsp존재 합니다</td>
 						</tbody>
 					</table>
 				</div>
