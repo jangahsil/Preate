@@ -24,6 +24,7 @@
 				;
 			}
 			;
+			
 		for (var j = 0; j < item2.length; j++) {
 				if (item2[j].value== "") {
 					alert("다 입력해주세요");
@@ -31,12 +32,14 @@
 				}
 				;  
 		};
+		
 		var radioCheck=document.getElementById("plan-check").getElementsByTagName("input");
 		var radioCtn=0;
 		for(var i=0; i<radioCheck.length ; i++){
 				if(radioCheck[i].checked)
 					radioCtn++;
 		};
+		
 			if(radioCtn != 1){
 				alert("기획상태를 선택해주세요");
 			return false;
