@@ -126,7 +126,7 @@
 			<dl>
 				<c:forEach var="file" items="${list2}">
 				<dt>첨부파일 목록</dt>
-				<dd class="detail-cell detail-cell-full"><a href="${ctxName}/download/board?file=${file.name}">${file.name}</a></dd>
+				<dd><a href="${ctxName}/download/board?file=${file.name}">${file.name}</a></dd>
 				</c:forEach>
 			</dl>
 		</section>
