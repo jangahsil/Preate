@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
+
 <style>
 
 /* ----------------------------- 비쥬얼 상단  ----------------------------------*/
@@ -24,10 +25,12 @@
 	border: 1px solid red;
 }
 
+
 #project-search-classify {
 	margin-top: 50px;
 	float: left;
 }
+
 
 #real-search-form input:FIRST-CHILD {
 	width: 150px;

@@ -60,6 +60,19 @@ public class PortfolioController {
 		
 	}
 	
+	@RequestMapping("portfolioImage")
+	public String portfolioImage(String c, Model model) {
+		
+		Portfolio portfolio = portfolioDao.getPortfolio(c);
+		model.addAttribute("p", portfolio);
+		
+		PortfolioAttachedFile portfolioAttachedFile = portfolioAttachedFileDao.getPortfolioAttachedFile(c);
+		model.addAttribute("pi", portfolioAttachedFile);
+	
+		return "portfolio.portfolioImage";
+		
+	}
+	
 	@RequestMapping("portfolioDetail")
 	public String portfolioDetail(String c, String mid, Model model) {
 		
@@ -68,6 +81,7 @@ public class PortfolioController {
 		
 		List<FieldSelect> list = fieldSelectDao.getFieldSelects(mid);
 		model.addAttribute("list", list);
+		
 		
 		List<PortfolioAttachedFile> list2 = portfolioAttachedFileDao.getPortfolioAttachedFiles(c);
 		model.addAttribute("list2", list2);
@@ -84,7 +98,8 @@ public class PortfolioController {
 	
 	
 	@RequestMapping(value = "portfolioReg", method = RequestMethod.POST)
-	public String portfolioReg(Portfolio portfolio, MultipartFile file,
+	public String portfolioReg(Portfolio portfolio, PortfolioAttachedFile 
+			portfolioAttachedFile, MultipartFile file,
 			HttpServletRequest request) throws IOException {
 		
 		portfolio.setWriter("car");
@@ -117,7 +132,7 @@ public class PortfolioController {
 			outs.close();
 			ins.close();
 
-			PortfolioAttachedFile portfolioAttachedFile = new PortfolioAttachedFile();
+			//PortfolioAttachedFile portfolioAttachedFile = new PortfolioAttachedFile();
 			portfolioAttachedFile.setName(fname);
 			portfolioAttachedFile.setPortfolioCode(portfolioDao.getLastCode());
 			

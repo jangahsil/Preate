@@ -42,6 +42,12 @@ public class MyBatisPortfolioAttachedFileDao implements
 						code);
 	}
 
+	@Override
+	public PortfolioAttachedFile getPortfolioAttachedFile(String portfolioCode) {
+		
+		return session.selectOne("getPortfolioAttachedFile", portfolioCode);
+	}
+
 	
 
 }

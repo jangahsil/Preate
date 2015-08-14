@@ -34,7 +34,7 @@ addEventListener("load",function(){
 #cancel{
 	width:56px;
 	height: 25px;
-	background: url("resource/images/btn-cancel2.png") no-repeat;
+	background: url("resource/images/btn-no.png") no-repeat;
 }
 p{
 padding-left: 20px;
