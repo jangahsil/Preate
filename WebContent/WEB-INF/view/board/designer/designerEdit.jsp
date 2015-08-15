@@ -41,13 +41,16 @@
 				</dl>
 				<dl>
 					<dt>첨부파일</dt>
-					<c:forEach var="f" items="${list}">
+					<%-- <c:forEach var="f" items="${list}">
 					<dd><input name="file" type="file" value="${f.name}"/></dd>
-					</c:forEach>
+					</c:forEach> --%>
+					<dd>
+						<input name="file" type="file" />
+					</dd>
 				</dl>
 				<div>
-					<input type="submit" value="저장"/>
-					<a href="designerBoard">취소</a>
+					<input type="submit" class="button btn-write" name="btn" value="작성" />
+					<a href="designerBoard" class="button btn-cancel">취소</a>
 				</div>
 			</form>
 		</section>
