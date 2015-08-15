@@ -53,7 +53,7 @@
 }
 
 #portfolio-table tr {
-	float: left;    /*float:left옵션을 tr에 준다*/
+    /*float:left옵션을 tr에 준다*/
 }
 
 #portfolio-table td {
@@ -145,7 +145,8 @@
 						<c:forEach var="p" items="${list}">
 						<tr>
 						<td><br>
-							<a id=image href="portfolioImage"><img src="../images/.png" alt="images"></a>
+							<a id=image href="portfolioImage">
+							<img src="../images/.png" alt="images"></a>
 							<br><br><br><br><br><br>
 							<a href="portfolioImage">${p.title}</a>
 							<br>
