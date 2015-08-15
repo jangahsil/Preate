@@ -56,4 +56,5 @@ public class MyBatisMemberDao implements MemberDao {
 	public int changeMember(Member member) {
 		return session.update("com.jass.preate.dao.MemberDao.changeMember", member);
 	}
+
 }

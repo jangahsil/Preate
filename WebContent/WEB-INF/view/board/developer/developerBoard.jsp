@@ -14,11 +14,11 @@
 			<nav id="category">
 				<h1 class="hidden">게시판 카테고리</h1>
 				<ul class="clearfix">
-					<li><a href="" class="button all-button">전체보기</a></li>
-					<li><a href="" class="button theory-button">이론</a></li>
-					<li><a href="" class="button tool-button">툴</a></li>
-					<li><a href="" class="button tip-button">팁/강좌</a></li>
-					<li><a href="" class="button qna-button">질문/답변</a></li>
+					<li><a href="developerBoard" class="button all-button">전체보기</a></li>
+					<li><a href="developerBoard?category=theory" class="button theory-button">이론</a></li>
+					<li><a href="developerBoard?category=tool" class="button tool-button">툴</a></li>
+					<li><a href="developerBoard?category=tip" class="button tip-button">팁/강좌</a></li>
+					<li><a href="developerBoard?category=qna" class="button qna-button">질문/답변</a></li>
 				</ul>
 			</nav>
 			
@@ -77,13 +77,19 @@
 			
 			<section id="board-search">
 				<h1 class="hidden">게시판 검색</h1>
-				<form>
+				
+				<c:if test="${category == null}">
+				<form method="post">
+				</c:if>
+				<c:if test="${category != null}">
+				<form action="developerBoard?category=${category}" method="post">
+				</c:if>
 					<fieldset>
 						<legend class="hidden">검색정보</legend>
 						<label class="hidden">검색필드</label>
 						<select name="field">
 							<option value="TITLE">제목+내용</option>
-							<option value="WRITER">작성자</option>
+							<option value="WRITERNICK">작성자</option>
 						</select>
 						<label class="hidden">검색어</label>
 						<input type="text" name="query"/>

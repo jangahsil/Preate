@@ -18,12 +18,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				<if test="category != null"> 
 				CATEGORY LIKE '%${category}%' AND 
 				</if>
-				${field} LIKE '%${query}%') B
+				(${field} LIKE '%${query}%'
+				<if test="field.equals('TITLE')">
+				OR CONTENT LIKE '%${query}%'
+				</if>
+				)) B
 			WHERE B.NUM BETWEEN 1+(${page}-1)*15 AND ${page}*15
 	</select>
 	
 	<select id="getTotalBoards" parameterType="string" resultType="com.jass.preate.vo.Board">			
-		SELECT * FROM BOARDS WHERE WRITER=#{mid}
+		SELECT * FROM BOARDVIEW WHERE WRITER=#{mid}
 	</select>
 	
 	<select id="getLastCode" resultType="string">			

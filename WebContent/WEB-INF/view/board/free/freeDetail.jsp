@@ -103,12 +103,12 @@
 			</table> --%>
 			
 			<dl>
-				<dt class="hidden">class="hidden">번호</dt>
-				<dd class="hidden">class="hidden">${b.code}</dd>
+				<dt class="hidden">번호</dt>
+				<dd class="hidden">${b.code}</dd>
 				<dt class="line title detail-break">제목</dt>
 				<dd class="line full">${b.title}</dd>
 				<dt class="line title detail-break">작성자</dt>
-				<dd class="line half">${b.writer}</dd>
+				<dd class="line half">${b.writerNick}</dd>
 				<dt class="line title">작성일</dt>
 				<dd class="line half"><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd"/></dd>
 				<dt class="line title detail-break">추천수</dt>
@@ -137,6 +137,7 @@
 				<li><a href="${ctxName}/board/free/freeRecommend?c=${b.code}">추천하기</a></li>
 				<li><a href="${ctxName}/board/free/freeEdit?c=${b.code}">수정</a></li>
 				<li><a href="${ctxName}/board/free/freeRemove?c=${b.code}">삭제</a></li>
+				<li><a href="${ctxName}/board/free/freeBoard">목록</a></li>
 			</ul>
 		</section>
 		
@@ -157,7 +158,7 @@
 					<c:forEach var="comment" items="${list}">
 					<tr>
 						<td>${comment.code}</td>
-						<td>${comment.writer}</td>
+						<td>${comment.writerNick}</td>
 						<td><fmt:formatDate value="${comment.regDate}" pattern="yyyy-MM-dd"/></td>
 						<td>${comment.content}</td>
 						<td><a href="${ctxName}/board/free/commentEdit/?c=${comment.code}">수정</a></td>

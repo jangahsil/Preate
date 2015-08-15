@@ -23,7 +23,6 @@ import com.jass.preate.dao.CommentDao;
 import com.jass.preate.vo.Board;
 import com.jass.preate.vo.BoardAttachment;
 import com.jass.preate.vo.Comment;
-import com.jass.preate.vo.CustomerService;
 
 @Controller
 @RequestMapping("/board/*")
@@ -48,43 +47,106 @@ public class BoardController {
 		this.boardAttachmentDao = boardAttachmentDao;
 	}
 
-	@RequestMapping(value="designer/designerBoard", method=RequestMethod.GET)
-	public String designerBoard(Model model) {
+	@RequestMapping(value = "designer/designerBoard", method = RequestMethod.GET)
+	public String designerBoard(Model model, String page, String category) {
 
-		List<Board> list = boardDao.getBoards(1, "designer");
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+		
+		List<Board> list = boardDao.getBoards(pageNum, "designer");
 
 		model.addAttribute("list", list);
+		model.addAttribute("category", category);
 
 		return "board.designer.designerBoard";
 
 	}
+	
+	@RequestMapping(value = "designer/designerBoard", method = RequestMethod.POST)
+	public String designerBoard(Model model, String page, String field,
+			String query, String category) {
 
-	@RequestMapping(value="developer/developerBoard", method=RequestMethod.GET)
-	public String developerBoard(Model model) {
+		int pageNum = 1;
 
-		List<Board> list = boardDao.getBoards(1, "developer");
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+
+		List<Board> list = boardDao.getBoards(pageNum, "designer", field,
+				query, category);
+		model.addAttribute("list", list);
+		model.addAttribute("category", category);
+
+		return "board.designer.designerBoard";
+	}
+
+	@RequestMapping(value = "developer/developerBoard", method = RequestMethod.GET)
+	public String developerBoard(Model model, String page, String category) {
+		
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+		
+		List<Board> list = boardDao.getBoards(pageNum, "developer", category);
 
 		model.addAttribute("list", list);
+		model.addAttribute("category", category);
 
 		return "board.developer.developerBoard";
 
 	}
 
-	@RequestMapping(value="free/freeBoard", method=RequestMethod.GET)
-	public String freeBoard(Model model) {
+	@RequestMapping(value = "developer/developerBoard", method = RequestMethod.POST)
+	public String developerBoard(Model model, String page, String field,
+			String query, String category) {
 
-		List<Board> list = boardDao.getBoards(1, "free");
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+
+		List<Board> list = boardDao.getBoards(pageNum, "developer", field,
+				query, category);
+		model.addAttribute("list", list);
+		model.addAttribute("category", category);
+
+		return "board.developer.developerBoard";
+	}
+
+	@RequestMapping(value = "free/freeBoard", method = RequestMethod.GET)
+	public String freeBoard(Model model, String page) {
+
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+		
+		List<Board> list = boardDao.getBoards(pageNum, "free");
 
 		model.addAttribute("list", list);
 
 		return "board.free.freeBoard";
 
 	}
-	
-	@RequestMapping(value = "free/freeBoard", method = RequestMethod.POST)
-	public String freeBoard(Model model, String field, String query) {
 
-		List<Board> list = boardDao.getBoards(1, "free", field, query, null);
+	@RequestMapping(value = "free/freeBoard", method = RequestMethod.POST)
+	public String freeBoard(Model model, String page, String field, String query) {
+
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+
+		List<Board> list = boardDao.getBoards(pageNum, "free", field, query,
+				null);
 		model.addAttribute("list", list);
 
 		return "board.free.freeBoard";
