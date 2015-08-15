@@ -56,7 +56,7 @@ public class BoardController {
 			pageNum = Integer.parseInt(page);
 		}
 		
-		List<Board> list = boardDao.getBoards(pageNum, "designer");
+		List<Board> list = boardDao.getBoards(pageNum, "designer", category);
 
 		model.addAttribute("list", list);
 		model.addAttribute("category", category);
