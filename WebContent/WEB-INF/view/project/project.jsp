@@ -22,7 +22,7 @@
 	margin-left: 30px;
 	width: 952px;
 	height: 900px;
-	border: 1px solid red;
+	border: 1px solid white;
 }
 
 
@@ -72,17 +72,21 @@
 
 #project-detail-list{
 	width: 800px;
-	border: 1px solid purple;
-}
+	border: 1px solid none;
+} 
 
 #subject{
 	width: 800px;
-	height: 23px;
+	height: 25px;
 	background: #eeeeee;
-	padding-top: 8px;
-	text-indent: 20px;
+	padding-top: 6px;
 	float: left;
+	font-size: 14px;
+	color: black;
+	font-weight: bold;
+	line-height: 20px;
 }
+
 
 #content1{
 	width: 596px;
@@ -90,14 +94,13 @@
 	border-top: 1px solid #eeeeee;
 	border-left: 1px solid #eeeeee;
 	float:left;
-	background: red;
+	
 }
 
 #content2{
 	width: 596px;
 	height: 50px;
 	border-left: 1px solid #eeeeee;
-	background: yellow;
 	float: left;
 }
 
@@ -105,58 +108,42 @@
 	width: 596px;
 	height: 50px;
 	border-left: 1px solid #eeeeee;
-	border-bottom: 1px solid #eeeeee;
-	background: green;
 	float: left;
-	margin-bottom: 30px;
+	border-bottom: 1px solid #eeeeee;
+	margin-bottom: 40px;
 }
 
 #img-box{
 	border: 1px solid #eeeeee;
 	width: 201px;
 	height:150px;
-	background: blue;
 	float: right;
 }
 
-/* ---------------------------content1--------------------------- */
-#content1 li:FIRST-CHILD {
-	width: 38px;
+
+
+/* content1 */
+#content1 li{
+	margin-top:22px;
+	margin-right: 7px;
+}
+
+#content1 li:FIRST-CHILD{
+	width: 50px;
 	height: 14px;
-	background: url("${ctxName}/resource/images/project/project-contents-writer.png")
-		no-repeat center;
+	background: url("${ctxName}/resource/images/project/project-contents-recruitment.png")
+	no-repeat center;
 	float:left;
+	margin-left: 25px;
 }
 
 #content1 li:FIRST-CHILD+li{
 	float:left;
-}
-
-#content1 li:FIRST-CHILD+li+li {
-	width: 50px;
-	height: 14px;
-	background: url("${ctxName}/resource/images/project/project-contents-recruitment.png")
-	no-repeat center;
-	float:left;
-}
-
-#content1 li:FIRST-CHILD+li+li+li{
-	float:left;
+	margin-right: 80px;
 }
 
 
-#content1 li:FIRST-CHILD+li+li+li+li {
-	width: 50px;
-	height: 14px;
-	background: url("${ctxName}/resource/images/project/project-contents-recruitment.png")
-	no-repeat center;
-	float:left;
-}
-
-
-
-/* content2 */
-#content2 li:FIRST-CHILD {
+#content1 li:FIRST-CHILD+li+li{
 	width: 48px;
 	height: 14px;
 	background: url("${ctxName}/resource/images/project/project-contents-planstate.png")
@@ -164,11 +151,47 @@
 	float:left;
 }
 
-#content2 li:FIRST-CHILD+li{
+#content1 li:FIRST-CHILD+li+li+li{
+	float:left;	
+	margin-right: 30px;
+}
+
+#content1 li:FIRST-CHILD+li+li+li+li{
+	width: 24px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-area.png")
+	no-repeat center;
+	float: left;
+}
+
+#content1 li:FIRST-CHILD+li+li+li+li+li{
 	float:left;
 }
 
-#content2 li:FIRST-CHILD+li+li {
+
+
+/* content2 */
+#content2 li{
+	margin-top: 18px;
+	margin-right: 7px;
+}
+
+#content2 li:FIRST-CHILD{
+	width: 66px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-startdate.png")
+	no-repeat center;
+	float:left;
+	margin-left: 25px;
+}
+
+#content2 li:FIRST-CHILD+li{
+	float:left;
+	margin-right: 30px;
+}
+
+
+#content2 li:FIRST-CHILD+li+li{
 	width: 50px;
 	height: 14px;
 	background: url("${ctxName}/resource/images/project/project-contents-expecteddate.png")
@@ -178,9 +201,10 @@
 
 #content2 li:FIRST-CHILD+li+li+li{
 	float:left;
+	margin-right: 63px;
 }
 
-#content2 li:FIRST-CHILD+li+li+li+li {
+#content2 li:FIRST-CHILD+li+li+li+li{
 	width: 50px;
 	height: 14px;
 	background: url("${ctxName}/resource/images/project/project-contents-expectbudget.png")
@@ -188,29 +212,47 @@
 	float:left;
 }
 
-
-
-
-/* content3 */
-#content3 li:FIRST-CHILD {
-	width: 30px;
-	height: 14px;
-	background: url("${ctxName}/resource/images/project/project-contents-area.png")
-	no-repeat center;
-	float: left;
-}
-
-#content3 li:FIRST-CHILD+li{
+#content2 li:FIRST-CHILD+li+li+li+li+li{
 	float:left;
 }
 
-#content3 li:FIRST-CHILD+li+li {
+
+/* content3 */
+#content3 li{
+	margin-top: 11px;
+	margin-right: 7px;
+}
+
+#content3 li:FIRST-CHILD {
 	width: 24px;
 	height: 14px;
 	background: url("${ctxName}/resource/images/project/project-contents-cont.png")
 	no-repeat center;
-	float:left;
+	float: left;
+	margin-left: 25px;
 }
+
+#content3 li:FIRST-CHILD+li{
+	float:left;
+	margin-right: 23px;
+}
+
+#subject p{
+	float: right;
+	padding-right: 20px;
+	color: gray;
+}
+
+#subject a:FIRST-CHILD{
+	width: 24px;
+	height: 21px;
+	float:left;
+	padding-left:30px;
+	background: url("${ctxName}/resource/images/project/project-scrap-before.png")
+	no-repeat center;
+	line-height: 3;
+}
+
 
 </style>
 
@@ -247,19 +289,20 @@
 			<div id="project-detail-list">
 				<c:forEach var="p" items="${list}">
 					<ul id="subject">
-						<li><a href="">★</a> &nbsp;&nbsp;&nbsp; 
+						<li>
+						<a href=""></a>
 						<a href="projectDetail?c=${p.code}">${p.title}</a>
+						<p>${p.writerName}</p>
 						</li>
 					</ul>
 								
 					<ul id="content1">
 						<li></li>
-						<li>${p.writerName}</li>
-						<li></li>
 						<li>${p.classification}</li>
 						<li></li>
-						<li><fmt:formatDate value="${p.deadline}"
-								pattern="yyyy-MM-dd" /></li>
+						<li>${p.planningState}</li>								
+						<li></li>
+						<li>${p.area1_1} > ${p.area1_2}</li>
 					</ul>
 					
 					<ul id="img-box">
@@ -267,17 +310,16 @@
 					</ul>
 					
 					<ul id="content2">
-						<li></li>
-						<li>${p.planningState}</li>
+						<li></li>		
+						<li><fmt:formatDate value="${p.deadline}"
+								pattern="yyyy-MM-dd" /></li>	
 						<li></li>
 						<li>30일</li>
 						<li></li>
-						<li>${p.budget}원</li>
+						<li>${p.budget}원</li>		
 					</ul>
 					
 					<ul id="content3">
-						<li></li>
-						<li> ${p.area1_1}${p.area1_2}</li>
 						<li></li>
 						<li> ${p.content}</li>
 <%-- 						<form>
