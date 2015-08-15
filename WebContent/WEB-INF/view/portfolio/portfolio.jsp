@@ -5,6 +5,7 @@
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
 <style>
 
+
 #visual {
 	/* border: 1px solid blue; /*여기*/ 
 	margin-left: 29px;
@@ -14,31 +15,38 @@
 		no-repeat center;
 } 
 
+
+/*---------------------------------검색창---------------------------*/
+#portfolio-search {	
+	margin-left:700px;	
+}
 /*-------------------------버튼------------------------------------*/
 
 .portfolio-btn-search {
+	
 	width: 44px;
 	height: 24px;
 	background: url("../resource/images/portfolio/portfolio-btn-search.png")
 		no-repeat center;
 }
 
-.reg-button {
+.portfolio-reg-button {
 
-	
+	margin-left:775px;
+	margin-right:15px;
 	width:54px;
 	height:23px;
-	background: url("../resource/images/btn-reg.png")
+	background: url("../resource/images/portfolio/portfolio-btn-reg.png")
 			no-repeat center;
 	float:left;
 
 }
 
 
-.list-button {
+.portfolio-list-button {
 	width:54px;
 	height:23px;
-	background: url("../resource/images/btn-list.png")
+	background: url("../resource/images/portfolio/portfolio-btn-list.png")
 			no-repeat center;
 
 }
@@ -71,9 +79,10 @@
 
 /*---------------------------------페이지-------------------------------------*/
 #pager{
-	margin-top: 10px;
+	margin-top: 0px;
 	text-align: center;
-	font-size: 15px;
+	font-size: 13px;
+	
 }
 #pager div{
 	display: inline-block;
@@ -102,7 +111,7 @@
 				<h1 class="hidden">포트폴리오 분야 검색</h1>
 				<form>
 					<fieldset>
-						<legend class=hidden>분야정보</legend>
+						<!-- <legend class=hidden>분야정보</legend>
 						<label class="hidden">검색필드</label> 
 						<select>
 							<option>IOS</option>
@@ -121,9 +130,9 @@
 							<option>API</option>
 							<option>GIS</option>
 							<option>기타</option>
-						</select> 
+						</select>  -->
 						<label class="hidden">검색어</label> 
-						<input type="text" /> 
+						<input id="portfolio-search" type="text" /> 
 						<input class="button portfolio-btn-search" type="submit" value="검색" />
 					</fieldset>
 				</form>
@@ -165,8 +174,9 @@
 				<ul>
 					<!-- <li><input type="submit" value="등록" /></li> 
 					<li><input type="submit" value="목록" /></li>-->
-					<li><a href="portfolioReg" class="button reg-button">등록</a></li>
-					<li><a href="portfolio" class="button list-button">목록</a></li>
+					<li><a href="portfolioReg" class="button portfolio-reg-button">등록</a></li>
+					<li><a href="portfolio" class="button portfolio-list-button">목록</a></li>
+				
 				</ul>
 			</section>
 			

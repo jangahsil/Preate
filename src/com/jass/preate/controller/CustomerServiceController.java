@@ -11,22 +11,47 @@ import com.jass.preate.vo.CustomerService;
 @Controller
 @RequestMapping("")
 public class CustomerServiceController {
-	
+
 	@Autowired
 	private CustomerServiceDao customerServiceDao;
-	
+
 	@RequestMapping(value = "customer", method = RequestMethod.POST)
 	public String customer(CustomerService cs) {
-		
+
+		cs.setWriter("js");
 		customerServiceDao.addCustomerService(cs);
-		
-		return "management.customer";
+
+		return "customerClose";
 	}
 
 	@RequestMapping(value = "customer", method = RequestMethod.GET)
 	public String customer() {
-		
+
 		return "customer";
+	}
+
+	@RequestMapping(value = "customerClose", method = RequestMethod.GET)
+	public String customerClose() {
+
+		return "customerClose";
+	}
+
+	@RequestMapping(value = "customerClose", method = RequestMethod.POST)
+	public String customerclose() {
+
+		return "customerClose";
+	}
+
+	@RequestMapping(value = "alert", method = RequestMethod.GET)
+	public String alert() {
+
+		return "alert";
+	}
+
+	@RequestMapping(value = "alert", method = RequestMethod.POST)
+	public String alertMessage() {
+
+		return "alert";
 	}
 
 }

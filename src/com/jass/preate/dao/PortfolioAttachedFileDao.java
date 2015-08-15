@@ -8,6 +8,8 @@ public interface PortfolioAttachedFileDao {
 	
 	public List<PortfolioAttachedFile> getPortfolioAttachedFiles(String portfolioCode);
 	
+	public PortfolioAttachedFile getPortfolioAttachedFile(String portfolioCode);
+	
 	public int addPortfolioAttachedFile(PortfolioAttachedFile portfolioAttachedFile);
 	
 	public int removePortfolioAttachedFile(String code);

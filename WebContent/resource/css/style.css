@@ -204,21 +204,31 @@
 	height: 225px;
 	background: url("../images/main-project-title.png") no-repeat top;
 	margin-top: 9px;
-	border: 1px solid red;
 }
 
-#project ul {
-	width: 975px;
-	height: 165px;
+#project ul{
+	width: 300px;
+	height: 185px;
 	margin-top: 15px;
-	margin-left: 33px;
+	margin-left: 11px;
 	background: url("../images/main-project-view.png") no-repeat top;
 	float: left;
-	border: 1px solid blue;
-}
+} 
+
+#project div{
+	margin-left: 22px;
+} 
 
 #project li{
-	width: 300px;
+	margin-top: 20px;
+	margin-left: 40px;
+	line-height : 11px;
+}
+
+#project li a{
+	font-family: 돋움, Arial, sans-serif;
+	font-size:11px;
+	color:#979797;
 }
 
 /* ------------------------------ Contest 영역 ------------------------------ */
@@ -228,12 +238,12 @@
 	background: url("../images/main-contest-title.png") no-repeat top;
 	margin-top: 9px;
 	overflow: hidden;
-	border: 1px solid red
 }
 
+/* java script로 slide로 넘어가기 변경해야 함 */
 #contest li{
 	width: 924px;
-	height: 213px;
+	height: 195px;
 	background: url("../../re/images/main-contest-title.png") no-repeat top;
 	margin-top: 15px;
 	margin-left: 33px;
@@ -245,10 +255,98 @@
 	height: 225px;
 	background: url("../images/main-notice-title.png") no-repeat top;
 	margin-top: 9px;
-	border: 1px solid red
 }
 
-#notice>table {
-	padding-left: 20px;
-	margin-top: 15px;
+
+
+#notice>table thead{
+	display: inline-block;
 }
+
+#notice>table tbody{
+	display: inline-block;
+}
+
+/* 공지게시판 제목 */
+
+#notice tr{
+	width: 924px;
+	height: 30px;
+	line-height: 30px;
+	border-top: solid 1px #BDBDBD;
+
+
+	display: inline-block;
+}
+
+#notice thead th{
+	text-align: center;
+	border-bottom: solid 1px #BDBDBD;
+}
+
+#notice th{
+	background: #f5f5f5 url("../images/bg-title-sp.png") no-repeat left center;
+}
+
+#notice thead th:FIRST-CHILD{
+	width: 62px;
+	background: #f5f5f5 none;
+}
+
+#notice thead th:FIRST-CHILD + th{
+	width: 100px;
+}
+
+#notice thead th:FIRST-CHILD + th + th{
+	text-align: center;
+	width: 600px;
+}
+
+#notice thead th:FIRST-CHILD + th + th + th{
+	width: 100px;
+}
+
+#notice thead th:FIRST-CHILD + th + th + th + th{
+	width: 62px;
+}
+
+/* 공지게시판 컨텐츠 */
+
+#notice tbody td{
+	text-align: center;
+	border-bottom: solid 1px #BDBDBD;
+}
+
+#notice tbody td:FIRST-CHILD{
+	width: 62px;
+}
+
+#notice tbody td:FIRST-CHILD + td{
+	width: 100px;
+}
+
+#notice tbody td:FIRST-CHILD + td + td{
+	text-align: left;
+	width: 600px;
+}
+
+#notice tbody td:FIRST-CHILD + td + td + td{
+	width: 100px;
+}
+
+#notice tbody td:FIRST-CHILD + td + td + td + td{
+	width: 62px;
+}
+#notice table {
+	width: 924px;
+	height: 185px;
+	margin-left: 33px;
+	margin-top: 15px;
+	border-collapse:collapse;
+}
+
+
+
+
+
+

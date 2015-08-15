@@ -26,7 +26,7 @@
 						<td>${b.code}</td>
 						<td>${b.title}</td>
 						<td>${b.category}</td>
-						<td>${b.writer}</td>
+						<td>${b.writerNick}</td>
 						<td><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd"/></td>
 						<td>${b.recommend}</td>
 						<td>${b.hit}</td>
@@ -83,7 +83,7 @@
 					<c:forEach var="comment" items="${list}">
 					<tr>
 						<td>${comment.code}</td>
-						<td>${comment.writer}</td>
+						<td>${comment.writerNick}</td>
 						<td><fmt:formatDate value="${comment.regDate}" pattern="yyyy-MM-dd"/></td>
 						<td>${comment.content}</td>
 						<td><a href="${ctxName}/board/designer/commentEdit/?c=${comment.code}">수정</a></td>

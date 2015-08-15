@@ -26,7 +26,7 @@
 						<td>${b.code}</td>
 						<td>${b.title}</td>
 						<td>${b.category}</td>
-						<td>${b.writer}</td>
+						<td>${b.writerNick}</td>
 						<td><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd"/></td>
 						<td>${b.recommend}</td>
 						<td>${b.hit}</td>
@@ -56,6 +56,7 @@
 				<li><a href="${ctxName}/board/developer/developerRecommend?c=${b.code}">추천하기</a></li>
 				<li><a href="${ctxName}/board/developer/developerEdit?c=${b.code}">수정</a></li>
 				<li><a href="${ctxName}/board/developer/developerRemove?c=${b.code}">삭제</a></li>
+				<li><a href="${ctxName}/board/developer/developerBoard">목록</a></li>
 			</ul>
 		</section>
 		
@@ -76,7 +77,7 @@
 					<c:forEach var="comment" items="${list}">
 					<tr>
 						<td>${comment.code}</td>
-						<td>${comment.writer}</td>
+						<td>${comment.writerNick}</td>
 						<td><fmt:formatDate value="${comment.regDate}" pattern="yyyy-MM-dd"/></td>
 						<td>${comment.content}</td>
 						<td><a href="${ctxName}/board/developer/commentEdit/?c=${comment.code}">수정</a></td>
