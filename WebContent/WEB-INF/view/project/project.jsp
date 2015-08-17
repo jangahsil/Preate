@@ -19,7 +19,7 @@
 #project-search {
 	margin-left: 30px;
 	width: 952px;
-	height: 900px;
+	height: 760px;
 	border: 1px solid white;
 }
 
@@ -104,6 +104,10 @@
 	float: left;
 	border-bottom: 1px solid #eeeeee;
 	margin-bottom: 40px;
+}
+
+#project-detail-list li:FIRST-CHILD+li {
+	
 }
 
 #img-box {
@@ -252,10 +256,16 @@
 	color: #000;
 }
 
+#pager{
+	margin-left: 420px;
+}
+
 #pager li{
 	float: left;
 	margin-right: 20px;
 }
+
+
 
 </style>
 

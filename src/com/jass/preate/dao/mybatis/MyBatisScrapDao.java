@@ -37,5 +37,12 @@ public class MyBatisScrapDao implements ScrapDao {
 			return getProjectCodes(mid);
 		}
 
+	@Override
+	public List<Scrap> getScrap() {
+		ScrapDao scrapDao = session.getMapper(ScrapDao.class);
+		List<Scrap> list = scrapDao.getScrap();
+		return list;
+	}
+
 
 }
