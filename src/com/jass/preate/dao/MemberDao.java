@@ -22,4 +22,5 @@ public interface MemberDao {
 	public Member getMember(String mid);
 	
 	public int changeMember(Member member);
+	
 }

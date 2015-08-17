@@ -5,14 +5,14 @@
 
 	<select id="getTotalComments" parameterType="string"
 		resultType="com.jass.preate.vo.Comment">
-		SELECT * FROM COMMENTS WHERE BOARDCODE=#{boardCode}
+		SELECT * FROM COMMENTVIEW WHERE BOARDCODE=#{boardCode}
 	</select>
 
 	<select id="getComments" resultType="com.jass.preate.vo.Comment">
 		SELECT *
 		FROM (SELECT ROW_NUMBER()
-		OVER (ORDER BY CONVERT(INT,CODE)) NUM, COMMENTS.*
-		FROM COMMENTS WHERE BOARDCODE = #{boardCode}) C
+		OVER (ORDER BY CONVERT(INT,CODE)) NUM, COMMENTVIEW.*
+		FROM COMMENTVIEW WHERE BOARDCODE = #{boardCode}) C
 		WHERE C.NUM BETWEEN 1+(${page}-1)*10 AND 10*${page}
 	</select>
 

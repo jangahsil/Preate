@@ -64,6 +64,7 @@ public class MyProjectController {
 	
 		
 		return "myPage.Project";
+		
 	//첫번째 별 두번째 별
 	}
 }

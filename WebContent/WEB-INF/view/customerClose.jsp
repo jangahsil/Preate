@@ -19,13 +19,27 @@
 	position: absolute;
 	bottom: 10px;
 	left: 80px;
+	width:54px;
+	height:23px;
+	background: url("resource/images/btn-close.png") no-repeat;
 }	
+.button {
+	border: 0;
+	display: inline-block;
+	text-indent: -200px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+p{
+margin-top:30px;
+margin-left: 20px;
+}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<p> 전송완료!!</p>
-	<input id="close" type="button" value="창닫기">
+	<p>전송을 완료 하였습니다.</p>
+	<input  class="button" id="close" type="button" value="창닫기">
 </body>
 </html>

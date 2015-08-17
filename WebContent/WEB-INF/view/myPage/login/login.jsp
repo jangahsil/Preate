@@ -117,6 +117,45 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+addEventListener("load",function(){
+	var btn =document.querySelector("#login-btn");
+	
+	btn.onclick=function(){
+		var id = document.querySelector("#input-id");
+		var pwd=document.querySelector("#input-pwd");
+		var blank = /[\s]/g;
+		var special=/[`~!@#$%^&*|\\\'\";:\/?]/gi;
+		
+		//공백 체크
+		if(id.value == "" || pwd.value == ""){
+			alert("아이디와 패스워드를 입력 하세요");
+		return false;
+	};
+		if (blank.test(id.value) == true) {
+			alert("아이디에 공백이 있습니다");
+			return false;
+		}
+		;
+		if (blank.test(pwd.value) == true) {
+			alert("패스워드에 공백이 있습니다");
+			return false;
+		}
+		;
+		//특수문자 입력 체크
+
+		if(special.test(id.value) == true){
+			alert("아이디에 특수문자는 입력할수없습니다.");
+			return false;
+		}
+
+		
+	};
+	
+});
+
+	
+</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -132,14 +171,14 @@
 			<fieldset id="login-field">
 				<div id="login-form">
 					<label class="label id-label">아이디</label> 
-					<input name="j_username" class="text" /> 
+					<input id="input-id"name="j_username" class="text" /> 
 					<br>
 					<br> 
 					<label class="label password-label">비밀번호</label> 
-					<input name="j_password" type="password" class="text" />
+					<input id="input-pwd"name="j_password" type="password" class="text" />
 				</div>
 				<div id="submit-login" class="clearfix">
-					<input type="submit" class="button login-login-button" value="로그인" />
+					<input id="login-btn" type="submit" class="button login-login-button" value="로그인" />
 				</div>
 				<div id="serve-login-menu">
 					<br> 

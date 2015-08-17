@@ -5,10 +5,11 @@ import java.util.Date;
 public class Comment {
 	private String code;
 	private String writer;
+	private String writerNick;
+	private String writerName;
 	private String content;
 	private Date regDate;
 	private String boardCode;
-	
 	
 	
 	public String getCode() {
@@ -22,6 +23,18 @@ public class Comment {
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;
+	}
+	public String getWriterNick() {
+		return writerNick;
+	}
+	public void setWriterNick(String writerNick) {
+		this.writerNick = writerNick;
+	}
+	public String getWriterName() {
+		return writerName;
+	}
+	public void setWriterName(String writerName) {
+		this.writerName = writerName;
 	}
 	public String getContent() {
 		return content;
@@ -41,5 +54,5 @@ public class Comment {
 	public void setBoardCode(String boardCode) {
 		this.boardCode = boardCode;
 	}
-
+	
 }

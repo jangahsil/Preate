@@ -35,7 +35,7 @@ a{
 #board-table th,
 #board-table td {
     text-align: center;
-    border-bottom: 1px solid rgba(192,191,191,1);
+    border-bottom: 1px solid #BDBDBD;
 }
 #board-table th:FIRST-CHILD,
 #board-table td:FIRST-CHILD {
@@ -67,10 +67,12 @@ a{
 }
 #board-table th{
 	/* color: rgba(246,246,246,1); */
-	background: rgba(192,191,191,1) url("../../images/board/bg-title-sp.png") no-repeat left center;
+	background: #f5f5f5 url("../../images/board/bg-title-sp.png") no-repeat left center;
+	/* border-top: #BDBDBD 1px solid; */
+	border-top: none;
 }
 #board-table th:FIRST-CHILD{
-	background: rgba(192,191,191,1);
+	background: #f5f5f5
 }
 
 #button-list{

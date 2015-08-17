@@ -6,11 +6,9 @@
 
 <mapper namespace="com.jass.preate.dao.MemberDao">
 
-	<select id="getMember" parameterType="String" resultType="com.jass.preate.vo.Member">
-		SELECT
-		* FROM MEMBERS WHERE MID=#{mid}
+	<select id="getMember" parameterType="string" resultType="com.jass.preate.vo.Member">
+		SELECT * FROM MEMBERS WHERE MID=#{mid}
 	</select>
-
 
 	<select id="getMembers" resultType="com.jass.preate.vo.Member">
 	SELECT * FROM (
@@ -47,8 +45,8 @@
 		CAREERYEAR=${careerYear}
 		)
 		WHERE MID=#{mid}
-
 	</update>
+	
 	<insert id="addMember" parameterType="com.jass.preate.vo.Member">
 		INSERT INTO MEMBERS
 		(MID,NAME,NICKNAME,GENDER,PASSWORD
@@ -65,8 +63,6 @@
 		,${careerYear})
 	</insert>
 	
-
-
 	<delete id="removeMember" parameterType="string">
 		DELETE FROM MEMBERS
 		WHERE MID=#{mid}

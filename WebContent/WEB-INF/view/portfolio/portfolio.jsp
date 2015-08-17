@@ -4,7 +4,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
 <style>
-/*테스트*/
+
 
 #visual {
 	/* border: 1px solid blue; /*여기*/ 
@@ -15,10 +15,10 @@
 		no-repeat center;
 } 
 
+
 /*---------------------------------검색창---------------------------*/
-#portfolio-search
-{
-	margin-left:700px;
+#portfolio-search {	
+	margin-left:700px;	
 }
 /*-------------------------버튼------------------------------------*/
 
@@ -30,23 +30,23 @@
 		no-repeat center;
 }
 
-.reg-button {
+.portfolio-reg-button {
 
-	margin-left:50px;
+	margin-left:775px;
 	margin-right:15px;
 	width:54px;
 	height:23px;
-	background: url("../resource/images/btn-reg.png")
+	background: url("../resource/images/portfolio/portfolio-btn-reg.png")
 			no-repeat center;
 	float:left;
 
 }
 
 
-.list-button {
+.portfolio-list-button {
 	width:54px;
 	height:23px;
-	background: url("../resource/images/btn-list.png")
+	background: url("../resource/images/portfolio/portfolio-btn-list.png")
 			no-repeat center;
 
 }
@@ -61,7 +61,8 @@
 }
 
 #portfolio-table tr {
-	float: left;    /*float:left옵션을 tr에 준다*/
+    /*float:left옵션을 tr에 준다*/
+    float:left;
 }
 
 #portfolio-table td {
@@ -79,9 +80,10 @@
 
 /*---------------------------------페이지-------------------------------------*/
 #pager{
-	margin-top: 10px;
+	margin-top: 0px;
 	text-align: center;
-	font-size: 15px;
+	font-size: 13px;
+	
 }
 #pager div{
 	display: inline-block;
@@ -153,7 +155,8 @@
 						<c:forEach var="p" items="${list}">
 						<tr>
 						<td><br>
-							<a id=image href="portfolioImage"><img src="../images/.png" alt="images"></a>
+							<a id=image href="portfolioImage">
+							<img src="../images/.png" alt="images"></a>
 							<br><br><br><br><br><br>
 							<a href="portfolioImage">${p.title}</a>
 							<br>
@@ -172,8 +175,8 @@
 				<ul>
 					<!-- <li><input type="submit" value="등록" /></li> 
 					<li><input type="submit" value="목록" /></li>-->
-					<li><a href="portfolioReg" class="button reg-button">등록</a></li>
-					<li><a href="portfolio" class="button list-button">목록</a></li>
+					<li><a href="portfolioReg" class="button portfolio-reg-button">등록</a></li>
+					<li><a href="portfolio" class="button portfolio-list-button">목록</a></li>
 				
 				</ul>
 			</section>

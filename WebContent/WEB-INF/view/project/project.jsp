@@ -3,8 +3,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
+
 <style>
-/* #visual {
+
+/* ----------------------------- 비쥬얼 상단  ----------------------------------*/
+#visual {
 	margin-left: 29px;
 	width: 956px;
 	height: 62px;
@@ -12,11 +15,13 @@
 		no-repeat center;
 }
 
+/* ----------------------------- 프로젝트 검색  ----------------------------------*/
+
 #project-search{
 	margin-left: 30px;
 	width: 952px;
 	height: 900px;
-	border: 1px solid red;
+	border: 1px solid white;
 }
 
 
@@ -56,33 +61,203 @@
 	overflow: hidden;
 }
 
+
+
+/* -----------------------------프로젝트 목록  ----------------------------------*/
 #project-list{
 	margin-left: 46px;
 	margin-top: 88px;
 }
 
-#project-detail-list ul {
+#project-detail-list{
 	width: 800px;
-	height: 200px;
-	border: 1px solid #eeeeee;
+	border: 1px solid none;
+} 
+
+#subject{
+	width: 800px;
+	height: 25px;
+	background: #eeeeee;
+	padding-top: 6px;
+	float: left;
+	font-size: 14px;
+	color: black;
+	font-weight: bold;
+	line-height: 20px;
 }
 
-#project-detail-list li {	
+
+#content1{
+	width: 596px;
+	height: 50px;
+	border-top: 1px solid #eeeeee;
+	border-left: 1px solid #eeeeee;
+	float:left;
+	
+}
+
+#content2{
+	width: 596px;
+	height: 50px;
+	border-left: 1px solid #eeeeee;
 	float: left;
 }
 
-#project-detail-list li:FIRST-CHILD {
-	width: 800px;
-	height: 23px;
-	background: #eeeeee;
-	padding-top: 8px;
-	text-indent: 20px;
+#content3{
+	width: 596px;
+	height: 50px;
+	border-left: 1px solid #eeeeee;
+	float: left;
+	border-bottom: 1px solid #eeeeee;
+	margin-bottom: 40px;
 }
 
 #project-detail-list li:FIRST-CHILD+li {
 	
-} */
+}
+
+#img-box{
+	border: 1px solid #eeeeee;
+	width: 201px;
+	height:150px;
+	float: right;
+}
+
+
+
+/* content1 */
+#content1 li{
+	margin-top:22px;
+	margin-right: 7px;
+}
+
+#content1 li:FIRST-CHILD{
+	width: 50px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-recruitment.png")
+	no-repeat center;
+	float:left;
+	margin-left: 25px;
+}
+
+#content1 li:FIRST-CHILD+li{
+	float:left;
+	margin-right: 80px;
+}
+
+
+#content1 li:FIRST-CHILD+li+li{
+	width: 48px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-planstate.png")
+	no-repeat center;
+	float:left;
+}
+
+#content1 li:FIRST-CHILD+li+li+li{
+	float:left;	
+	margin-right: 30px;
+}
+
+#content1 li:FIRST-CHILD+li+li+li+li{
+	width: 24px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-area.png")
+	no-repeat center;
+	float: left;
+}
+
+#content1 li:FIRST-CHILD+li+li+li+li+li{
+	float:left;
+}
+
+
+
+/* content2 */
+#content2 li{
+	margin-top: 18px;
+	margin-right: 7px;
+}
+
+#content2 li:FIRST-CHILD{
+	width: 66px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-startdate.png")
+	no-repeat center;
+	float:left;
+	margin-left: 25px;
+}
+
+#content2 li:FIRST-CHILD+li{
+	float:left;
+	margin-right: 30px;
+}
+
+
+#content2 li:FIRST-CHILD+li+li{
+	width: 50px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-expecteddate.png")
+	no-repeat center;
+	float:left;
+}
+
+#content2 li:FIRST-CHILD+li+li+li{
+	float:left;
+	margin-right: 63px;
+}
+
+#content2 li:FIRST-CHILD+li+li+li+li{
+	width: 50px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-expectbudget.png")
+	no-repeat center;
+	float:left;
+}
+
+#content2 li:FIRST-CHILD+li+li+li+li+li{
+	float:left;
+}
+
+
+/* content3 */
+#content3 li{
+	margin-top: 11px;
+	margin-right: 7px;
+}
+
+#content3 li:FIRST-CHILD {
+	width: 24px;
+	height: 14px;
+	background: url("${ctxName}/resource/images/project/project-contents-cont.png")
+	no-repeat center;
+	float: left;
+	margin-left: 25px;
+}
+
+#content3 li:FIRST-CHILD+li{
+	float:left;
+	margin-right: 23px;
+}
+
+#subject p{
+	float: right;
+	padding-right: 20px;
+	color: gray;
+}
+
+#subject a:FIRST-CHILD{
+	width: 24px;
+	height: 21px;
+	float:left;
+	padding-left:30px;
+	background: url("${ctxName}/resource/images/project/project-scrap-before.png")
+	no-repeat center;
+	line-height: 3;
+}
 </style>
+
+
 
 
 <main id="main">
@@ -114,35 +289,48 @@
 			<h1 class="hidden">프로젝트 목록</h1>
 			<div id="project-detail-list">
 				<c:forEach var="p" items="${list}">
-					<ul>
-						<li><a href="">★</a> &nbsp;&nbsp;&nbsp; <a
-							href="projectDetail?c=${p.code}">${p.title}</a></li>
-						<li>번호</li>
-						<li>${p.code}</li>
-						<li>작성자</li>
-						<li>${p.writerName}</li>
-						<li>모집분야</li>
+					<ul id="subject">
+						<li>
+						<a href=""></a>
+						<a href="projectDetail?c=${p.code}">${p.title}</a>
+						<p>${p.writerName}</p>
+						</li>
+					</ul>
+								
+					<ul id="content1">
+						<li></li>
 						<li>${p.classification}</li>
-						<li>남은날짜</li>
+						<li></li>
+						<li>${p.planningState}</li>								
+						<li></li>
+						<li>${p.area1_1} > ${p.area1_2}</li>
+					</ul>
+					
+					<ul id="img-box">
+						
+					</ul>
+					
+					<ul id="content2">
+						<li></li>		
 						<li><fmt:formatDate value="${p.deadline}"
-								pattern="yyyy-MM-dd" /></li>
-						<li>기획상태</li>
-						<li>${p.planningState}</li>
-						<li>예상기간</li>
+								pattern="yyyy-MM-dd" /></li>	
+						<li></li>
 						<li>30일</li>
-						<li>예상비용</li>
-						<li>${p.budget}원</li>
-						<li>지역1 ${p.area1_1}${p.area1_2}</li>
-						<li>지역2 ${p.area2_1}${p.area2_2}</li>
-						<li>내용 ${p.content}</li>
-						<form>
+						<li></li>
+						<li>${p.budget}원</li>		
+					</ul>
+					
+					<ul id="content3">
+						<li></li>
+						<li> ${p.content}</li>
+<%-- 						<form>
 							<select>
-								<option>지원자 ${p.joinCount}명지원</option>
+								<option>${p.joinCount}명지원</option>
 								<c:forEach var="j" items="${p.joinRequest}">
 									<option>${j.mid}</option>
 								</c:forEach>
 							</select>
-						</form>
+						</form> --%>
 					</ul>
 				</c:forEach>
 			</div>
@@ -201,7 +389,7 @@
 			</table>
 		</section>
 
-		<section>
+<!-- 		<section>
 			<h1>필요기술</h1>
 			<table>
 				<thead>
@@ -221,7 +409,7 @@
 					</tr>
 				</tbody>
 			</table>
-		</section>
+		</section> -->
 	</div>
 </section>
 </main>

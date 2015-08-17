@@ -49,3 +49,5 @@ blockquote,q { quotes:"" ""; }
 
 /* 수평선*/
 hr { display:none; }
+
+a{	text-decoration: none;}
