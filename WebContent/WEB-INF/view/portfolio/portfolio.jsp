@@ -62,6 +62,7 @@
 
 #portfolio-table tr {
     /*float:left옵션을 tr에 준다*/
+    float:left;
 }
 
 #portfolio-table td {
