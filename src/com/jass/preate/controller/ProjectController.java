@@ -1,5 +1,6 @@
 package com.jass.preate.controller;
 
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -131,7 +132,7 @@ public class ProjectController {
 		
 	
 	@RequestMapping(value="projectReg",method=RequestMethod.POST)
-	public String projectReg(Project p,String start, String dead, String end,HttpServletRequest request) throws ParseException{
+	public String projectReg(Project p,String start, String dead, String end,HttpServletRequest request,Principal principal) throws ParseException{
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -142,7 +143,7 @@ public class ProjectController {
 		p.setStartDate(startDate);
 		p.setDeadline(deadline);
 		p.setEndDate(endDate);
-		p.setWriter("js");
+		p.setWriter(principal.getName());
 		
 		projectDao.addProject(p);
 		
