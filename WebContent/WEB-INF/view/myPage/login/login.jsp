@@ -111,12 +111,22 @@
 	width: 956px;
 	height: 700px;
 }
+
+#pwd{
+	margin-left:2px;
+}
+
+#input-pwd{
+
+}
+
 </style>
 
 
 <!DOCTYPE html>
 <html>
 <head>
+
 <script type="text/javascript">
 addEventListener("load",function(){
 	var btn =document.querySelector("#login-btn");
@@ -174,7 +184,7 @@ addEventListener("load",function(){
 					<input id="input-id"name="j_username" class="text" /> 
 					<br>
 					<br> 
-					<label class="label password-label">비밀번호</label> 
+					<label id= "pwd" class="label password-label">비밀번호</label> 
 					<input id="input-pwd"name="j_password" type="password" class="text" />
 				</div>
 				<div id="submit-login" class="clearfix">

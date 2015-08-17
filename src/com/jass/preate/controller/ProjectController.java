@@ -62,6 +62,26 @@ public class ProjectController {
 		
 	}
 	
+	//추가 2015-08-17
+	@RequestMapping(value="project",  method = RequestMethod.GET)
+	public String project(Model model, String page){
+		
+		if (page == null) {
+			List<Project> list = projectDao.getProjects(1);
+
+			model.addAttribute("list", list);
+		}
+
+		if (page != null) {
+			List<Project> list = projectDao.getProjects(Integer.parseInt(page));
+
+			model.addAttribute("list", list);
+		}
+		
+		return "project.project";
+	}
+	//수정 끝
+	
 	
 	
 	@RequestMapping(value="projectDetail", method=RequestMethod.GET)
@@ -78,6 +98,7 @@ public class ProjectController {
 		
 		return "project.projectDetail";
 	}
+	
 	
 	@RequestMapping(value="projectDetail", method=RequestMethod.POST)
 	public String projectDetail(String c, ProjectComment comment) {
@@ -142,5 +163,8 @@ public class ProjectController {
 		
 		return "redirect:project";
 	}
+	
+
+	
 	
 }
