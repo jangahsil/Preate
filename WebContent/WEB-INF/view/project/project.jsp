@@ -4,7 +4,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
 <style>
-#visual {
+/* #visual {
 	margin-left: 29px;
 	width: 956px;
 	height: 62px;
@@ -81,7 +81,7 @@
 
 #project-detail-list li:FIRST-CHILD+li {
 	
-}
+} */
 </style>
 
 

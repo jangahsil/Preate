@@ -11,5 +11,7 @@ public interface ScrapDao {
 	public int addScrap(Scrap scrap);
 
 	public int removeScrap(String code);
+	
+	public List<Scrap> getScrap();
 		
 }
