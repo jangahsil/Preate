@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -67,7 +68,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "designer/designerBoard", method = RequestMethod.POST)
 	public String designerBoard(Model model, String page, String field,
-			String query, String category) {
+			String query, String category, Principal principal) {
 
 		int pageNum = 1;
 
@@ -79,7 +80,7 @@ public class BoardController {
 				query, category);
 		model.addAttribute("list", list);
 		model.addAttribute("category", category);
-
+		
 		return "board.designer.designerBoard";
 	}
 
@@ -193,9 +194,9 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "designer/designerDetail", method = RequestMethod.POST)
-	public String designerDetail(String c, Comment comment, Model model) {
+	public String designerDetail(String c, Comment comment, Model model, Principal principal) {
 
-		comment.setWriter("jungnampyo");
+		comment.setWriter(principal.getName());
 		comment.setBoardCode(c);
 
 		commentDao.addComment(comment);
@@ -234,9 +235,9 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "developer/developerDetail", method = RequestMethod.POST)
-	public String developerDetail(String c, Comment comment, Model model) {
+	public String developerDetail(String c, Comment comment, Model model, Principal principal) {
 
-		comment.setWriter("jungnampyo");
+		comment.setWriter(principal.getName());
 		comment.setBoardCode(c);
 
 		commentDao.addComment(comment);
@@ -275,9 +276,9 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "free/freeDetail", method = RequestMethod.POST)
-	public String freeDetail(String c, Comment comment, Model model) {
+	public String freeDetail(String c, Comment comment, Model model, Principal principal) {
 
-		comment.setWriter("jungnampyo");
+		comment.setWriter(principal.getName());
 		comment.setBoardCode(c);
 
 		commentDao.addComment(comment);
@@ -305,9 +306,9 @@ public class BoardController {
 
 	@RequestMapping(value = "designer/designerReg", method = RequestMethod.POST)
 	public String designerReg(Board board, MultipartFile file,
-			HttpServletRequest request) throws IOException, ServletException {
+			HttpServletRequest request, Principal principal) throws IOException, ServletException {
 
-		board.setWriter("jungnampyo");
+		board.setWriter(principal.getName());
 
 		board.setClassification("designer");
 
@@ -357,9 +358,9 @@ public class BoardController {
 
 	@RequestMapping(value = "developer/developerReg", method = RequestMethod.POST)
 	public String developerReg(Board board, MultipartFile file,
-			HttpServletRequest request) throws IOException {
+			HttpServletRequest request, Principal principal) throws IOException {
 
-		board.setWriter("jungnampyo");
+		board.setWriter(principal.getName());
 
 		board.setClassification("developer");
 
@@ -409,9 +410,9 @@ public class BoardController {
 
 	@RequestMapping(value = "free/freeReg", method = RequestMethod.POST)
 	public String freeReg(Board board, MultipartFile file,
-			HttpServletRequest request) throws IOException {
+			HttpServletRequest request, Principal principal) throws IOException {
 
-		board.setWriter("jungnampyo");
+		board.setWriter(principal.getName());
 
 		board.setClassification("free");
 
@@ -467,10 +468,10 @@ public class BoardController {
 
 	@RequestMapping(value = "designer/designerEdit", method = RequestMethod.POST)
 	public String designerEdit(Board board, String c, MultipartFile file,
-			HttpServletRequest request) throws IOException {
+			HttpServletRequest request, Principal principal) throws IOException {
 
 		board.setCode(c);
-		board.setWriter("jungnampyo");
+		board.setWriter(principal.getName());
 
 		boardDao.changeBoard(board);
 
@@ -524,10 +525,10 @@ public class BoardController {
 
 	@RequestMapping(value = "developer/developerEdit", method = RequestMethod.POST)
 	public String developerEdit(Board board, String c, MultipartFile file,
-			HttpServletRequest request) throws IOException {
+			HttpServletRequest request, Principal principal) throws IOException {
 
 		board.setCode(c);
-		board.setWriter("jungnampyo");
+		board.setWriter(principal.getName());
 
 		boardDao.changeBoard(board);
 
@@ -581,10 +582,10 @@ public class BoardController {
 
 	@RequestMapping(value = "free/freeEdit", method = RequestMethod.POST)
 	public String freeEdit(Board board, String c, MultipartFile file,
-			HttpServletRequest request) throws IOException {
+			HttpServletRequest request, Principal principal) throws IOException {
 
 		board.setCode(c);
-		board.setWriter("jungnampyo");
+		board.setWriter(principal.getName());
 
 		boardDao.changeBoard(board);
 
