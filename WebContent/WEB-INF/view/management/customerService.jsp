@@ -61,6 +61,7 @@
 			document.body.removeChild(screen);
 			document.body.removeChild(dialog);
 		};
+		
 		dialog.appendChild(btnClose);
 
 		var request = new window.XMLHttpRequest();
@@ -73,7 +74,6 @@
 
 				dialog.removeChild(imgLoader);
 				view.innerHTML = request.responseText;
-
 			};
 		}
 
