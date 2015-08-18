@@ -158,6 +158,7 @@
 </style>
                      
 <main id="main">
+
     <div id="visual"></div>
    <section id="main-content">
       <article class="detail space-top-l">

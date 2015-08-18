@@ -7,12 +7,13 @@
 <script type="text/javascript">
 	var win=null;
 	function btnopen(){
-		win=open("${pageContext.request.contextPath}/customer","고객문의","width=600px,height=400px");
+		var docWidth=window.innerWidth;
+		var docHeight=window.innerHeight;
+		win=open("${pageContext.request.contextPath}/customer","고객문의","position=fixed,left=300px,top=300px,width=600px,height=400px");
 	}
 	addEventListener("load",function(){
 		var btn=document.getElementById("customer");
 		btn.onclick=btnopen;
-		
 	});
 </script>
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>

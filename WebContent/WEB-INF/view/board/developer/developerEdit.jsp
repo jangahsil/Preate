@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
 <head>
-	<link href="${ctxName}/resource/css/board/developerRegStyle.css" rel="stylesheet"	type="text/css" />
+	<link href="${ctxName}/resource/css/board/developerRegStyle.css" rel="stylesheet" type="text/css" />
 </head>
 <main>
 	<section>
@@ -41,13 +41,16 @@
 				</dl>
 				<dl>
 					<dt>첨부파일</dt>
-					<c:forEach var="f" items="${list}">
+					<%-- <c:forEach var="f" items="${list}">
 					<dd><input name="file" type="file" value="${f.name}"/></dd>
-					</c:forEach>
+					</c:forEach> --%>
+					<dd>
+						<input name="file" type="file" />
+					</dd>
 				</dl>
 				<div>
-					<input type="submit" value="저장"/>
-					<a href="developerBoard">취소</a>
+					<input type="submit" class="button btn-write" name="btn" value="작성" />
+					<a href="developerBoard" class="button btn-cancel">취소</a>
 				</div>
 			</form>
 		</section>

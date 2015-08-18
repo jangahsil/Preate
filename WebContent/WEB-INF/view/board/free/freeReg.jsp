@@ -24,8 +24,8 @@
 							<dd><input name="file" type="file" class="button btn-find"/></dd>
 						</dl>
 						<div>
-							<input type="submit" class="button btn-write" name="btn" value="작성" /><a href="freeBoard"></a>
-							<input type="submit" class="button btn-cancel" name="btn" value="취소" /><a href="freeBoard"></a>
+							<input type="submit" class="button btn-write" name="btn" value="작성" />
+							<a href="freeBoard" class="button btn-cancel">취소</a>
 						</div>
 					</form>
 				</section>

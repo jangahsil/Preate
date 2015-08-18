@@ -66,13 +66,13 @@
 			
 			<section id="board-search">
 				<h1 class="hidden">게시판 검색</h1>
-				<form>
+				<form method="post">
 					<fieldset>
 						<legend class="hidden">검색정보</legend>
 						<label class="hidden">검색필드</label>
 						<select name="field">
 							<option value="TITLE">제목+내용</option>
-							<option value="WRITER">작성자</option>
+							<option value="WRITERNICK">작성자</option>
 						</select>
 						<label class="hidden">검색어</label>
 						<input type="text" name="query"/>

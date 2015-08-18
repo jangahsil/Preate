@@ -6,6 +6,7 @@
 <script type="text/javascript">
 	var win=null;
 	addEventListener("load",function(){
+		
 	var btn=document.getElementById("close");
 	resizeTo(100,150);
 		btn.onclick=function(){

@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -23,7 +24,6 @@ import com.jass.preate.dao.CommentDao;
 import com.jass.preate.vo.Board;
 import com.jass.preate.vo.BoardAttachment;
 import com.jass.preate.vo.Comment;
-import com.jass.preate.vo.CustomerService;
 
 @Controller
 @RequestMapping("/board/*")
@@ -48,199 +48,272 @@ public class BoardController {
 		this.boardAttachmentDao = boardAttachmentDao;
 	}
 
-	@RequestMapping("designer/designerBoard")
-	public String designerBoard(Model model) {
+	@RequestMapping(value = "designer/designerBoard", method = RequestMethod.GET)
+	public String designerBoard(Model model, String page, String category) {
+
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
 		
-		List<Board> list = boardDao.getBoards(1, "designer");
-		
+		List<Board> list = boardDao.getBoards(pageNum, "designer", category);
+
 		model.addAttribute("list", list);
+		model.addAttribute("category", category);
+
+		return "board.designer.designerBoard";
+
+	}
+	
+	@RequestMapping(value = "designer/designerBoard", method = RequestMethod.POST)
+	public String designerBoard(Model model, String page, String field,
+			String query, String category, Principal principal) {
+
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+
+		List<Board> list = boardDao.getBoards(pageNum, "designer", field,
+				query, category);
+		model.addAttribute("list", list);
+		model.addAttribute("category", category);
 		
 		return "board.designer.designerBoard";
-		
 	}
-	
-	@RequestMapping("developer/developerBoard")
-	public String developerBoard(Model model) {
+
+	@RequestMapping(value = "developer/developerBoard", method = RequestMethod.GET)
+	public String developerBoard(Model model, String page, String category) {
 		
-		List<Board> list = boardDao.getBoards(1, "developer");
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
 		
+		List<Board> list = boardDao.getBoards(pageNum, "developer", category);
+
 		model.addAttribute("list", list);
-		
+		model.addAttribute("category", category);
+
 		return "board.developer.developerBoard";
-		
-	}
-	
-	@RequestMapping("free/freeBoard")
-	public String freeBoard(Model model) {
-		
 
-		List<Board> list = boardDao.getBoards(1, "free");
-		
-		model.addAttribute("list", list);
-		
-		return "board.free.freeBoard";
-		
 	}
-	
-/*	@RequestMapping(value="free/freeBoard", method=RequestMethod.GET)
-	public String freeBoard(Model model) {
-		
 
-		List<Board> list = boardDao.getBoards(1, "free");
-		
+	@RequestMapping(value = "developer/developerBoard", method = RequestMethod.POST)
+	public String developerBoard(Model model, String page, String field,
+			String query, String category) {
+
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+
+		List<Board> list = boardDao.getBoards(pageNum, "developer", field,
+				query, category);
 		model.addAttribute("list", list);
-		
-		return "board.free.freeBoard";
-		
+		model.addAttribute("category", category);
+
+		return "board.developer.developerBoard";
 	}
-	
+
+	@RequestMapping(value = "free/freeBoard", method = RequestMethod.GET)
+	public String freeBoard(Model model, String page) {
+
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+		
+		List<Board> list = boardDao.getBoards(pageNum, "free");
+
+		model.addAttribute("list", list);
+
+		return "board.free.freeBoard";
+
+	}
+
 	@RequestMapping(value = "free/freeBoard", method = RequestMethod.POST)
-	public String freeBoard(Model model, String field, String query) {
+	public String freeBoard(Model model, String page, String field, String query) {
 
-		List<Board> list = boardDao.getBoards(1, "free", field, query);
+		int pageNum = 1;
+
+		if (page != null) {
+			pageNum = Integer.parseInt(page);
+		}
+
+		List<Board> list = boardDao.getBoards(pageNum, "free", field, query,
+				null);
 		model.addAttribute("list", list);
 
-		return "management.customerService";
-	}*/
-	
-	@RequestMapping(value="designer/designerDetail", method=RequestMethod.GET)
+		return "board.free.freeBoard";
+	}
+
+	/*
+	 * @RequestMapping(value="free/freeBoard", method=RequestMethod.GET) public
+	 * String freeBoard(Model model) {
+	 * 
+	 * 
+	 * List<Board> list = boardDao.getBoards(1, "free");
+	 * 
+	 * model.addAttribute("list", list);
+	 * 
+	 * return "board.free.freeBoard";
+	 * 
+	 * }
+	 * 
+	 * @RequestMapping(value = "free/freeBoard", method = RequestMethod.POST)
+	 * public String freeBoard(Model model, String field, String query) {
+	 * 
+	 * List<Board> list = boardDao.getBoards(1, "free", field, query);
+	 * model.addAttribute("list", list);
+	 * 
+	 * return "management.customerService"; }
+	 */
+
+	@RequestMapping(value = "designer/designerDetail", method = RequestMethod.GET)
 	public String designerDetail(Model model, String c) {
-		
-		boardDao.addHit(c);
-		
-		Board board = boardDao.getBoard(c);
-		model.addAttribute("b", board);
-		
-		List<Comment> list = commentDao.getComments(1, c);
-		model.addAttribute("list", list);
-		
-		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
-		model.addAttribute("list2", list2);
-		
-		return "board.designer.designerDetail";
-		
-	}
-	
-	@RequestMapping(value="designer/designerDetail", method=RequestMethod.POST)
-	public String designerDetail(String c, Comment comment, Model model) {
-		
-		comment.setWriter("jungnampyo");
-		comment.setBoardCode(c);
-		
-		commentDao.addComment(comment);
-		
-		Board board = boardDao.getBoard(c);
-		model.addAttribute("b", board);
-		
-		List<Comment> list = commentDao.getComments(1, c);
-		model.addAttribute("list", list);
-		
-		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
-		model.addAttribute("list2", list2);
-		
-		return "board.designer.designerDetail";
-		
-		/*return "redirect:designerDetail?c=" + c;*/
-		
-	}
-	
-	@RequestMapping(value="developer/developerDetail", method=RequestMethod.GET)
-	public String developerDetail(Model model, String c) {
-		
-		boardDao.addHit(c);
-		
-		Board board = boardDao.getBoard(c);
-		model.addAttribute("b", board);
-		
-		List<Comment> list = commentDao.getComments(1, c);
-		model.addAttribute("list", list);
-		
-		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
-		model.addAttribute("list2", list2);
-		
-		return "board.developer.developerDetail";
-		
-	}
-	
-	@RequestMapping(value="developer/developerDetail", method=RequestMethod.POST)
-	public String developerDetail(String c, Comment comment, Model model) {
 
-		comment.setWriter("jungnampyo");
-		comment.setBoardCode(c);
-		
-		commentDao.addComment(comment);
-		
-		Board board = boardDao.getBoard(c);
-		model.addAttribute("b", board);
-		
-		List<Comment> list = commentDao.getComments(1, c);
-		model.addAttribute("list", list);
-		
-		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
-		model.addAttribute("list2", list2);
-		
-		return "board.developer.developerDetail";
-		
-		/*return "redirect:developerDetail?c=" + c;*/
-		
-	}
-	
-	@RequestMapping(value="free/freeDetail", method=RequestMethod.GET)
-	public String freeDetail(Model model, String c) {
-		
 		boardDao.addHit(c);
-		
+
 		Board board = boardDao.getBoard(c);
 		model.addAttribute("b", board);
-		
+
 		List<Comment> list = commentDao.getComments(1, c);
 		model.addAttribute("list", list);
-		
+
 		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list2", list2);
-		
-		return "board.free.freeDetail";
-		
+
+		return "board.designer.designerDetail";
+
 	}
-	
-	@RequestMapping(value="free/freeDetail", method=RequestMethod.POST)
-	public String freeDetail(String c, Comment comment, Model model) {
-			
-		comment.setWriter("jungnampyo");
+
+	@RequestMapping(value = "designer/designerDetail", method = RequestMethod.POST)
+	public String designerDetail(String c, Comment comment, Model model, Principal principal) {
+
+		comment.setWriter(principal.getName());
 		comment.setBoardCode(c);
-		
+
 		commentDao.addComment(comment);
-		
+
 		Board board = boardDao.getBoard(c);
 		model.addAttribute("b", board);
-		
+
 		List<Comment> list = commentDao.getComments(1, c);
 		model.addAttribute("list", list);
-		
+
 		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list2", list2);
-		
-		return "board.free.freeDetail";
-		
-		/*return "redirect:freeDetail?c=" + c;*/
-		
+
+		return "board.designer.designerDetail";
+
+		/* return "redirect:designerDetail?c=" + c; */
+
 	}
-	
-	@RequestMapping(value="designer/designerReg", method=RequestMethod.GET)
+
+	@RequestMapping(value = "developer/developerDetail", method = RequestMethod.GET)
+	public String developerDetail(Model model, String c) {
+
+		boardDao.addHit(c);
+
+		Board board = boardDao.getBoard(c);
+		model.addAttribute("b", board);
+
+		List<Comment> list = commentDao.getComments(1, c);
+		model.addAttribute("list", list);
+
+		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
+		model.addAttribute("list2", list2);
+
+		return "board.developer.developerDetail";
+
+	}
+
+	@RequestMapping(value = "developer/developerDetail", method = RequestMethod.POST)
+	public String developerDetail(String c, Comment comment, Model model, Principal principal) {
+
+		comment.setWriter(principal.getName());
+		comment.setBoardCode(c);
+
+		commentDao.addComment(comment);
+
+		Board board = boardDao.getBoard(c);
+		model.addAttribute("b", board);
+
+		List<Comment> list = commentDao.getComments(1, c);
+		model.addAttribute("list", list);
+
+		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
+		model.addAttribute("list2", list2);
+
+		return "board.developer.developerDetail";
+
+		/* return "redirect:developerDetail?c=" + c; */
+
+	}
+
+	@RequestMapping(value = "free/freeDetail", method = RequestMethod.GET)
+	public String freeDetail(Model model, String c) {
+
+		boardDao.addHit(c);
+
+		Board board = boardDao.getBoard(c);
+		model.addAttribute("b", board);
+
+		List<Comment> list = commentDao.getComments(1, c);
+		model.addAttribute("list", list);
+
+		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
+		model.addAttribute("list2", list2);
+
+		return "board.free.freeDetail";
+
+	}
+
+	@RequestMapping(value = "free/freeDetail", method = RequestMethod.POST)
+	public String freeDetail(String c, Comment comment, Model model, Principal principal) {
+
+		comment.setWriter(principal.getName());
+		comment.setBoardCode(c);
+
+		commentDao.addComment(comment);
+
+		Board board = boardDao.getBoard(c);
+		model.addAttribute("b", board);
+
+		List<Comment> list = commentDao.getComments(1, c);
+		model.addAttribute("list", list);
+
+		List<BoardAttachment> list2 = boardAttachmentDao.getBoardAttachments(c);
+		model.addAttribute("list2", list2);
+
+		return "board.free.freeDetail";
+
+		/* return "redirect:freeDetail?c=" + c; */
+
+	}
+
+	@RequestMapping(value = "designer/designerReg", method = RequestMethod.GET)
 	public String designerReg() {
-	
+
 		return "board.designer.designerReg";
 	}
-	
-	@RequestMapping(value="designer/designerReg", method=RequestMethod.POST)
-	public String designerReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException, ServletException {
-		
-		board.setWriter("jungnampyo");
+
+	@RequestMapping(value = "designer/designerReg", method = RequestMethod.POST)
+	public String designerReg(Board board, MultipartFile file,
+			HttpServletRequest request, Principal principal) throws IOException, ServletException {
+
+		board.setWriter(principal.getName());
 
 		board.setClassification("designer");
 
 		boardDao.addBoard(board);
-		
+
 		if (!file.isEmpty()) {
 
 			ServletContext application = request.getServletContext();
@@ -270,28 +343,29 @@ public class BoardController {
 			boardAttachment.setBoardCode(boardDao.getLastCode());
 
 			boardAttachmentDao.addBoardAttachment(boardAttachment);
-			
+
 		}
-		
+
 		return "redirect:designerBoard";
-		
+
 	}
-	
-	@RequestMapping(value="developer/developerReg", method=RequestMethod.GET)
+
+	@RequestMapping(value = "developer/developerReg", method = RequestMethod.GET)
 	public String developerReg() {
-	
+
 		return "board.developer.developerReg";
 	}
-	
-	@RequestMapping(value="developer/developerReg", method=RequestMethod.POST)
-	public String developerReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException {
-		
-		board.setWriter("jungnampyo");
+
+	@RequestMapping(value = "developer/developerReg", method = RequestMethod.POST)
+	public String developerReg(Board board, MultipartFile file,
+			HttpServletRequest request, Principal principal) throws IOException {
+
+		board.setWriter(principal.getName());
 
 		board.setClassification("developer");
-		
+
 		boardDao.addBoard(board);
-		
+
 		if (!file.isEmpty()) {
 
 			ServletContext application = request.getServletContext();
@@ -321,28 +395,29 @@ public class BoardController {
 			boardAttachment.setBoardCode(boardDao.getLastCode());
 
 			boardAttachmentDao.addBoardAttachment(boardAttachment);
-		
+
 		}
-		
+
 		return "redirect:developerBoard";
-		
+
 	}
-	
-	@RequestMapping(value="free/freeReg", method=RequestMethod.GET)
+
+	@RequestMapping(value = "free/freeReg", method = RequestMethod.GET)
 	public String freeReg() {
-	
+
 		return "board.free.freeReg";
 	}
-	
-	@RequestMapping(value="free/freeReg", method=RequestMethod.POST)
-	public String freeReg(Board board, MultipartFile file, HttpServletRequest request) throws IOException {
-		
-		board.setWriter("jungnampyo");
-		
+
+	@RequestMapping(value = "free/freeReg", method = RequestMethod.POST)
+	public String freeReg(Board board, MultipartFile file,
+			HttpServletRequest request, Principal principal) throws IOException {
+
+		board.setWriter(principal.getName());
+
 		board.setClassification("free");
 
 		boardDao.addBoard(board);
-		
+
 		if (!file.isEmpty()) {
 
 			ServletContext application = request.getServletContext();
@@ -372,33 +447,34 @@ public class BoardController {
 			boardAttachment.setBoardCode(boardDao.getLastCode());
 
 			boardAttachmentDao.addBoardAttachment(boardAttachment);
-			
+
 		}
-		
+
 		return "redirect:freeBoard";
-		
+
 	}
-	
-	@RequestMapping(value="designer/designerEdit", method=RequestMethod.GET)
+
+	@RequestMapping(value = "designer/designerEdit", method = RequestMethod.GET)
 	public String designerEdit(Model model, String c) {
-	
+
 		Board board = boardDao.getBoard(c);
 		model.addAttribute("b", board);
-		
+
 		List<BoardAttachment> list = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list", list);
-		
+
 		return "board.designer.designerEdit";
 	}
-	
-	@RequestMapping(value="designer/designerEdit", method=RequestMethod.POST)
-	public String designerEdit(Board board, String c, MultipartFile file, HttpServletRequest request) throws IOException {
-		
+
+	@RequestMapping(value = "designer/designerEdit", method = RequestMethod.POST)
+	public String designerEdit(Board board, String c, MultipartFile file,
+			HttpServletRequest request, Principal principal) throws IOException {
+
 		board.setCode(c);
-		board.setWriter("jungnampyo");
+		board.setWriter(principal.getName());
 
 		boardDao.changeBoard(board);
-		
+
 		if (!file.isEmpty()) {
 
 			ServletContext application = request.getServletContext();
@@ -428,33 +504,34 @@ public class BoardController {
 			boardAttachment.setBoardCode(boardDao.getLastCode());
 
 			boardAttachmentDao.addBoardAttachment(boardAttachment);
-			
+
 		}
-		
+
 		return "redirect:designerBoard";
-		
+
 	}
-	
-	@RequestMapping(value="developer/developerEdit", method=RequestMethod.GET)
+
+	@RequestMapping(value = "developer/developerEdit", method = RequestMethod.GET)
 	public String developerEdit(Model model, String c) {
-	
+
 		Board board = boardDao.getBoard(c);
 		model.addAttribute("b", board);
-		
+
 		List<BoardAttachment> list = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list", list);
-		
+
 		return "board.developer.developerEdit";
 	}
-	
-	@RequestMapping(value="developer/developerEdit", method=RequestMethod.POST)
-	public String developerEdit(Board board, String c, MultipartFile file, HttpServletRequest request) throws IOException {
-		
+
+	@RequestMapping(value = "developer/developerEdit", method = RequestMethod.POST)
+	public String developerEdit(Board board, String c, MultipartFile file,
+			HttpServletRequest request, Principal principal) throws IOException {
+
 		board.setCode(c);
-		board.setWriter("jungnampyo");
+		board.setWriter(principal.getName());
 
 		boardDao.changeBoard(board);
-		
+
 		if (!file.isEmpty()) {
 
 			ServletContext application = request.getServletContext();
@@ -484,33 +561,34 @@ public class BoardController {
 			boardAttachment.setBoardCode(boardDao.getLastCode());
 
 			boardAttachmentDao.addBoardAttachment(boardAttachment);
-			
+
 		}
-		
+
 		return "redirect:developerBoard";
-		
+
 	}
-	
-	@RequestMapping(value="free/freeEdit", method=RequestMethod.GET)
+
+	@RequestMapping(value = "free/freeEdit", method = RequestMethod.GET)
 	public String freeEdit(Model model, String c) {
-	
+
 		Board board = boardDao.getBoard(c);
 		model.addAttribute("b", board);
-		
+
 		List<BoardAttachment> list = boardAttachmentDao.getBoardAttachments(c);
 		model.addAttribute("list", list);
-		
+
 		return "board.free.freeEdit";
 	}
-	
-	@RequestMapping(value="free/freeEdit", method=RequestMethod.POST)
-	public String freeEdit(Board board, String c, MultipartFile file, HttpServletRequest request) throws IOException {
-		
+
+	@RequestMapping(value = "free/freeEdit", method = RequestMethod.POST)
+	public String freeEdit(Board board, String c, MultipartFile file,
+			HttpServletRequest request, Principal principal) throws IOException {
+
 		board.setCode(c);
-		board.setWriter("jungnampyo");
+		board.setWriter(principal.getName());
 
 		boardDao.changeBoard(board);
-		
+
 		if (!file.isEmpty()) {
 
 			ServletContext application = request.getServletContext();
@@ -540,49 +618,47 @@ public class BoardController {
 			boardAttachment.setBoardCode(boardDao.getLastCode());
 
 			boardAttachmentDao.addBoardAttachment(boardAttachment);
-			
+
 		}
-		
+
 		return "redirect:freeBoard";
-		
+
 	}
-	
+
 	@RequestMapping("designer/designerRemove")
 	public String designerRemove(String c) {
-	
+
 		boardAttachmentDao.removeBoardAttachments(c);
 		commentDao.removeComments(c);
 		boardDao.removeBoard(c);
-		
+
 		return "redirect:designerBoard";
 	}
-	
+
 	@RequestMapping("developer/developerRemove")
 	public String developerRemove(String c) {
-	
+
 		boardAttachmentDao.removeBoardAttachments(c);
 		commentDao.removeComments(c);
 		boardDao.removeBoard(c);
-		
+
 		return "redirect:developerBoard";
 	}
-	
+
 	@RequestMapping("free/freeRemove")
 	public String freeRemove(String c) {
-	
+
 		boardAttachmentDao.removeBoardAttachments(c);
 		commentDao.removeComments(c);
 		boardDao.removeBoard(c);
-		
+
 		return "redirect:freeBoard";
 	}
-	
+
 	@RequestMapping("designer/designerRecommend")
 	public String designerRecommend(String c) {
-	
-		
-		
+
 		return "redirect:designerDetail?c=" + c;
 	}
-	
+
 }

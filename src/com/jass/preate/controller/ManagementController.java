@@ -1,5 +1,6 @@
 package com.jass.preate.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jass.preate.dao.CustomerServiceDao;
 import com.jass.preate.dao.MemberDao;
+import com.jass.preate.dao.MessageDao;
 import com.jass.preate.dao.NoticeDao;
 import com.jass.preate.vo.CustomerService;
 import com.jass.preate.vo.Member;
+import com.jass.preate.vo.Message;
 import com.jass.preate.vo.Notice;
 
 @Controller
@@ -24,6 +27,13 @@ public class ManagementController {
 	private MemberDao memberDao;
 	private CustomerServiceDao customerService;
 	private NoticeDao noticeDao;
+	private MessageDao messagedao;
+	
+
+	@Autowired
+	public void setMessagedao(MessageDao messagedao) {
+		this.messagedao = messagedao;
+	}
 
 	@Autowired
 	public void setMemberDao(MemberDao memberDao) {
@@ -139,6 +149,22 @@ public class ManagementController {
 		}
 
 		return "management.noticeManagement";
+	}
+	
+	@RequestMapping(value="answer",method=RequestMethod.POST)
+	public String Answer(Message ms,Principal principal){
+		
+	
+		ms.setWriter(principal.getName());
+		
+		messagedao.addMessage(ms);
+		
+		return "answer";
+	}
+	@RequestMapping(value="answer",method=RequestMethod.GET)
+	public String AnswerGet(){
+		
+		return "answer";
 	}
 
 }

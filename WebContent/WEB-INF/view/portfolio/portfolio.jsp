@@ -5,7 +5,6 @@
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
 <style>
 
-
 #visual {
 	/* border: 1px solid blue; /*여기*/ 
 	margin-left: 29px;
@@ -17,9 +16,11 @@
 
 
 /*---------------------------------검색창---------------------------*/
+
 #portfolio-search {	
 	margin-left:700px;	
 }
+
 /*-------------------------버튼------------------------------------*/
 
 .portfolio-btn-search {
@@ -51,9 +52,8 @@
 
 }
 
-/*-------------------------------------------------------------------*/
-
 /*------------------------포트폴리오 목록 테이블 부분------------------------------------*/
+
 #portfolio-table table {
 	/* width: inherit; */
 	width: 956px;
@@ -61,7 +61,8 @@
 }
 
 #portfolio-table tr {
-	float: left;    /*float:left옵션을 tr에 준다*/
+    /*float:left옵션을 tr에 준다*/
+    float:left;
 }
 
 #portfolio-table td {
@@ -75,7 +76,6 @@
 	background: url("../resource/images/portfolio/portfolio-contents-image.png")
 		no-repeat center;
 }
-/*---------------------------------------------------------------------------*/
 
 /*---------------------------------페이지-------------------------------------*/
 #pager{
@@ -154,7 +154,8 @@
 						<c:forEach var="p" items="${list}">
 						<tr>
 						<td><br>
-							<a id=image href="portfolioImage"><img src="../images/.png" alt="images"></a>
+							<a id=image href="portfolioImage">
+							<img src="../images/.png" alt="images"></a>
 							<br><br><br><br><br><br>
 							<a href="portfolioImage">${p.title}</a>
 							<br>

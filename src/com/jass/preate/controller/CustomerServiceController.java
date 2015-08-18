@@ -1,5 +1,7 @@
 package com.jass.preate.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +18,9 @@ public class CustomerServiceController {
 	private CustomerServiceDao customerServiceDao;
 
 	@RequestMapping(value = "customer", method = RequestMethod.POST)
-	public String customer(CustomerService cs) {
+	public String customer(CustomerService cs, Principal principal) {
 
-		cs.setWriter("js");
+		cs.setWriter(principal.getName());
 		customerServiceDao.addCustomerService(cs);
 
 		return "customerClose";

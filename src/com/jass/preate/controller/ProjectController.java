@@ -1,5 +1,6 @@
 package com.jass.preate.controller;
 
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,7 +31,8 @@ public class ProjectController {
 	private ProjectCommentDao projectCommentDao;
 	private CommentsCommentDao commentsCommentDao;
 	private NeedFieldDao needFieldDao;	
-
+	
+	
 	@Autowired
 	public void setProjectDao(ProjectDao projectDao) {
 		this.projectDao = projectDao;
@@ -62,6 +64,26 @@ public class ProjectController {
 		
 	}
 	
+	//추가 2015-08-17
+	@RequestMapping(value="project",  method = RequestMethod.GET)
+	public String project(Model model, String page){
+		
+		if (page == null) {
+			List<Project> list = projectDao.getProjects(1);
+
+			model.addAttribute("list", list);
+		}
+
+		if (page != null) {
+			List<Project> list = projectDao.getProjects(Integer.parseInt(page));
+
+			model.addAttribute("list", list);
+		}
+		
+		return "project.project";
+	}
+	//수정 끝
+	
 	
 	
 	@RequestMapping(value="projectDetail", method=RequestMethod.GET)
@@ -78,6 +100,7 @@ public class ProjectController {
 		
 		return "project.projectDetail";
 	}
+	
 	
 	@RequestMapping(value="projectDetail", method=RequestMethod.POST)
 	public String projectDetail(String c, ProjectComment comment) {
@@ -109,7 +132,7 @@ public class ProjectController {
 		
 	
 	@RequestMapping(value="projectReg",method=RequestMethod.POST)
-	public String projectReg(Project p,String start, String dead, String end,HttpServletRequest request) throws ParseException{
+	public String projectReg(Project p,String start, String dead, String end,HttpServletRequest request,Principal principal) throws ParseException{
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -120,7 +143,7 @@ public class ProjectController {
 		p.setStartDate(startDate);
 		p.setDeadline(deadline);
 		p.setEndDate(endDate);
-		p.setWriter("js");
+		p.setWriter(principal.getName());
 		
 		projectDao.addProject(p);
 		
@@ -142,5 +165,8 @@ public class ProjectController {
 		
 		return "redirect:project";
 	}
+	
+
+	
 	
 }

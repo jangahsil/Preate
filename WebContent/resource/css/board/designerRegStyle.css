@@ -79,17 +79,16 @@
 
 .btn-write{
 	margin-top: 30px;
-	margin-left: 20px;
-	display: inline-block;
+	margin-right: 10px;
 	width: 54px;
 	height: 23px;
 	background: url("../../images/board/btn-write.png") no-repeat center;
+	vertical-align: top;
 }
 
 .btn-cancel{
 	margin-top: 30px;
-	margin-left: 20px;
-	display: inline-block;
+	margin-left: 10px;
 	width: 54px;
 	height: 23px;
 	background: url("../../images/board/btn-cancel.png") no-repeat center;

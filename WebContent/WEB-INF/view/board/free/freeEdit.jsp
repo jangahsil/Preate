@@ -9,7 +9,7 @@
 <section id="main-content">
 	<div id="visual"></div>
 	<section id="board">
-		<h1>게시물 작성</h1>
+		<h1 class="hidden">게시물 작성</h1>
 		<form action="${ctxName}/board/free/freeEdit?c=${b.code}"
 			method="post" enctype="multipart/form-data">
 			<dl>
@@ -26,15 +26,18 @@
 			</dl>
 			<dl>
 				<dt>첨부파일</dt>
-				<c:forEach var="f" items="${list}">
+				<%-- <c:forEach var="f" items="${list}">
 					<dd>
 						<input name="file" type="file" value="${f.name}" />
 					</dd>
-				</c:forEach>
+				</c:forEach> --%>
+				<dd>
+					<input name="file" type="file" />
+				</dd>
 			</dl>
 			<div>
-				<input type="submit" class="button btn-write" name="btn" value="작성" /><a href="freeBoard"></a>
-				<input type="submit" class="button btn-cancel" name="btn" value="취소" /><a href="freeBoard"></a>
+				<input type="submit" class="button btn-write" name="btn" value="작성" />
+				<a href="freeBoard" class="button btn-cancel">취소</a>
 			</div>
 		</form>
 	</section>
