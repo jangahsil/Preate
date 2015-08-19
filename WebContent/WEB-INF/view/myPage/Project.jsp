@@ -11,6 +11,10 @@
 		no-repeat center;
 }
 
+#detail-button-progress {
+	margin-left: 50px;
+}
+
 #project-content {
 	margin-left: 16px;
 	width: 925px;
@@ -28,17 +32,30 @@
 }
 
 #attention-table {
+	
+	background: #f5f5f5 url("../../images/board/bg-title-sp.png") no-repeat
+		left center;
 	width: 925px;
 	height: 200px;
-	border: 1px solid green;
 }
+
+
 
 #attention-table tr {
+	border:2px red;
+	height: 30px;
+    line-height: 30px;
 	float: left;
 	margin-left: 30px;
-	margin-top: 30px;
-}
 
+}
+/* 마진줬을때 thead가 올라감 */
+
+#attention-table th
+{
+    text-align: center;
+    border-bottom: 1px solid #BDBDBD;
+}
 #attention-table th {
 	padding-right: 30px;
 }
@@ -52,9 +69,10 @@
 }
 
 #progress-table {
+	background: #f5f5f5 url("../../images/board/bg-title-sp.png") no-repeat
+		left center;
 	width: 925px;
 	height: 200px;
-	border: 1px solid green;
 }
 
 #progress-table th {
@@ -62,7 +80,6 @@
 }
 
 #project-end {
-	
 	float: right;
 	margin-left: 120px;
 	width: 925px;
@@ -80,18 +97,19 @@
 }
 
 #end-table {
-
+	background: #f5f5f5 url("../../images/board/bg-title-sp.png") no-repeat
+		left center;
 	width: 925px;
 	height: 200px;
-	border: 1px solid green;
+}
+#end-table tr{
+margin-top: 70px;
 }
 
 #end-table th {
 	padding-left: 30px;
 }
 </style>
-
-
 <main id="main">
 <section id="main-content">
 	<div id="visual"></div>
@@ -116,10 +134,12 @@
 								<th>세부 지역</th>
 								<th>내용</th>
 								<th>지원자</th>
-
 							</tr>
 						</thead>
 						<tbody>
+							<tr id="detail-button-inter">
+								<td><input type="submit" value="더 자세히 보기" /></td>
+							</tr>
 							<%-- <c:forEach var="n" items="${list}">
 				<tr>
 					<td>${n.code}</td>
@@ -138,10 +158,8 @@
 			</c:forEach> --%>
 						</tbody>
 					</table>
-					<br> <input type="submit" value="더 자세히 보기" />
-
+					<br>
 				</fieldset>
-
 				<fieldset>
 					<legend id="project-progress"></legend>
 
@@ -160,10 +178,12 @@
 								<th>세부 지역</th>
 								<th>내용</th>
 								<th>지원자</th>
-
 							</tr>
 						</thead>
 						<tbody>
+							<tr id="detail-button-progress">
+								<td><input type="submit" value="더 자세히 보기" /></td>
+							</tr>
 							<%-- <c:forEach var="n" items="${list}">
 				<tr>
 					<td>${n.code}</td>
@@ -182,13 +202,12 @@
 			</c:forEach> --%>
 						</tbody>
 					</table>
-					<br> <input type="submit" value="더 자세히 보기" />
+					<br>
 				</fieldset>
 
 				<fieldset>
 					<legend id="project-end"></legend>
 					<table id="end-table">
-						<tbody>
 						<thead>
 							<tr>
 								<th>번호</th>
@@ -203,11 +222,15 @@
 								<th>세부 지역</th>
 								<th>내용</th>
 								<th>지원자</th>
-
 							</tr>
 						</thead>
 
 						<tbody>
+							<tr id="detail-button-end">
+								<td><input type="submit" value="더 자세히 보기" /><br> <input
+									type="submit" value="등록" /></td>
+							</tr>
+
 							<c:forEach var="n" items="${list}">
 								<tr>
 									<%-- <td>${n.code}</td>
@@ -229,8 +252,7 @@
 						</tbody>
 					</table>
 					</tbody>
-					<br> <input type="submit" value="더 자세히 보기" /> <br> <input
-						type="submit" value="등록" />
+					<br>
 				</fieldset>
 			</form>
 		</div>
