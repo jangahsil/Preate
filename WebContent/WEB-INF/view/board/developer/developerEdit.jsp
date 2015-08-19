@@ -40,13 +40,15 @@
 					<dd><textarea cols="40" rows="20" name="content">${b.content}</textarea></dd>
 				</dl>
 				<dl>
-					<dt>첨부파일</dt>
-					<%-- <c:forEach var="f" items="${list}">
-					<dd><input name="file" type="file" value="${f.name}"/></dd>
-					</c:forEach> --%>
+					<dt class="hidden">첨부파일</dt>	
+				<%-- <c:forEach var="f" items="${list}">
 					<dd>
-						<input name="file" type="file" />
+						<input name="file" type="file" value="${f.name}" />
 					</dd>
+				</c:forEach> --%>
+					<dd><input name="file" type="file"  id="f" class="button btn-find"/>
+						<img src="../../resource/images/board/btn-find.png"/>
+					</dd>	
 				</dl>
 				<div>
 					<input type="submit" class="button btn-write" name="btn" value="작성" />
