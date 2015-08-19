@@ -5,7 +5,9 @@
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <script type="text/javascript">
+
 	function AnswerDialog(url) {
+		
 		var docwidth = window.innerWidth;
 		var docheight = window.innerHeight;
 
@@ -38,58 +40,58 @@
 
 		document.body.appendChild(dialog);
 
+		
 		var view = document.createElement("div");
 
 		view.style.background = "rgb(255,255,255)";
 
 		dialog.appendChild(view);
 
-		var imgLoader = document.createElement("img");
+/* 		var imgLoader = document.createElement("img");
 		imgLoader.src = "images/ajax-loader.gif";
 
-		dialog.appendChild(imgLoader);
+		dialog.appendChild(imgLoader); */
 
-		var btnClose = document.createElement("input");
+/* 		var btnClose = document.createElement("input");
 		btnClose.type = "button";
 		btnClose.value = "x";
 		btnClose.style.position = "absolute";
 		btnClose.style.right = "0px";
 		btnClose.style.top = "0px";
-
-		btnClose.onclick = function() {
-
+ */
+/* 		btnClose.onclick = function() {
 			document.body.removeChild(screen);
 			document.body.removeChild(dialog);
-		};
+		}; */
 		
-		dialog.appendChild(btnClose);
+		//dialog.appendChild(btnClose);
 
 		var request = new window.XMLHttpRequest();
 
-		request.open("GET", url, true);
+		request.open("GET", url, false);
 		request.send(null);
 
 		request.onreadystatechange = function() {
+			
 			if (request.readyState == 4) {
-
-				dialog.removeChild(imgLoader);
+				//dialog.removeChild(imgLoader);
 				view.innerHTML = request.responseText;
+				
 			};
-		}
+		};
 
 	}
 
 	addEventListener("load", function() {
 		
 		var btnAnswer = document.querySelectorAll(".btn-answer");
-
 		for(var i =0 ; i < btnAnswer.length ; i++){
 			
 		btnAnswer[i].onclick = function() {
 			
 			AnswerDialog("answer");
 			
-		};
+			};
 		};
 
 	});
@@ -156,7 +158,6 @@
 
 								<form method="post" action="customerDelete?c=${n.code}">
 
-									<!-- 팝업창 업데이트 coming soon -->
 									<input class="btn-answer" type="button" value="답변" /> <input type="submit" value="삭제" />
 								</form>
 							</td>

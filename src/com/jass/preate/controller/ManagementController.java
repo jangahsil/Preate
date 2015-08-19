@@ -151,20 +151,25 @@ public class ManagementController {
 		return "management.noticeManagement";
 	}
 	
-	@RequestMapping(value="answer",method=RequestMethod.POST)
+	@RequestMapping(value="answer", method=RequestMethod.POST)
 	public String Answer(Message ms,Principal principal){
 		
 	
-		ms.setWriter(principal.getName());
-		
+		ms.setWriter("js");
+		ms.setRecipient("jass");
 		messagedao.addMessage(ms);
+		
+		return "management.customerClose";
+	}
+	@RequestMapping(value="answer", method=RequestMethod.GET)
+	public String Answer(){
 		
 		return "answer";
 	}
-	@RequestMapping(value="answer",method=RequestMethod.GET)
-	public String AnswerGet(){
+	@RequestMapping("customerClose")
+	public String close(){
 		
-		return "answer";
+		return "customerClose";
 	}
 
 }

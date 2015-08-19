@@ -39,6 +39,8 @@
 	</definition>
 	<definition name="answer" template="/WEB-INF/view/management/answer.jsp">
 	</definition>
+	<definition name="management.customerClose" template="/WEB-INF/view/management/customerClose.jsp">
+	</definition>
 	
 				
 </tiles-definitions>
