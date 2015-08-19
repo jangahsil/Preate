@@ -2,35 +2,20 @@
 
 <script type="text/javascript">
 
-	addEventListener("load", function() {
-
-		var title = null;
-		var content = null;
+	addEventListener("load",function(){
+		
 		var btnCheck = document.querySelector("#btn-check");
 		
-		btnCheck.addEventListner("click", function(){
+		btnCheck.onclick = function(){
 			
-			title = document.getElementById("text");
-			content = document.getElementById("text2");
-
-			if (title.value == "") {
-				alert("제목을 입력하세요");
-				event.stopPropagation();
-			};
-
-			if (content.value == "") {
-				alert("내용을 입력하세요");
-				event.stopPropagation();
-			};
-			event.preventDefault();
-			
-		},true);
+				alert("z");
+		};
 	});
-	
+
 </script>
 
 <div>
-	<form action="" method="post">
+	<form action="answer" method="post">
 		<ul>
 			<li>제목</li>
 			<li><input id="text" type="text" name="title"></li>

@@ -68,7 +68,7 @@
 
 		var request = new window.XMLHttpRequest();
 
-		request.open("GET", url, false);
+		request.open("GET", url, true);
 		request.send(null);
 
 		request.onreadystatechange = function() {
@@ -93,8 +93,8 @@
 			
 			};
 		};
-
 	});
+	
 </script>
 <script type="text/javascript" src="../js/modernizr.js"></script>
 
