@@ -45,10 +45,14 @@
    line-height: 30px;
    text-indent: 10px;
    /* text-align:left; */
-   border-bottom: 1px solid #e9e9e9;
+   /* border-bottom: 1px solid #e9e9e9; */
    /* border-top: 1px solid #e9e9e9; */
    text-weight:bold;
    
+}
+
+.bottom-line{
+	border-bottom: 1px solid #e9e9e9;	
 }
 
 .attach-line {
@@ -71,18 +75,19 @@
 .content {
    width: 530px;
    padding: 10px;
-   /* border-bottom: 1px solid #e9e9e9; */
+   border-bottom: 1px solid #e9e9e9;
    line-height: 1.5;
+   border-top: 1px solid #e9e9e9;
 }
 
 .detail {
-  /*  border-top: 2px solid #e9e9e9; */
+   border-top: 2px solid #e9e9e9;
    width: 553px;
 }
 
 .space-top-l {
    margin-top: 49px;
-   margin-left: 150px;
+   margin-left: 230px;
 }
 
 .full {
@@ -90,7 +95,7 @@
 }
 
 .section-array {
-   margin-left: 125px;
+   margin-left: 205px;
    float: left;
 }
 
@@ -102,7 +107,7 @@
 
 .board-btn-recommend {
    
-   margin-left:500pX;
+   margin-left:570pX;
    margin-right:10px;
    float:left;
    width:54px;
@@ -191,18 +196,21 @@
          <dl>
             <dt class="hidden">번호</dt>
             <dd class="hidden">${b.code}</dd>
-            <dt class="line title break">제목</dt>
-            <dd class="line full">${b.title}</dd>
-            <dt class="line title break">작성자</dt>
-            <dd class="line half">${b.writer}</dd>
-            <dt class="line title">작성일</dt>
-            <dd class="line half"><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd"/></dd>
-            <dt class="line title break">추천수</dt>
-            <dd class="line half">${b.recommend}</dd>
-            <dt class="line title">조회수</dt>
-            <dd class="line half">${b.hit}</dd>
+            <dt class="line title break bottom-line">제목</dt>
+            <dd class="line full bottom-line">${b.title}</dd>
+            <dt class="line title break bottom-line">작성자</dt>
+            <dd class="line half bottom-line">${b.writer}</dd>
+            <dt class="line title bottom-line">작성일</dt>
+            <dd class="line half bottom-line"><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd"/></dd>
+            <dt class="line title break bottom-line">추천수</dt>
+            <dd class="line half bottom-line">${b.recommend}</dd>
+            <dt class="line title bottom-line">조회수</dt>
+            <dd class="line half bottom-line">${b.hit}</dd>
             <dt class="hidden">내용</dt>
-            <dd class="content break">${b.content}</dd>
+            <dd class="content break">
+           		<textarea cols="65" rows="15" name="content"> ${b.content}</textarea>
+            </dd>
+            
          </dl>
       </article>
       
@@ -210,14 +218,10 @@
       <section class="section-array">
          <h1 class="hidden">첨부파일 목록</h1>
          <dl>
-            <%-- <c:forEach var="file" items="${list2}"> --%>
+            <c:forEach var="file" items="${list2}">
             <dt class="line attach-title break">첨부파일 목록</dt>
-            <dd class="line full"><a href="${ctxName}/download/board?file=${file.name}">${file.name}</a></dd>
-            <dd class="attach-line full break">안녕안녕.jpg</dd>
-            <dd class="attach-line full break">안녕안녕.jpg</dd>
-            <dd class="attach-line full break">안녕안녕.jpg</dd>
-            <dd class="attach-line full break">안녕안녕.jpg</dd>
-           <%--  </c:forEach> --%>
+            <dd class="attach-line full break"><a href="${ctxName}/download/board?file=${file.name}">${file.name}</a></dd>
+            </c:forEach>
          </dl>
       </section>
       
@@ -261,9 +265,9 @@
          <c:forEach var="comment" items="${list}">
             <dt class="hidden">번호</dt>
             <dd class="hidden">${comment.code}</dd>
-            <dt class="line title hidden">작성자</dt>
+            <dt class="line"></dt>
             <dd class="line half">${comment.writer}</dd>
-            <dt class="line title hidden">작성일</dt>
+            <dt class="line"></dt>
             <dd class="line half"><fmt:formatDate value="${comment.regDate}" pattern="yyyy-MM-dd"/></dd>
             <dt class="hidden">내용</dt>
             <dd class="content break dl-array">${comment.content}</dd>

@@ -44,7 +44,7 @@
 						<a href="${ctxName}/myPage/Project" class="button my-project-button">마이 프로젝트</a>
 					</h1>
 					<h1>
-						<a href="" class="button advertise-button">제휴센터 소개</a>
+						<a href="${ctxName}/partnerCenter/partnerCenter" class="button advertise-button">제휴센터 소개</a>
 					</h1>
 					<h1>
 						<input type="button"  class="button customer-qna-button hidden" id="customer" >
