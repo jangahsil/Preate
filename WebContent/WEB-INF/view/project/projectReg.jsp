@@ -10,6 +10,21 @@
 		var btn = document.getElementById("btn-reg");
 
 		btn.onclick = function() {
+			
+			var needdev = document.querySelector("#need-dev");
+			var needdesi = document.querySelector("#need-desi");
+			var totalpeo = document.querySelector("#total-peo");
+			
+			var needdev2 = parseInt(needdev.value);
+			var needdesi2 = parseInt(needdesi.value);
+			var totalpeo2 = parseInt(totalpeo.value);
+		
+			if(totalpeo2 != needdev2+needdesi2)
+			alert("필요 인원의 합과 총 인원이 다릅니다.");
+			
+			
+			
+			
 			var item = document.getElementById("reg-form")
 					.getElementsByTagName("textarea");
 			
@@ -44,6 +59,9 @@
 				alert("기획상태를 선택해주세요");
 			return false;
 			};
+		
+		//총인원 제한 조건	
+
 			
 		};
 	});   
@@ -79,20 +97,20 @@
 					<fieldset class="text-position">
 						<label class="text-move button" id="total-people">총 인원</label>
 
-						<textarea  class="small-input" name="totalPeople" maxlength="2"></textarea>
+						<textarea  class="small-input" name="totalPeople" id="total-peo" maxlength="2"></textarea>
 						<label class="text-move button" id="myoung"> 명 </label>
 					</fieldset>
 
 					<fieldset class="text-position">
 						<label class="text-move button" id="need-devel">필요 개발자</label>
 
-						<textarea class="small-input" name="needDeveloper" maxlength="2"></textarea>
+						<textarea class="small-input" name="needDeveloper"  id="need-dev" maxlength="2"></textarea>
 						<label class="text-move button" id="myoung"> 명 </label>
 					</fieldset>
 
 					<fieldset class="text-position">
 						<label id="need-designer" class="text-move button">필요 디자이너</label>
-						<textarea class="small-input" name="needDesigner" maxlength="2"></textarea>
+						<textarea class="small-input" name="needDesigner"  id="need-desi"maxlength="2"></textarea>
 						<label class="text-move button" id="myoung"> 명 </label>
 					</fieldset>
 

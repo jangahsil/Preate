@@ -37,5 +37,8 @@
 	</definition>
 	<definition name="alert" template="/WEB-INF/view/alert.jsp">
 	</definition>
+	<definition name="answer" template="/WEB-INF/view/management/answer.jsp">
+	</definition>
+	
 				
 </tiles-definitions>

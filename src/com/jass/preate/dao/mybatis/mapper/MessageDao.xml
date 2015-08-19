@@ -18,8 +18,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="addMessage" parameterType="com.jass.preate.vo.Message">
-		INSERT INTO MESSAGES(Code, Title, Content, Writer, Recipient, RegDate) 
-		VALUES(#{code},#{title},#{content},#{writer},#{recipient},#{regDate})
+	<selectKey keyProperty="code" order="BEFORE" resultType="string">
+			SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) +1 FROM MESSAGES
+		</selectKey>
+		INSERT INTO MESSAGES(Code, Title, Content, Writer, Recipient) 
+		VALUES(#{code},#{title},#{content},#{writer},#{recipient})
 	</insert>
 
 	<delete id="removeMessage" parameterType="string">
