@@ -9,6 +9,7 @@
 <body>
 	<main id="main">
 		<section>
+			<div id="visual"></div>
 			<h1>디자이너게시판</h1>
 			
 			<nav id="category">
