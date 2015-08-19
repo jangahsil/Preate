@@ -133,6 +133,7 @@ public class ManagementController {
 	}
 
 	/*----------------------------------공지 관리 컨트롤---------------------------*/
+	
 	@RequestMapping(value = "noticeManagement", method = RequestMethod.GET)
 	public String NoticeManagement(Model model, String page) {
 

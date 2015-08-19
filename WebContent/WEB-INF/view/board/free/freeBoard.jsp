@@ -9,7 +9,8 @@
 <body>
 	<main id="main">
 		<section>
-			<h1>자유게시판</h1>
+			<div id="visual"></div>
+			<h1 class="hidden">자유게시판</h1>
 			
 			<section id="board-table">
 				<h1 class="hidden">게시판 목록</h1>

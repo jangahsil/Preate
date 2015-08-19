@@ -32,8 +32,10 @@
 							<dd><textarea cols="40" rows="20" name="content"></textarea></dd>
 						</dl>
 						<dl>
-							<dt>첨부파일</dt>
-							<dd><input name="file" type="file" class="button btn-find"/></dd>
+							<dt class="hidden">첨부파일</dt>
+							<dd><input name="file" type="file"  id="f" class="button btn-find"/>
+							<img src="../../resource/images/board/btn-find.png"/>
+							</dd>
 						</dl>
 						<div>
 							<input type="submit" class="button btn-write" name="btn" value="작성" />

@@ -3,11 +3,18 @@
 @IMPORT url("../layout.css");
 @IMPORT url("../style.css");
 
+#visual{
+	margin-left: 29px;
+	width: 956px;
+	height: 62px;
+	background: url("../../images/board/board-free-title.png") no-repeat center;
+}
+
 a{
 	color: inherit;
     text-decoration: none;
 }
-#main h1:FIRST-CHILD {
+/* #main h1:FIRST-CHILD {
 	width: 956px;
 	height: 62px;
 	background: url("../../images/board/board-free-title.png");
@@ -16,7 +23,7 @@ a{
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 29px;
-}
+} */
 
 #board-table{
 	margin-top: 20px;	
