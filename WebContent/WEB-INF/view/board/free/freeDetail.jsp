@@ -78,6 +78,15 @@
    border-bottom: 1px solid #e9e9e9;
    line-height: 1.5;
    border-top: 1px solid #e9e9e9;
+   height:200px;
+}
+
+.comment-content {
+	width: 530px;
+   padding: 10px;
+   border-bottom: 1px solid #e9e9e9;
+   line-height: 1.5;
+   border-top: 1px solid #e9e9e9;
 }
 
 .detail {
@@ -153,12 +162,6 @@
  float:left;
  margin-left:400px;
 }
-
-/*------------------------------------*/
-
-/*----------------댓글입력-----------------*/
-
-
 /*--------------------------------------*/
 </style>
                      
@@ -207,9 +210,7 @@
             <dt class="line title bottom-line">조회수</dt>
             <dd class="line half bottom-line">${b.hit}</dd>
             <dt class="hidden">내용</dt>
-            <dd class="content break">
-           		<textarea cols="65" rows="15" name="content"> ${b.content}</textarea>
-            </dd>
+            <dd class="content break">${b.content}</dd>
             
          </dl>
       </article>
@@ -270,7 +271,7 @@
             <dt class="line"></dt>
             <dd class="line half"><fmt:formatDate value="${comment.regDate}" pattern="yyyy-MM-dd"/></dd>
             <dt class="hidden">내용</dt>
-            <dd class="content break dl-array">${comment.content}</dd>
+            <dd class="comment-content break dl-array">${comment.content}</dd>
             <dt class="hidden">수정</dt>
             <dd class="full array"><a href="${ctxName}/board/free/commentEdit/?c=${comment.code}">수정</a></dd>
             <dt class="hidden">삭제</dt>
