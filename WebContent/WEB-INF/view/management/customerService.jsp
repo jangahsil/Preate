@@ -6,7 +6,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <script type="text/javascript">
 
-	function AnswerDialog(url) {
+	function AnswerDialog(url,src) {
 		
 		var docwidth = window.innerWidth;
 		var docheight = window.innerHeight;
@@ -75,11 +75,14 @@
 			
 			if (request.readyState == 4) {
 				//dialog.removeChild(imgLoader);
+
 				view.innerHTML = request.responseText;
-				
+				var script = document.createElement("script");
+				script.type="text/javascript";
+				script.src="../resource/js/"+src;
+				document.body.appendChild(script);
 			};
 		};
-
 	}
 
 	addEventListener("load", function() {
@@ -89,7 +92,9 @@
 			
 		btnAnswer[i].onclick = function() {
 			
-			AnswerDialog("answer");
+			AnswerDialog("answer","answer.js");
+			
+			
 			
 			};
 		};
@@ -155,10 +160,9 @@
 							<td>${n.writer}</td>
 							<td><fmt:formatDate value="${n.regDate}" pattern="yyyy-MM-dd" /></td>
 							<td>
-
 								<form method="post" action="customerDelete?c=${n.code}">
-
-									<input class="btn-answer" type="button" value="답변" /> <input type="submit" value="삭제" />
+									<input type="button" class="btn-answer" value="답변">
+									<input type="submit" value="삭제" />
 								</form>
 							</td>
 						</tr>

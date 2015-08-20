@@ -153,18 +153,19 @@ public class ManagementController {
 	}
 	
 	@RequestMapping(value="answer", method=RequestMethod.POST)
-	public String Answer(Message ms,Principal principal,CustomerService cs){
+	public String Answer(Message ms,CustomerService cs){
 		
 	
 		ms.setWriter("admin");
-		ms.setRecipient(cs.getWriter());
 		messagedao.addMessage(ms);
 		
 		return "redirect:customerService";
 	}
 	@RequestMapping(value="answer", method=RequestMethod.GET)
-	public String Answer(Message ms,CustomerService cs){
-		ms.setRecipient(cs.getWriter());
+	public String Answer(Message ms,CustomerService cs,String recipient){
+		
+		ms.setRecipient(recipient);
+	
 		return "answer";
 	}
 	@RequestMapping("customerClose")
