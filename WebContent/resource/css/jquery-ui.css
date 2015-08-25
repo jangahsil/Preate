@@ -883,11 +883,12 @@ body .ui-tooltip {
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border: 1px solid #fbcb09;
-	background: #fdf5ce url("images/ui-bg_glass_100_fdf5ce_1x400.png") 50% 50% repeat-x;
+	border: 1px solid white;
+	background: url("images/ui-bg_glass_100_fdf5ce_1x400.png") 50% 50% repeat-x;
 	font-weight: bold;
 	color: #c77405;
 }
+
 .ui-state-hover a,
 .ui-state-hover a:hover,
 .ui-state-hover a:link,
@@ -919,9 +920,8 @@ body .ui-tooltip {
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-	border: 1px solid rgb(44, 146, 242);
-	background: #ffe45c url("images/ui-bg_highlight-soft_75_ffe45c_1x100.png") 50% top repeat-x;
-	color: rgb(44, 146, 242);
+	border: 1px solid;
+	background: #cccccc url("images/ui-bg_highlight-soft_75_ffe45c_1x100.png") 50% top repeat-x;
 }
 .ui-state-highlight a,
 .ui-widget-content .ui-state-highlight a,
@@ -978,17 +978,21 @@ body .ui-tooltip {
 }
 .ui-icon,
 .ui-widget-content .ui-icon {
-	background-image: url("images/ui-icons_222222_256x240.png");
+	background-image: url("../images/ui-icons_222222_256x240.png");
 }
 .ui-widget-header .ui-icon {
-	background-image: url("images/ui-icons_ffffff_256x240.png");
+	background-image: url("../images/ui-icons_222222_256x240.png");
 }
 .ui-state-default .ui-icon {
 	background-image: url("images/ui-icons_ef8c08_256x240.png");
 }
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon {
-	background-image: url("images/ui-icons_ef8c08_256x240.png");
+	background-image: url("../images/ui-icons_222222_256x240.png");
+}
+.ui-state-focus .ui-icon:HOVER{
+	cursor: pointer;
+	
 }
 .ui-state-active .ui-icon {
 	background-image: url("images/ui-icons_ef8c08_256x240.png");
@@ -1222,4 +1226,7 @@ body .ui-tooltip {
 	opacity: .2;
 	filter: Alpha(Opacity=20); /* support: IE8 */
 	border-radius: 5px;
+}
+.ui-widget-header .ui-state-focus:HOVER{
+	cursor: pointer;
 }
