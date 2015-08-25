@@ -4,6 +4,9 @@
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <link href="../resource/css/project/projectReg.css" rel="stylesheet" type="text/css" />
+<link href="../resource/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../resource/js/jquery.js"></script>
+<script type="text/javascript" src="../resource/js/jquery-ui.js"></script>
 <script type="text/javascript">
  addEventListener("load", function() {
 		
@@ -65,6 +68,14 @@
 			
 		};
 	});   
+ 
+ //------------JQUERY--------------------
+ $(window).load(function(){
+			
+	      $( ".datepicker").datepicker({
+	    		  dateFormat : "yy-mm-dd"
+	      });
+	      });
 </script>
 <script type="text/javascript" src="../js/modernizr.js"></script>
 
@@ -157,17 +168,17 @@
 					<div id="data">
 				<fieldset class="padding">
 					<label id="start-data" class="text-move button r-padding">예상 시작일</label> <input type="datetime" name="start"
-						 maxlength="10" />
+						 maxlength="10" class="datepicker" />
 				</fieldset>
 
 				<fieldset class="padding">
 					<label id="end-data" class="text-move button r-padding">모집 마감일</label> <input type="datetime" name="dead"
-						 maxlength="10" />
+						 maxlength="10" class="datepicker"/>
 				</fieldset>
 
 				<fieldset class="padding">
 					<label id="project-end" class="text-move button r-padding">프로젝트 종료일</label> <input type="datetime" name="end"
-						maxlength="10" />
+						maxlength="10" class="datepicker"/>
 				</fieldset>
 				</div>
 				<div id="plan-form">
@@ -211,5 +222,7 @@
 </main>
 </div>
 </div>
+<input type="button" id="z" value="yy-mm-dd">
+
 </body>
 </html>

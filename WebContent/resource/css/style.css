@@ -344,6 +344,14 @@
 	margin-top: 15px;
 	border-collapse:collapse;
 }
+#aside a,#customer{
+	opacity:0.5;
+	transition:opacity;
+	transition-duration:1s;
+}
+#aside a:HOVER, #customer:HOVER{
+	opacity:1;
+}
 
 
 

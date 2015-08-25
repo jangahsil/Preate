@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/javascript" src="resource/js/jquery.js"></script>
+<script type="text/javascript" src="resource/js/jquery-ui.js"></script>
+
 <c:set var="ctxName" value="${pageContext.request.contextPath}" />
 
 <main id="main">
@@ -36,9 +39,7 @@
 		</section>
 		
 		<section id="notice">
-	
-		<h1 class="hidden">공지사항 목록</a>
-		</h1>
+		<h1 class="hidden">공지사항목록</h1>
 		<table>
 			<thead>
 				<tr>
