@@ -123,34 +123,44 @@
 	height: 31px;
 }
 
-#total-portfolio-list {
+#total-portfolio-list { 
 	
 	margin-left:60px;
+	border:1px solid yellow;
+	
 } 
 
 #total-portfolio-list img {
 	width:150px;
 	height:150px;
+	
 }
 
 
 #total-portfolio-list dl{
-	margin:5px;
-	width:956;
 	float:left;
+	margin:5px;
+	width:800px;
+	border:1px solid red;
+	
 }
 
 #total-portfolio-list dt{
+
 	text-align:center;
 	border:1px solid blue;
 	width:200px;
+	height:15px;
+	
 
 }
 
 #total-portfolio-list dd {
+	
 	border:1px solid blue;
 	width:200px;
 	height:150px;
+	border:1px solid green;
 	
 }
 

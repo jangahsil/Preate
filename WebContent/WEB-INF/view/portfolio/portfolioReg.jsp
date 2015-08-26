@@ -113,7 +113,7 @@
 						<fieldset class="text-position">	
 							<legend class="hidden">포트폴리오 이미지첨부</legend>
 							<label  class="text-move button" id="image">포트폴리오 이미지</label>
-							<input name="imageFile" type="file" />
+							<input name="file" type="file" />
 						</fieldset>
 						
 						<div>
@@ -130,4 +130,5 @@
 				</section>
 			</section>
 	</main>
+    
     
