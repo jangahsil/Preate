@@ -3,6 +3,10 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
+
+	<definition name="portfolio.portfolioImage" template="/WEB-INF/view/portfolio/portfolioImage.jsp">
+	</definition>
+	
 	<definition name="home.*" template="/WEB-INF/view/inc/layout.jsp">
 		<put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
 		<put-attribute name="aside" value="/WEB-INF/view/inc/aside.jsp" />

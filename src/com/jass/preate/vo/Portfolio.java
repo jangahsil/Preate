@@ -7,15 +7,22 @@ public class Portfolio {
 	private String title;
 	private Date regDate;
 	private String writer;
+	/*뷰에 추가된 컬럼*/
 	private String writerNick; 
 	private String writerName;
 	private float writerCareer;
 	private String writerImage;
 	private String writerIntro;
+	/*-----------*/
 	private String state;
 	private Date projectEndDate;
 	private boolean publicCheck;
 	private int likeHit;
+	private String portImage;
+	/*뷰에 추가된 이미지컬럼*/
+	
+	//private String fileName; 주석처리
+	/*---------------*/
 	
 	public String getCode() {
 		return code;
@@ -95,5 +102,22 @@ public class Portfolio {
 	public void setLikeHit(int likeHit) {
 		this.likeHit = likeHit;
 	}
+	public String getPortImage() {
+		return portImage;
+	}
+	public void setPortImage(String portImage) {
+		this.portImage = portImage;
+	}
+	
+	
+	
+	/*public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}*/
+	
+	
 	
 }

@@ -54,11 +54,19 @@ public class MyBatisPortfolioDao implements PortfolioDao {
 
 		return session.selectOne("getPortfolio", code);
 	}
-
+	
 	@Override
 	public String getLastCode() {
-		
+
 		return session.selectOne("getLastCode");
 	}
+
+	@Override
+	public List<Portfolio> getPortfoliosByWriter(String writer) {
+		
+		return session.selectList("getPortfoliosByWriter", writer);
+	}
+
+	
 
 }

@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctxName" value="${pageContext.request.contextPath}"/>
+
 <style>
 
 #visual {
@@ -98,10 +99,139 @@
 	font-weight: bold;
 }
 /*----------------------------------------------------------------------------*/
-
+#portfolio-table img
+{
+	/* margin-top:10px; */
+	width:180px;
+	height:140px;
+}
 
 </style>
 
+<script type="text/javascript">
+
+function showDialog(url) {
+    //장막 div 생성
+    var screen = document.createElement("div"); 
+    //dlg를 bady에 추가 ; 
+    screen.style.position = "fixed";   //스크롤 내려도 장막 전체 유지.
+    screen.style.left = "0px";
+    screen.style.top = "0px";
+    screen.style.width = "100%";
+    screen.style.height = "100%";
+    screen.style.background = "black";
+    screen.style.opacity = "0.5";
+
+    document.body.appendChild(screen);
+
+    //반응형 웹-브라우저의 크기 구하기
+    var docwidth = window.innerWidth;
+    var docheight = window.innerHeight;
+       //alert(docheight);//899
+    var width = 700;
+    var height = 500;
+
+    var left = (docwidth - width) / 2;
+       //alert(left)
+    var top = (docheight - height) / 2;
+       //alert(top);//290
+
+ 
+       
+    //팝업창 div 생성
+    var view = document.createElement("div");
+
+    //view를 bady에 추가 ; 
+    view.style.position = "fixed";   //스크롤 내려도 view 유지
+    view.style.left = left + "px";
+    view.style.top = top + "px";
+    view.style.width = width + "px";   //inherit로 수정?
+    view.style.height = height + "px";   //inherit로 수정?
+    view.style.background = "rgb(255,255,0)";
+    //view.style.opacity="0.5";
+    view.style.textAlign = "center";   //가로 중앙 정렬
+    //view.style.lineHeight = height+"px";   //세로 중앙 정렬
+    
+
+    document.body.appendChild(view);
+    
+    //15.08.18   
+/*-------------view에 로딩이미지 출력-------------------*/
+     /*   var imgLoader = document.createElement("img");
+       imgLoader.src = "../images/ajax-loader.gif";
+    
+       view.appendChild(imgLoader); */
+       
+    
+/* ---------닫기 버튼 만들기------------------------------------ */
+        var btnClose = document.createElement("input");
+        btnClose.type= "button";
+        btnClose.value = "X";
+        btnClose.style.position = "absolute";
+        btnClose.style.right = "-10px";
+        btnClose.style.top = "-10px";
+        btnClose.onclick = function(){
+           document.body.removeChild(view);   //viewWrapper로 수정
+           document.body.removeChild(screen);
+        };
+        //view.appendChild(btnClose);
+        
+        //document.body.appendChild(btnClose);//viewWrapper
+    
+/* -----------동기형 요청------------------------------------------ */
+  
+  //엑티브x 로드
+     /* var request = new window.XMLHttpRequest();
+     //var xhr = new ActiveXObject("Microsoft.XMLHTTP");//익스플로저 7.0 이하 과거버전
+     request.open("GET","partial1.jsp", false);//비동기가 기본. false 쓰면 동기형
+     request.send(null);
+     
+     alert(request.responseText); */
+
+     
+/* ---------비동기형 요쳥-------------------------------------------- */ 
+    var request = new XMLHttpRequest();
+     //var xhr = new ActiveXObject("Microsoft.XMLHTTP");//익스플로저 7.0 이하 과거버전
+     //request.open("GET","partial1.jsp", true);//비동기가 기본(true). false 쓰면 동기형
+    
+     
+     request.onreadystatechange = function(){
+        if(request.readyState == 4)   {//데이터 뿌리기. 작업 완료되면 실행
+           //alert(request.responseText);
+           //view.removeChild(imgLoader);
+           view.innerHTML = request.responseText;   //html 연결. +=는 추가(html을 꺼내서 누적), =는 기존거 대신 그냥
+           view.appendChild(btnClose);
+        }
+        
+     }
+     
+     request.open("GET",url, true);   //showDialog 함수 url 쓴거
+     request.send(null);
+/*  -------------여기까지 비동기 요청---------------------------------- */
+
+
+}
+
+ window.addEventListener("load", function() {
+    
+    var btnShowDlg = document.querySelector("#portfolio-table img");
+    //for(var i=0; i< btnShowDlg.length; i++){
+    /* [i] */btnShowDlg.onclick = function() {
+    	
+    	var imgAlt = btnShowDlg.alt;
+    	//alert(btnShowDlg.src);
+       showDialog("portfolioImage?c=" + imgAlt);   //바디도 없는 빈 조각파일 만들기(view에 나올 내용)
+    };
+    
+
+  
+ });
+
+  
+</script>
+
+
+	
 	<main id="main">
 		<div id="visual"></div>
 		<section id="main-content">
@@ -153,15 +283,17 @@
 					<tbody>
 						<c:forEach var="p" items="${list}">
 						<tr>
-						<td><br>
-							<a id=image href="portfolioImage">
-							<img src="../images/.png" alt="images"></a>
-							<br><br><br><br><br><br>
-							<a href="portfolioImage">${p.title}</a>
+						<td>
+							<%-- <a href="portfolioImage?c=${p.code}">  --%>
+							<img alt="${p.code}" src="${ctxName}/resource/upload/portfolio/${p.portImage}"/><!-- </a> -->
+							<%-- <img id="port-image" src="${ctxName}/resource/upload/portfolio/${p.fileName}"/></a> --%>
+							<br>
+							<a href="portfolioImage?c=${p.code}">${p.title}</a>
 							<br>
 							<fmt:formatDate value="${p.regDate}" pattern="yyyy-MM-dd"/>
 							<br>
-							<a href="portfolioDetail?c=${p.code}&mid=${p.writer}">${p.writerName}</a>
+							<a href="portfolioDetail?c=${p.code}&mid=${p.writer}&writer=${p.writer}">${p.writerName}</a>
+							<%-- <a href="portfolioDetail?c=${p.code}&mid=${p.writer}&writer=${p.writer}">${p.writerName}</a> --%>
 						</td>
 						</tr>
 						</c:forEach>
@@ -195,4 +327,6 @@
 			
 		</section>
 		</main>
+ 
+
  

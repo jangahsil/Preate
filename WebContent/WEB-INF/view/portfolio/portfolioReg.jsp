@@ -98,7 +98,7 @@
 						<fieldset class="text-position">
 							<legend class="hidden">프로젝트종료일입력</legend>
 							<label class="text-move button" id="endDate">프로젝트종료일</label>
-							<input name="endDate" type="datetime" value="0000-00-00" maxlength="10"/>
+							<input name="end" type="datetime" value="0000-00-00" maxlength="10"/>
 						</fieldset>
 						
 						<fieldset class="text-position">	

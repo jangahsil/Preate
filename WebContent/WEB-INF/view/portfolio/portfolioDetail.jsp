@@ -124,9 +124,14 @@
 }
 
 #total-portfolio-list {
+	
 	margin-left:60px;
 } 
 
+#total-portfolio-list img {
+	width:150px;
+	height:150px;
+}
 
 
 #total-portfolio-list dl{
@@ -153,6 +158,8 @@
 .text-move {
 	text-indent: -999px;
 }
+
+
 
 
 </style>
@@ -198,47 +205,14 @@
 			
 			<h1 class="hidden">전체 포트폴리오</h1>
 				<dl>
-					<dt>뷰티아리아갤러리</dt>
-					<dd id="portfolio-image"><a href="portfolioTotalImage?c=${p.code}"><img src="../images/.png"  alt="images"></a></dd>
+					<c:forEach var="p" items="${list2}">
+					<dt>${p.title}</dt>
+					<dd id="portfolio-image"><img src="${ctxName}/resource/upload/portfolio/${p.portImage}"></dd>
+					</c:forEach>
+					
+					<%-- <a href="portfolioTotalImage?c=${p.code}"></a> --%>
 				</dl>
 				
-				<dl>
-					<dt>뷰티아리아갤러리</dt>
-					<dd id="portfolio-image"><a href="portfolioTotalImage?c=${p.code}"><img src="../images/.png"  alt="images"></a></dd>
-				</dl>
-				
-				<dl>
-					<dt>뷰티아리아갤러리</dt>
-					<dd id="portfolio-image"><a href="portfolioTotalImage?c=${p.code}"><img src="../images/.png"  alt="images"></a></dd>
-				</dl>
-				
-				<dl>
-					<dt>뷰티아리아갤러리</dt>
-					<dd id="portfolio-image"><a href="portfolioTotalImage?c=${p.code}"><img src="../images/.png"  alt="images"></a></dd>
-				</dl>
-				
-				<dl>
-					<dt>뷰티아리아갤러리</dt>
-					<dd id="portfolio-image"><a href="portfolioTotalImage?c=${p.code}"><img src="../images/.png"  alt="images"></a></dd>
-				</dl>
-				
-				<dl>
-					<dt>뷰티아리아갤러리</dt>
-					<dd id="portfolio-image"><a href="portfolioTotalImage?c=${p.code}"><img src="../images/.png"  alt="images"></a></dd>
-				</dl>
-				
-				<dl>
-					<dt>뷰티아리아갤러리</dt>
-					<dd id="portfolio-image"><a href="portfolioTotalImage?c=${p.code}"><img src="../images/.png"  alt="images"></a></dd>
-				</dl>
-				
-				
-				<dl>
-					<dt>뷰티아리아갤러리</dt>
-					<dd id="portfolio-image"><a href="portfolioTotalImage?c=${p.code}"><img src="../images/.png"  alt="images"></a></dd>
-				</dl>
-			
-			
 			<%-- <table>
 					<thead>
 						<tr>
@@ -256,5 +230,5 @@
 					</tbody>
 			</table> --%>
 		</section>
-	</section>
+	</section> 
 	</main>	

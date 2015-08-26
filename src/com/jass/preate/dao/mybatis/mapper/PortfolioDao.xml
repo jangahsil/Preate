@@ -23,8 +23,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<selectKey keyProperty="code" order="BEFORE" resultType="string">
 			SELECT ISNULL(MAX(CONVERT(INT,CODE)),0) + 1 FROM PORTFOLIO
 		</selectKey>
-		INSERT INTO PORTFOLIO (CODE,WRITER,TITLE,STATE,PROJECTENDDATE,LIKEHIT,PUBLICCHECK) 
-			VALUES(#{code},#{writer},#{title},#{state},#{projectEndDate},0,#{publicCheck})
+		INSERT INTO PORTFOLIO (CODE,TITLE,WRITER,STATE,PROJECTENDDATE,PUBLICCHECK,LIKEHIT,PORTIMAGE) 
+			VALUES(#{code},#{title},#{writer},#{state},#{projectEndDate},#{publicCheck},0,#{portImage})
+		<!-- INSERT INTO PORTFOLIO (CODE,WRITER,TITLE,STATE,PROJECTENDDATE,LIKEHIT,PUBLICCHECK,PORTIMAGE) 
+			VALUES(#{code},#{writer},#{title},#{state},#{projectEndDate},0,#{publicCheck},#{portImage}) -->
 	</insert>
 	
 	 <select id="getLastCode" resultType="string">
@@ -44,5 +46,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id = "removePortfolio" parameterType="string">	
 		DELETE FROM PORTFOLIO WHERE CODE = #{code}
 	</delete>
+	
+	<select id="getPortfoliosByWriter" parameterType="string" resultType="com.jass.preate.vo.Portfolio">
+		SELECT * FROM PORTFOLIOVIEW WHERE WRITER = #{writer}
+	</select> 
+	
+	
 
 </mapper>

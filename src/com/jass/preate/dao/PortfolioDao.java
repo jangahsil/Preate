@@ -21,4 +21,6 @@ public interface PortfolioDao {
 	
 	public String getLastCode();
 	
+	public List<Portfolio> getPortfoliosByWriter(String writer);
+	
 }
